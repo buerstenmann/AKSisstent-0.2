@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Aksisstent 0.2</string>
+    <string name="name">Name</string>
+    <string name="auforderung1">Bitte geben Sie ihren Namen und Klasse einen</string>
+    <string name="klasse">Klasse</string>
+    <string name="log_in">Log-In</string>
+    <string name="suche">Lehrperson oder Raum</string>
+    <string name="btnsuchen">Suchen</string>
+    <string name="noten">Noten</string>
+    <string name="stundenplan">Stundenplan</string>
+    <string name="prufungen">Prüfungen</string>
+    <string name="nxt_lektion">nächste Lektion</string>
+    <string name="nxt_test">nächste Prüfung</string>
+    <string name="notenschnitt">Notenschnitt</string>
+    <string name="app_label">Aksistent</string>
+    <string name="search_hint">test</string>
+</resources>
