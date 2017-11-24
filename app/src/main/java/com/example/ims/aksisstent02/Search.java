@@ -14,7 +14,7 @@ public class Search {
     private String searchQuery;
     private final String raum = "raum";
     private String output = "Kein Suchresultat gefunden";
-    String[] teachers = {"a", "b", "c", "Schoohf", "Fiechter", "Enz", "Meier", "Flick", "Grünwald"};
+    String[] teachers = {"a", "b", "c", "Schoohf", "Fiechter", "Enz", "Meier", "Flick", "Grünwald", "Peter Lustig"};
     String[] rooms = {"015", "212", "521", "518", "001", "039", "262", "236", "502"};
 
     public String openFile(String searchQuery) {
