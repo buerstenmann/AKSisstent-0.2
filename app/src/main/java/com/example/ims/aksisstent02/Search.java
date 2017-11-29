@@ -17,15 +17,20 @@ public class Search {
     public String openFile(String searchQuery) {
         String output = null;
         String roomQuery;
-
+        String teacherQuery;
         if (searchQuery.toLowerCase().indexOf(raum) != -1) {
             String segments[] = searchQuery.split(" ");
             roomQuery = segments[1];
-            output = searchRooms(roomQuery);
+            if (TextUtils.isDigitsOnly(searchQuery)) {
+                output = searchRooms(roomQuery);
+            }
         } else if (TextUtils.isDigitsOnly(searchQuery)) {
             output = searchRooms(searchQuery);
         } else {
-            output = searchTeachers(searchQuery);
+            String segments1[] = searchQuery.split(" ");
+            teacherQuery = segments1[1];
+
+            output = searchTeachers(teacherQuery);
         }
         return output;
     }
