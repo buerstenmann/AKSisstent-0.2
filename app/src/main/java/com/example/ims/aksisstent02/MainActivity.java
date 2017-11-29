@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
     String entryName;
     String entryClass;
+
 
     Button btnEnter;
 
@@ -28,8 +30,12 @@ public class MainActivity extends AppCompatActivity {
                 entryName = etName.getText().toString();
                 entryClass = etClass.getText().toString();
 
-                if (entryName != null & entryClass != null) {
+
+                if (entryName.trim().length() > 0 & entryClass.trim().length() > 0) {  //entryName != "Name" & entryClass !="Klasse"    muss später bei Veröfentlichung hinzugefügt werden. Auskommentiert um einfacher testen zu können
                     startActivity(new Intent(MainActivity.this, MenuActivity.class)); //open Menu Acitvity
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Bitte geben Sie etwas ein", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }
         });

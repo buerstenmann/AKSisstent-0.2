@@ -31,7 +31,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Search Alpha = new Search();
                 searchQuery = suche.getText().toString(); //Get Query
-                searchResult = Alpha.openFile(searchQuery);
+                searchResult = Alpha.doSearch(searchQuery);
                 if (searchResult != null) {
                     begrussung.setText(searchResult);
 

@@ -11,10 +11,10 @@ public class Search {
 
     private final String raum = "raum";
 
-    String[] teachers = {"a", "b", "c", "Schoohf", "Fiechter", "Enz", "Meier", "Flick", "Grünwald", "Peter Lustig"};
+    String[] teachers = {"a", "b", "c", "schoohf", "fiechter", "enz", "meier", "flick", "grünwald", "peter lustig"};
     String[] rooms = {"015", "212", "521", "518", "001", "039", "262", "236", "502"};
 
-    public String openFile(String searchQuery) {
+    public String doSearch(String searchQuery) {
         String output = null;
         String roomQuery;
         String teacherQuery;
@@ -22,20 +22,24 @@ public class Search {
             String segments[] = searchQuery.split(" ");
             roomQuery = segments[1];
             if (TextUtils.isDigitsOnly(searchQuery)) {
-                output = searchRooms(roomQuery);
+                output = findRoom(roomQuery);
             }
         } else if (TextUtils.isDigitsOnly(searchQuery)) {
-            output = searchRooms(searchQuery);
+            output = findRoom(searchQuery);
         } else {
-            String segments1[] = searchQuery.split(" ");
-            teacherQuery = segments1[1];
+            if (searchQuery.contains(" ")) {
+                String segments1[] = searchQuery.split(" ");
+                teacherQuery = segments1[1];
+                output = findTeacher(teacherQuery);
+            } else {
+                output = findTeacher(searchQuery);
+            }
 
-            output = searchTeachers(teacherQuery);
         }
         return output;
     }
 
-    public String searchRooms(String roomQuery) {
+    public String findRoom(String roomQuery) {
         String output = null;
         for (int i = 0; i < 9; i++) {
             if (roomQuery.equals(rooms[i])) {
@@ -45,12 +49,11 @@ public class Search {
         return output;
     }
 
-    public String searchTeachers(String searchQuery) {
+    public String findTeacher(String searchQuery) {
         String output = null;
         for (int i = 0; i < 9; i++) {
-            if (searchQuery.equals(teachers[i])) {
+            if (searchQuery.toLowerCase().equals(teachers[i]) & searchQuery.contains("}") == false) {
                 output = teachers[i];
-
             }
         }
         return output;
