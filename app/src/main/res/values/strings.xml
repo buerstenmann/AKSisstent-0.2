@@ -14,4 +14,5 @@
     <string name="notenschnitt">Notenschnitt</string>
     <string name="app_label">Aksistent</string>
     <string name="search_hint">test</string>
+    <string name="title_activity_data">DataActivity</string>
 </resources>
