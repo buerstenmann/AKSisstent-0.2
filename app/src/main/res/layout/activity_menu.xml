@@ -24,7 +24,7 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <Button
-        android:id="@+id/btnStundenplan"
+        android:id="@+id/btnStupla"
         android:layout_width="267dp"
         android:layout_height="57dp"
         android:layout_marginBottom="8dp"
@@ -64,7 +64,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/noten"
-        app:layout_constraintBottom_toTopOf="@+id/btnStundenplan"
+        app:layout_constraintBottom_toTopOf="@+id/btnStupla"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

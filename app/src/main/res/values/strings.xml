@@ -15,4 +15,9 @@
     <string name="app_label">Aksistent</string>
     <string name="search_hint">test</string>
     <string name="title_activity_data">DataActivity</string>
+    <string name="zuruck">Zurück</string>
+    <string name="namen">Namen:</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="nxt_stunde">Nächste Stunde</string>
+    <string name="todo">TODO</string>
 </resources>

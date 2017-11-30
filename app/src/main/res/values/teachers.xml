@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <teacher id="schoohf">
+        <NAME>Schoohf</NAME>
+        <FORENAME>Oliver</FORENAME>
+
+    </teacher>
+    <teacher id="grünwald">
+        <NAME>Grünwald</NAME>
+        <FORENAME>n/a</FORENAME>
+
+    </teacher>
+    <teacher id="flick">
+        <NAME>Flick</NAME>
+        <FORENAME>Alexander</FORENAME>
+
+    </teacher>
+    <teacher id="fiechter">
+        <NAME>Fiechter</NAME>
+        <FORENAME>Sascha</FORENAME>
+
+    </teacher>
+    <teacher id="engel">
+        <NAME>Engel</NAME>
+        <FORENAME>Jenifer</FORENAME>
+
+    </teacher>
+    <teacher>
+        <NAME>Jordi</NAME>
+        <FORENAME>Stefan</FORENAME>
+
+    </teacher>
+    <teacher>
+        <NAME>Lustig</NAME>
+        <FORENAME>Peter</FORENAME>
+
+    </teacher>
+    <teacher>
+        <NAME>Salm</NAME>
+        <FORENAME>Ulrich</FORENAME>
+
+    </teacher>
+</resources>

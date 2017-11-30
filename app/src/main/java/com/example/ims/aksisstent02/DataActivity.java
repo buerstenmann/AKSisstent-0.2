@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DataActivity extends AppCompatActivity {
     private String teacher;
@@ -31,6 +32,8 @@ public class DataActivity extends AppCompatActivity {
     }
 
     public void setTeacher(String teacher) {
+        Toast toast = Toast.makeText(getApplicationContext(), "Kein Suchresultat gefunden", Toast.LENGTH_SHORT);
+        toast.show();
         this.teacher = teacher;
     }
 

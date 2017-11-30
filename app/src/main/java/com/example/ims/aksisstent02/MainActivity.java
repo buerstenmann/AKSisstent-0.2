@@ -13,21 +13,24 @@ public class MainActivity extends AppCompatActivity {
     String entryName;
     String entryClass;
 
-
+    EditText etName;
     Button btnEnter;
+    EditText etClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnEnter = (Button) findViewById(R.id.btnLogin);
+        btnEnter = (Button) findViewById(R.id.btnLogin);     //Defines Button
+        etName = (EditText) findViewById(R.id.editName);    //Defines EditTextes
+        etClass = (EditText) findViewById(R.id.editKlasse);
+
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText etName = (EditText) findViewById(R.id.editName);
-                EditText etClass = (EditText) findViewById(R.id.editKlasse);
-                entryName = etName.getText().toString();
+
+                entryName = etName.getText().toString();    
                 entryClass = etClass.getText().toString();
 
 
