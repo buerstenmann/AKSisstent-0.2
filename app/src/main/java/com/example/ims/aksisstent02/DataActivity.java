@@ -1,8 +1,8 @@
 package com.example.ims.aksisstent02;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,15 +10,20 @@ import android.widget.Toast;
 
 public class DataActivity extends AppCompatActivity {
     private String teacher;
-
+    Button btnBack;
+    TextView viewName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
-        Button btnBack = (Button) findViewById(R.id.btnZuruck);
-        TextView viewName = (TextView) findViewById(R.id.viewName);
+
+        btnBack = (Button) findViewById(R.id.btnZuruck);
+        viewName = (TextView) findViewById(R.id.viewName);
         viewName.setText(teacher);
+
+        TeachersDAO Alpha = new TeachersDAO();
+        Alpha.doXML();
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,10 +37,20 @@ public class DataActivity extends AppCompatActivity {
     }
 
     public void setTeacher(String teacher) {
-        Toast toast = Toast.makeText(getApplicationContext(), "Kein Suchresultat gefunden", Toast.LENGTH_SHORT);
-        toast.show();
+
         this.teacher = teacher;
     }
 
+    public void toast(String output) {
+        //  for (int i = 1; i < 9; i++) {
+        if (output != null) {
+            output = "nope";
+            Toast toast = Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT);
+            toast.show();
+            //}
+        } else {
+            Toast toast = Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
 }
-

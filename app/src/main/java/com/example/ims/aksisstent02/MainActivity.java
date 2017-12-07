@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                entryName = etName.getText().toString();    
+                entryName = etName.getText().toString();
                 entryClass = etClass.getText().toString();
 
 

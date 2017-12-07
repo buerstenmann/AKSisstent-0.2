@@ -15,19 +15,24 @@ public class MenuActivity extends AppCompatActivity {
     private String searchResult;
     private Boolean searchState;
 
-
+    EditText suche;
+    Button enter;
+    Button noten;
+    Button stupla;
+    Button prufung;
+    TextView begrussung;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        TextView begrussung = (TextView) findViewById(R.id.viewBegrussung);
-        EditText suche = (EditText) findViewById(R.id.editSuche);
-        Button enter = (Button) findViewById(R.id.btnEnter);
-        Button noten = (Button) findViewById(R.id.btnNoten);
-        Button stupla = (Button) findViewById(R.id.btnStupla);
-        Button prufung = (Button) findViewById(R.id.btnTests);
+        begrussung = (TextView) findViewById(R.id.viewBegrussung);
+        suche = (EditText) findViewById(R.id.editSuche);
+        enter = (Button) findViewById(R.id.btnEnter);
+        noten = (Button) findViewById(R.id.btnNoten);
+        stupla = (Button) findViewById(R.id.btnStupla);
+        prufung = (Button) findViewById(R.id.btnTests);
 
         enter.setOnClickListener(new View.OnClickListener() {
             @Override
