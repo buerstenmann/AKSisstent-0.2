@@ -14,15 +14,14 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 /**
- * Created by Noah on 29.11.2017.
+ * Created by Noah on 13.12.2017.
  */
 
-public class TeachersDAO {
-    String Output1;
+public class RoomDAO {
     List<String> Output2 = new ArrayList<String>();
     private Context context;
 
-    public TeachersDAO(Context current) {
+    public RoomDAO(Context current) {
         this.context = current;
     }
 
@@ -31,7 +30,7 @@ public class TeachersDAO {
         try {
             // XmlResourceParser is = context.getXml(R.xml.teachers);
 
-            InputStream fXmlFile = context.getResources().openRawResource(R.raw.teachers);
+            InputStream fXmlFile = context.getResources().openRawResource(R.raw.rooms);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             System.out.println("\ndBuilder.parse");
@@ -44,7 +43,7 @@ public class TeachersDAO {
             //   System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 
             System.out.println("\ngetElemetsByTagName");
-            NodeList nList = doc.getElementsByTagName("teacher");
+            NodeList nList = doc.getElementsByTagName("ROOM");
 
             DataActivity Alpha = new DataActivity();
             System.out.println("\n# of elements found :" + nList.getLength());
@@ -60,9 +59,9 @@ public class TeachersDAO {
 
                     //Output1= "First Name : " + eElement.getElementsByTagName("forename").item(0).getTextContent();
 
-                    System.out.println("\nCurrent NAME     :" + eElement.getElementsByTagName("NAME").item(0).getTextContent());
-                    System.out.println("\nCurrent FORENAME :" + eElement.getElementsByTagName("FORENAME").item(0).getTextContent());
-                    Output2.add(temp, eElement.getElementsByTagName("NAME").item(0).getTextContent());
+                    System.out.println("\nCurrent NUMBER     :" + eElement.getElementsByTagName("NUMBER").item(0).getTextContent());
+                    System.out.println("\nCurrent FORENAME :" + eElement.getElementsByTagName("BUILDING").item(0).getTextContent());
+                    Output2.add(temp, eElement.getElementsByTagName("NUMBER").item(0).getTextContent());
 
                 }
             }

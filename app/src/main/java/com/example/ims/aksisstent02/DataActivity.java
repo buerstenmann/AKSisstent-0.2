@@ -22,8 +22,7 @@ public class DataActivity extends AppCompatActivity {
         viewName = (TextView) findViewById(R.id.viewName);
         viewName.setText(teacher);
 
-        TeachersDAO Alpha = new TeachersDAO();
-        Alpha.doXML();
+
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,12 +43,12 @@ public class DataActivity extends AppCompatActivity {
     public void toast(String output) {
         //  for (int i = 1; i < 9; i++) {
         if (output != null) {
-            output = "nope";
-            Toast toast = Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT);
+
+            Toast toast = Toast.makeText(this, output, Toast.LENGTH_SHORT);
             toast.show();
             //}
         } else {
-            Toast toast = Toast.makeText(getApplicationContext(), output, Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), "nope", Toast.LENGTH_SHORT);
             toast.show();
         }
     }
