@@ -20,10 +20,7 @@ public class Timetable {
     private int anzahlKlassen = klasse[1].length;
     private String[] xmlStundenpläne = new String[anzahlKlassen];
 
-    public void test() {
-        System.out.println(anzahlKlassen);
-    }
-
+    
     public void downloadTT() {
         System.out.println("Start timetable loop");
         for (int i = 0; i < anzahlKlassen; i++) {
