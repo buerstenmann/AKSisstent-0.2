@@ -32,6 +32,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+
         TeachersDAO AlphaTeacherDAO = new TeachersDAO(this);
         teacherList = AlphaTeacherDAO.doXML();
         RoomDAO Beta = new RoomDAO(this);
@@ -76,20 +77,25 @@ public class MenuActivity extends AppCompatActivity {
         noten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, NotenActivity.class));
+                //startActivity(new Intent(MenuActivity.this, NotenActivity.class));
+                Timetable Alpha = new Timetable(false);
+                Alpha.downloadTT();
             }
         });
 
         stupla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, StuplaActivity.class));
+                //startActivity(new Intent(MenuActivity.this, StuplaActivity.class));
+                Timetable Alpha = new Timetable();
             }
         });
         prufung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, PrufungActivity.class));
+                //startActivity(new Intent(MenuActivity.this, PrufungActivity.class));
+                Timetable Alpha = new Timetable();
+                Alpha.test();
             }
         });
     }
