@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <ROOM id="205">
+        <NUMBER>205</NUMBER>
+        <BUILDING>Aquarium</BUILDING>
+    </ROOM>
+
+    <ROOM id="202">
+        <NUMBER>202</NUMBER>
+        <BUILDING>Aquarium</BUILDING>
+    </ROOM>
+
+    <ROOM id="262">
+        <NUMBER>262</NUMBER>
+        <BUILDING>Aquarium</BUILDING>
+    </ROOM>
+
+    <ROOM id="511">
+        <NUMBER>511</NUMBER>
+        <BUILDING>Haeni</BUILDING>
+    </ROOM>
+
+    <ROOM id="015">
+        <NUMBER>015</NUMBER>
+        <BUILDING>Einstein</BUILDING>
+    </ROOM>
+
+    <ROOM id="029">
+        <NUMBER>029</NUMBER>
+        <BUILDING>Einstein</BUILDING>
+    </ROOM>
+
+
+</root>
