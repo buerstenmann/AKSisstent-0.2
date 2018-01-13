@@ -39,7 +39,8 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
+        Timetable timetableDownloadTt = new Timetable();
+        timetableDownloadTt.downloadTT();
 
         TeachersDAO AlphaTeacherDAO = new TeachersDAO(this);
         teacherList = AlphaTeacherDAO.doXML();
@@ -86,24 +87,27 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //startActivity(new Intent(MenuActivity.this, NotenActivity.class));
-                Timetable Alpha = new Timetable(false);
-                Alpha.downloadTT();
+
             }
         });
 
         stupla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(MenuActivity.this, StuplaActivity.class));
-                Timetable Alpha = new Timetable();
+                startActivity(new Intent(MenuActivity.this, StuplaActivity.class));
+
+                StuplaActivity stupla = new StuplaActivity("I3a");
+//                Timetable alpha = new Timetable();
+//                alpha.downloadTT();
+//                alpha = alpha.getTimetable("I3a",0);
+//                System.out.println(alpha.getKlassenname()+" + "+alpha.getLessonsMon());
             }
         });
         prufung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //startActivity(new Intent(MenuActivity.this, PrufungActivity.class));
-                Timetable Alpha = new Timetable();
-                Alpha.test();
+
             }
         });
     }

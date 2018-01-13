@@ -8,6 +8,7 @@ import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
+
 /**
  * Created by Noah on 29.12.2017.
  */
@@ -28,7 +29,6 @@ public class Timetable {
     @Setter
     @Getter
     private List<Lessons> lessonsThu = new ArrayList<Lessons>();
-    @Setter
 
     @Getter
     @Setter
@@ -79,6 +79,41 @@ public class Timetable {
         return returnXML;
     }
 
+    public Timetable getTimetable(String name, int mode) {
+       /* String[][] arrayList={{},{}};
+        if (mode == 0) {
+            arrayList = klasse;
+        } else if (mode == 1) {
+            //arrayList = lehrer;
+        } else if (mode == 2) {
+            //arrayList = raum;
+        } else {
+        }*/
+
+        System.out.println("getTimetable " + name);
+        int index = getIndex(name, klasse);
+        Timetable returnTable;
+        if (index != 404) {
+
+            returnTable = fromXML(xmlStundenpläne[index]);
+        } else {
+            returnTable = null;
+            System.out.println("Warning Fehler Index wurde nicht definiert");
+        }
+        return returnTable;
+    }
+
+    public int getIndex(String klassenname, String[][] arrayList) {
+        int index = 3;
+        for (int i = 0; i > anzahlKlassen; i++) {
+            if (klassenname == arrayList[0][i]) {
+                index = 3;
+            }
+        }
+        return index;
+    }
+
+
     public void deleteTimetable() {
         lessonsMon = null;
         lessonsTue = null;
@@ -86,28 +121,6 @@ public class Timetable {
         lessonsThu = null;
         lessonsFri = null;
         klassenname = null;
-    }
-
-    Timetable(boolean sep) {
-        System.out.println("\nTimetable constructor:\n");
-        lessonsMon = null;
-        lessonsTue = null;
-        lessonsWen = null;
-        lessonsThu = null;
-        lessonsFri = null;
-        klassenname = null;
-
-
-    }
-
-
-    Timetable() {
-        lessonsMon = null;
-        lessonsTue = null;
-        lessonsWen = null;
-        lessonsThu = null;
-        lessonsFri = null;
-        fromXML(xml);
     }
 
     String toXML() {
@@ -127,22 +140,22 @@ public class Timetable {
         return xml;
     }
 
-    void fromXML(String xml) {
+    public Timetable fromXML(String xml) {
         Object[] tt;
 
         XStream xstream = new XStream();
         xstream.alias("Lessons", Lessons.class);
+        System.out.println("\nfromXML(xml):\n" + xml);
         tt = (Object[]) xstream.fromXML(xml);
-        System.out.println("\nXML:\n" + xml);
-
-        setLessonsMon((List<Lessons>) tt[0]);
-        setLessonsTue((List<Lessons>) tt[1]);
-        setLessonsWen((List<Lessons>) tt[2]);
-        setLessonsTue((List<Lessons>) tt[3]);
-        setLessonsFri((List<Lessons>) tt[4]);
-        setKlasse((String) tt[5]);
+        Timetable fromXml = new Timetable();
+        fromXml.setLessonsMon((List<Lessons>) tt[0]);
+        fromXml.setLessonsTue((List<Lessons>) tt[1]);
+        fromXml.setLessonsWen((List<Lessons>) tt[2]);
+        fromXml.setLessonsThu((List<Lessons>) tt[3]);
+        fromXml.setLessonsFri((List<Lessons>) tt[4]);
+        fromXml.setKlassenname((String) tt[5]);
+        return fromXml;
     }
-
 
 
     private String xml = "<object-array>  " +

@@ -20,4 +20,12 @@
     <string name="e_mail">E-Mail</string>
     <string name="nxt_stunde">Nächste Stunde</string>
     <string name="todo">TODO</string>
+    <string name="emptyView">none</string>
+    <string name="time">Time</string>
+    <string name="mon">Montag</string>
+    <string name="tue">Dienstag</string>
+    <string name="wen">Mittwoch</string>
+    <string name="thu">Donnerstag</string>
+    <string name="fri">Freitag</string>
+
 </resources>

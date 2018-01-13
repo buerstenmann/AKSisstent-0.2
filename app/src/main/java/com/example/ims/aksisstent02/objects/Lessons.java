@@ -34,4 +34,5 @@ public class Lessons {
         teacher = s_teacher;
         time = s_time;
     }
+}
 
