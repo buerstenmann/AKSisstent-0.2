@@ -1,26 +1,48 @@
-package com.example.ims.aksisstent02;
+package com.example.ims.aksisstent02.objects;
 
 import com.thoughtworks.xstream.XStream;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Created by Noah on 29.12.2017.
  */
 
 public class Timetable {
+    @Setter
+    @Getter
     private List<Lessons> lessonsMon = new ArrayList<Lessons>();
+
+    @Setter
+    @Getter
     private List<Lessons> lessonsTue = new ArrayList<Lessons>();
+
+    @Setter
+    @Getter
     private List<Lessons> lessonsWen = new ArrayList<Lessons>();
+
+    @Setter
+    @Getter
     private List<Lessons> lessonsThu = new ArrayList<Lessons>();
+    @Setter
+
+    @Getter
+    @Setter
     private List<Lessons> lessonsFri = new ArrayList<Lessons>();
+
+    @Setter
+    @Getter
     private String klassenname;
+
     private String[][] klasse = {{"I1a", "I2a", "I3a", "W1a", "W2a", "W3a"}, {"I1aURL", "I2aURL", "I3aURL", "W1aURL", "W2aURL", "W3aURL"}};
     private int anzahlKlassen = klasse[1].length;
     private String[] xmlStundenpläne = new String[anzahlKlassen];
 
-    
+
     public void downloadTT() {
         System.out.println("Start timetable loop");
         for (int i = 0; i < anzahlKlassen; i++) {
@@ -121,53 +143,7 @@ public class Timetable {
         setKlasse((String) tt[5]);
     }
 
-    public void setLessonsMon(List t_lesson) {
-        lessonsMon = t_lesson;
-    }
 
-    public List getLessonsMon() {
-        return lessonsMon;
-    }
-
-    public void setLessonsTue(List t_lesson) {
-        lessonsTue = t_lesson;
-    }
-
-    public List getLessonsTue() {
-        return lessonsTue;
-    }
-
-    public void setLessonsWen(List t_lesson) {
-        lessonsWen = t_lesson;
-    }
-
-    public List getLessonsWen() {
-        return lessonsWen;
-    }
-
-    public void setLessonsThu(List t_lesson) {
-        lessonsThu = t_lesson;
-    }
-
-    public List getLessonsThu() {
-        return lessonsThu;
-    }
-
-    public void setLessonsFri(List t_lesson) {
-        lessonsFri = t_lesson;
-    }
-
-    public List getLessonsFri() {
-        return lessonsFri;
-    }
-
-    public void setKlasse(String t_Klasse) {
-        klassenname = t_Klasse;
-    }
-
-    public String getKlasse() {
-        return klassenname;
-    }
 
     private String xml = "<object-array>  " +
             "<list>" +      //mon

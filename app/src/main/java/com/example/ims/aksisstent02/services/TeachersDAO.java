@@ -1,6 +1,9 @@
-package com.example.ims.aksisstent02;
+package com.example.ims.aksisstent02.services;
 
 import android.content.Context;
+
+import com.example.ims.aksisstent02.R;
+import com.example.ims.aksisstent02.activities.DataActivity;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;

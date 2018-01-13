@@ -1,4 +1,4 @@
-package com.example.ims.aksisstent02;
+package com.example.ims.aksisstent02.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.ims.aksisstent02.R;
 
 public class DataActivity extends AppCompatActivity {
     private String teacher;

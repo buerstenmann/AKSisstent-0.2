@@ -1,4 +1,4 @@
-package com.example.ims.aksisstent02;
+package com.example.ims.aksisstent02.activities;
 
 
 import android.content.Intent;
@@ -10,6 +10,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.ims.aksisstent02.R;
+import com.example.ims.aksisstent02.objects.Timetable;
+import com.example.ims.aksisstent02.services.InputValidation;
+import com.example.ims.aksisstent02.services.RoomDAO;
+import com.example.ims.aksisstent02.services.RoomSearch;
+import com.example.ims.aksisstent02.services.TeacherSearch;
+import com.example.ims.aksisstent02.services.TeachersDAO;
 
 import java.util.List;
 

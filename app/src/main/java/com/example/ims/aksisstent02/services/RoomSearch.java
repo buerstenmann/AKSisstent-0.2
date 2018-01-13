@@ -1,4 +1,4 @@
-package com.example.ims.aksisstent02;
+package com.example.ims.aksisstent02.services;
 
 import java.util.List;
 

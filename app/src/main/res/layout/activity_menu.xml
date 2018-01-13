@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context="com.example.ims.aksisstent02.MenuActivity">
+    tools:context="com.example.ims.aksisstent02.activities.MenuActivity">
 
 
     <Button
