@@ -1,5 +1,5 @@
 package com.example.ims.aksisstent02.activities;
-
+//commenttes
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
