@@ -1,5 +1,5 @@
 package com.example.ims.aksisstent02.activities;
-//commenttes
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.ims.aksisstent02.R;
 import com.example.ims.aksisstent02.objects.Lessons;
 import com.example.ims.aksisstent02.objects.Timetable;
+import com.example.ims.aksisstent02.services.TimetableDAO;
 
 import java.util.List;
 
@@ -76,8 +77,9 @@ public class StuplaActivity extends AppCompatActivity {
 
     public void loadTt(String className) {
         Timetable timetable = new Timetable();
-        timetable.downloadTT();
-        timetable = timetable.getTimetable(className, 1);
+        TimetableDAO timeDao = new TimetableDAO();
+        timeDao.downloadTT();
+        timetable = timeDao.getTimetable(className, 1, this);
 
         List<Lessons> lessonMon = timetable.getLessonsMon();
         List<Lessons> lessonTue = timetable.getLessonsTue();

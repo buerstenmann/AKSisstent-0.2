@@ -28,7 +28,7 @@ public class Lessons {
         time = null;
     }
 
-    Lessons(String s_subject, int s_room, String s_teacher, String s_time) {
+    public Lessons(String s_subject, int s_room, String s_teacher, String s_time) {
         subject = s_subject;
         room = s_room;
         teacher = s_teacher;

@@ -12,12 +12,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ims.aksisstent02.R;
-import com.example.ims.aksisstent02.objects.Timetable;
 import com.example.ims.aksisstent02.services.InputValidation;
 import com.example.ims.aksisstent02.services.RoomDAO;
 import com.example.ims.aksisstent02.services.RoomSearch;
 import com.example.ims.aksisstent02.services.TeacherSearch;
 import com.example.ims.aksisstent02.services.TeachersDAO;
+import com.example.ims.aksisstent02.services.TimetableDAO;
 
 import java.util.List;
 
@@ -39,7 +39,7 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-        Timetable timetableDownloadTt = new Timetable();
+        TimetableDAO timetableDownloadTt = new TimetableDAO();
         timetableDownloadTt.downloadTT();
 
         TeachersDAO AlphaTeacherDAO = new TeachersDAO(this);
@@ -95,7 +95,8 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MenuActivity.this, StuplaActivity.class));
-
+                TimetableDAO ttDao = new TimetableDAO();
+                ttDao.downloadTT();
                 StuplaActivity stupla = new StuplaActivity("I3a");
 //                Timetable alpha = new Timetable();
 //                alpha.downloadTT();
