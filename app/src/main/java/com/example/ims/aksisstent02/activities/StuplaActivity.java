@@ -36,7 +36,7 @@ public class StuplaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stupla);
 
-        Button btnBack = (Button) findViewById(R.id.btnZuruck);
+        Button btnDay = (Button) findViewById(R.id.btnDay);
 
         int[] monId = {R.id.mon1, R.id.mon2, R.id.mon3, R.id.mon4, R.id.mon5, R.id.mon6, R.id.mon7, R.id.mon8, R.id.mon9, R.id.mon10, R.id.mon11, R.id.mon12};
         int[] tueId = {R.id.tue1, R.id.tue2, R.id.tue3, R.id.tue4, R.id.tue5, R.id.tue6, R.id.tue7, R.id.tue8, R.id.tue9, R.id.tue10, R.id.tue11, R.id.tue12};
@@ -56,11 +56,10 @@ public class StuplaActivity extends AppCompatActivity {
         loadTt(className);
 
 
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        btnDay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(StuplaActivity.this, MenuActivity.class)); //open Data Acitvity
+                startActivity(new Intent(StuplaActivity.this, StuplaTagActivity.class)); //open Tagesansicht
 
             }
         });
@@ -79,7 +78,7 @@ public class StuplaActivity extends AppCompatActivity {
         Timetable timetable = new Timetable();
         TimetableDAO timeDao = new TimetableDAO();
         timeDao.downloadTT();
-        timetable = timeDao.getTimetable(className, 1, this);
+        timetable = timeDao.getTimetable("I3a", 1, this);
 
         List<Lessons> lessonMon = timetable.getLessonsMon();
         List<Lessons> lessonTue = timetable.getLessonsTue();

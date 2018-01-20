@@ -23,7 +23,8 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activities.NotenActivity" />
         <activity android:name=".activities.StuplaActivity" />
-        <activity android:name=".activities.PrufungActivity"></activity>
+        <activity android:name=".activities.PrufungActivity" />
+        <activity android:name=".activities.StuplaTagActivity"></activity>
     </application>
 
 </manifest>

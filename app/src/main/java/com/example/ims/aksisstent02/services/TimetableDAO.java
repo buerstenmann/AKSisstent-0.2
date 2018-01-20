@@ -20,7 +20,8 @@ import java.util.List;
  */
 
 public class TimetableDAO {
-    private String[][] klasse = {{"I1a", "I2a", "I3a", "W1a", "W2a", "W3a"}, {"I1aURL", "I2aURL", "I3aURL", "W1aURL", "W2aURL", "W3aURL"}};
+    private String[][] klasse = {{"I1a"},//, "I2a", "I3a", "W1a", "W2a", "W3a"},
+            {"I1aURL"}};//, "I2aURL", "I3aURL", "W1aURL", "W2aURL", "W3aURL"}};
     private int anzahlKlassen = klasse[1].length;
     private String[] xmlStundenpläne = new String[anzahlKlassen];
 
@@ -82,7 +83,7 @@ public class TimetableDAO {
         System.out.println("getTimetable " + name);
         int index = getIndex(name, klasse);
         Timetable returnTable;
-        String xmlTt = getTimetableFromFile(context, name);
+        String xmlTt = getTimetableFromFile(context, "I3a");
         if (index != 404) {
 
             returnTable = fromXML(xmlTt);

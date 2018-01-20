@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ims.aksisstent02.activities.StuplaTagActivity">
+
+    <TableLayout
+        android:layout_width="360dp"
+        android:layout_height="323dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.401">
+
+        <!--erste linie******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time" />
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="Fach" />
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="Lehrer" />
+
+            <TextView
+                android:layout_width="90dp"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="Raum" />
+
+        </TableRow>
+
+        <!--Lesson 1 ******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time1" />
+
+            <TextView
+                android:id="@+id/subject1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/teacher1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/room1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+        </TableRow>
+        <!--Lesson 2 ******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time2" />
+
+            <TextView
+                android:id="@+id/subject2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/teacher2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/room2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+        </TableRow>
+
+        <!--Lesson 3 ******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time3" />
+
+            <TextView
+                android:id="@+id/subject3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/teacher3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/room3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+        </TableRow>
+
+        <!--Lesson 4 ******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time4" />
+
+            <TextView
+                android:id="@+id/subject4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/teacher4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/room4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+        </TableRow>
+        <!--Lesson 5 ******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time5" />
+
+            <TextView
+                android:id="@+id/subject5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/teacher5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/room5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+        </TableRow>
+
+        <!--Lesson 6 ******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time6" />
+
+            <TextView
+                android:id="@+id/subject6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/teacher6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/room6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+        </TableRow>
+
+        <!--Lesson 7 ******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time7" />
+
+            <TextView
+                android:id="@+id/subject7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/teacher7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/room7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+        </TableRow>
+
+        <!--Lesson 8 ******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time8" />
+
+            <TextView
+                android:id="@+id/subject8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/teacher8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/room8"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+        </TableRow>
+        <!--Lesson 9 ******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time9" />
+
+            <TextView
+                android:id="@+id/subject9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/teacher9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/room9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+        </TableRow>
+        <!--Lesson 10 ******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time10" />
+
+            <TextView
+                android:id="@+id/subject10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/teacher10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/room10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+        </TableRow>
+
+        <!--Lesson 11 ******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time11" />
+
+            <TextView
+                android:id="@+id/subject11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/teacher11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/room11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+        </TableRow>
+
+        <!--Lesson 12 ******************************************************************* -->
+        <TableRow>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/time12" />
+
+            <TextView
+                android:id="@+id/subject12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/teacher12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+            <TextView
+                android:id="@+id/room12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="1"
+                android:padding="3dip"
+                android:text="@string/emptyView" />
+
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:id="@+id/btnWeek"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Woche"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnWen"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="404dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Mi"
+        app:layout_constraintBottom_toTopOf="@+id/btnWeek"
+        app:layout_constraintEnd_toStartOf="@+id/btnThu"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/btnTue"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnThu"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Do"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnFri"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnTue"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Di"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnMon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnMon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="8dp"
+        android:text="Mo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnFri"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="8dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+</android.support.constraint.ConstraintLayout>
