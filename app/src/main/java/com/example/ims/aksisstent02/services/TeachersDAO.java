@@ -3,7 +3,7 @@ package com.example.ims.aksisstent02.services;
 import android.content.Context;
 
 import com.example.ims.aksisstent02.R;
-import com.example.ims.aksisstent02.activities.DataActivity;
+import com.example.ims.aksisstent02.objects.Teacher;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -21,16 +21,15 @@ import javax.xml.parsers.DocumentBuilderFactory;
  */
 
 public class TeachersDAO {
-    String Output1;
-    List<String> Output2 = new ArrayList<String>();
-    private Context context;
+    List<Teacher> teacher;
 
+    private Context context;
     public TeachersDAO(Context current) {
         this.context = current;
     }
 
-    public List<String> doXML() {
-
+    public List<Teacher> doXML() {
+        teacher = new ArrayList<>();
         try {
             // XmlResourceParser is = context.getXml(R.xml.teachers);
 
@@ -49,10 +48,9 @@ public class TeachersDAO {
             System.out.println("\ngetElemetsByTagName");
             NodeList nList = doc.getElementsByTagName("teacher");
 
-            DataActivity Alpha = new DataActivity();
             System.out.println("\n# of elements found :" + nList.getLength());
             for (int temp = 0; temp < nList.getLength(); temp++) {
-
+                Teacher teacherLoop = new Teacher();
                 Node nNode = nList.item(temp);
 
                 System.out.println("\nCurrent Element :" + nNode.getNodeName());
@@ -61,18 +59,15 @@ public class TeachersDAO {
 
                     org.w3c.dom.Element eElement = (org.w3c.dom.Element) nNode;
 
-                    //Output1= "First Name : " + eElement.getElementsByTagName("forename").item(0).getTextContent();
-
-                    System.out.println("\nCurrent NAME     :" + eElement.getElementsByTagName("NAME").item(0).getTextContent());
-                    System.out.println("\nCurrent FORENAME :" + eElement.getElementsByTagName("FORENAME").item(0).getTextContent());
-                    Output2.add(temp, eElement.getElementsByTagName("NAME").item(0).getTextContent());
-
+                    teacherLoop.setForename(eElement.getElementsByTagName("FORENAME").item(0).getTextContent());
+                    teacherLoop.setName(eElement.getElementsByTagName("NAME").item(0).getTextContent());
+                    teacher.set(temp, teacherLoop);
                 }
             }
-            System.out.println(Output2);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Output2;
+        return teacher;
     }
 }

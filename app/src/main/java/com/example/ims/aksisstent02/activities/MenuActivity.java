@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ims.aksisstent02.R;
+import com.example.ims.aksisstent02.objects.Teacher;
 import com.example.ims.aksisstent02.services.InputValidation;
 import com.example.ims.aksisstent02.services.RoomDAO;
 import com.example.ims.aksisstent02.services.RoomSearch;
@@ -23,9 +24,9 @@ import java.util.List;
 
 public class MenuActivity extends AppCompatActivity {
     public String searchQuery;
-    private String searchResult;
+    private Teacher searchResultTeacher;
     private Boolean searchState;
-    private List<String> teacherList;
+    private List<Teacher> teacherList;
     private List<String> roomList;
 
     EditText suche;
@@ -48,8 +49,6 @@ public class MenuActivity extends AppCompatActivity {
         roomList = Beta.doXML();
 
         System.out.println("----------------------MenuActivity------------------------");
-        System.out.println(teacherList);
-        System.out.println(roomList);
         begrussung = (TextView) findViewById(R.id.viewBegrussung);
         suche = (EditText) findViewById(R.id.editSuche);
         enter = (Button) findViewById(R.id.btnEnter);
@@ -66,16 +65,15 @@ public class MenuActivity extends AppCompatActivity {
 
                 if (TextUtils.isDigitsOnly(searchQuery) == true) {
                     RoomSearch Alpha = new RoomSearch();
-                    searchResult = Alpha.doSearch(searchQuery, roomList);
+                    //searchResult = Alpha.doSearch(searchQuery, roomList);
                 } else {
                     TeacherSearch Alpha = new TeacherSearch();
-                    searchResult = Alpha.doSearch(searchQuery, teacherList);
+                    searchResultTeacher = Alpha.doSearch(searchQuery, teacherList);
                 }
 
-                if (searchResult != null) {
+                if (searchResultTeacher.getName() != null) {
                     startActivity(new Intent(MenuActivity.this, DataActivity.class));
-                    DataActivity Beta = new DataActivity();
-                    Beta.setTeacher(searchResult);
+                    DataActivity Beta = new DataActivity(searchResultTeacher);
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Kein Suchresultat gefunden", Toast.LENGTH_SHORT);
                     toast.show();

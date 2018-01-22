@@ -7,5 +7,5 @@ import java.util.List;
  */
 
 public interface SearchInterface {
-    public String doSearch(String searchQuery, List<String> roomList);
+    public String doSearch(String searchQuery, List<Object> roomList);
 }

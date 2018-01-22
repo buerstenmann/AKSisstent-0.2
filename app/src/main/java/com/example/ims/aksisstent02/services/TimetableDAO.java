@@ -20,8 +20,9 @@ import java.util.List;
  */
 
 public class TimetableDAO {
-    private String[][] klasse = {{"I1a"},//, "I2a", "I3a", "W1a", "W2a", "W3a"},
-            {"I1aURL"}};//, "I2aURL", "I3aURL", "W1aURL", "W2aURL", "W3aURL"}};
+    private String[][] klasse = {{"I1a", "I2a", "I3a", "W1a", "W2a", "W3a"},
+            {"I1aURL", "I2aURL", "I3aURL", "W1aURL", "W2aURL", "W3aURL"}};
+
     private int anzahlKlassen = klasse[1].length;
     private String[] xmlStundenpläne = new String[anzahlKlassen];
 
@@ -34,7 +35,7 @@ public class TimetableDAO {
                 stringToDom(parseHTML(klasse[0][i]), klasse[0][i]);
 
             } catch (Exception E) {
-
+//TODO Noah Download für Lehrer Timetables hinzufügen
             }
 
         }
