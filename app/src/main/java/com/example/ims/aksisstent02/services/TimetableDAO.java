@@ -32,7 +32,7 @@ public class TimetableDAO {
         System.out.println("Start TeacherTimetable Loop");
         for (int i = 0; i < teacherList.size(); i++) {
             try {
-                stringToDom(parseHTML(teacherList.get(i).getName()), teacherList.get(i).getName(), context);
+                stringToDom(parseHTML(teacherList.get(i).getTeacherName()), teacherList.get(i).getTeacherName(), context);
 
             } catch (Exception E) {
             }
@@ -59,7 +59,7 @@ public class TimetableDAO {
             //System.out.println("\nTimetable constructor loop 2:" + j + "\n");
             List<Lessons> lessons = new ArrayList<Lessons>();
             for (int k = 0; k < 6; k++) {                                                  //loop Stunden pro tag
-                lessons.add(new Lessons("Fach " + k, "2" + k, "teacher" + k, null));
+                lessons.add(new Lessons(j + "Fach " + k, j + "2" + k, j + "teacher" + k));
             }
 
             if (j == 0) {
@@ -144,9 +144,8 @@ public class TimetableDAO {
 
 
         String returnString = "";
-        file = file + ".txt";
         try {
-            System.out.println("\nFile Directory.... ");
+            System.out.println("\nFile Direct000000000ory.... ");
             String[] files = context.getFilesDir().list();
             for (int i = 0; i < files.length; i++)
                 System.out.println("\nFile: " + files[i]);
@@ -197,6 +196,7 @@ public class TimetableDAO {
         XStream xstream = new XStream();
         xstream.alias("Lessons", Lessons.class);
         //System.out.println("\nfromXML(xml):\n" + xml);
+        System.out.println(xml);
         tt = (Object[]) xstream.fromXML(xml);
         Timetable fromXml = new Timetable();
         fromXml.setLessonsMon((List<Lessons>) tt[0]);

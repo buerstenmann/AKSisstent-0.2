@@ -121,12 +121,9 @@ public class StuplaTagActivity extends AppCompatActivity {
         } else if (currentDay == "Sontag") {
             ttLessons = tt.getLessonsMon();
         } else {
-            Lessons errorLesson = new Lessons();
-            errorLesson.setRoom("");
-            errorLesson.setSubject("Fehler, Tag nicht gefunden");
-            errorLesson.setTeacher("");
+            Lessons errorLesson = new Lessons("Fehler, Tag nicht gefunden", "", "");
             ttLessons.add(errorLesson);
-            Log.i("T", "Fehler, Tag nicht gefunden")
+            Log.i("T", "Fehler, Tag nicht gefunden");
 
         }
 

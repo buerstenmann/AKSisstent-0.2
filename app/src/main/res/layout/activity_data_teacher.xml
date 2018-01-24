@@ -4,113 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ims.aksisstent02.activities.DataActivity">
+    tools:context="com.example.ims.aksisstent02.activities.DataTeacherActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="70dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="188dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/namen"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnZuruck"
-        android:layout_width="350dp"
-        android:layout_height="36dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/zuruck"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        android:layout_marginTop="24dp"
+        android:text="@string/namen"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/viewName"
+        app:layout_constraintHorizontal_bias="0.909"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
 
     <TextView
         android:id="@+id/viewName"
-        android:layout_width="70dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="40dp"
+        android:layout_width="151dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/viewMail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.812" />
 
     <TextView
-        android:id="@+id/E-Mail"
+        android:id="@+id/textView2"
         android:layout_width="70dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="188dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/e_mail"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/viewNextLektion"
+        app:layout_constraintEnd_toStartOf="@+id/viewMail"
+        app:layout_constraintHorizontal_bias="0.904"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.507" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/viewLektion"
-        android:layout_width="70dp"
-        android:layout_height="23dp"
-        android:layout_marginBottom="404dp"
+        android:layout_width="148dp"
+        android:layout_height="27dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toEndOf="@+id/textView2" />
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.298" />
+
+    <TextView
+        android:id="@+id/viewNextLektion"
+        android:layout_width="70dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="496dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/nxt_stunde"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewLektion"
+        app:layout_constraintHorizontal_bias="0.814"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
-        android:id="@+id/viewBild"
+        android:id="@+id/imgViewBild"
         android:layout_width="151dp"
         android:layout_height="146dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/todo"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
-        app:layout_constraintEnd_toStartOf="@+id/E-Mail"
-        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="70dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="400dp"
-        android:layout_marginStart="188dp"
-        android:text="@string/nxt_stunde"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/viewMail"
-        android:layout_width="70dp"
+        android:layout_width="143dp"
         android:layout_height="24dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/viewLektion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toEndOf="@+id/E-Mail"
-        app:layout_constraintTop_toBottomOf="@+id/viewName"
-        app:layout_constraintVertical_bias="0.533" />
+        app:layout_constraintHorizontal_bias="0.883"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.849" />
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -118,8 +120,9 @@
         android:layout_height="328dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="284dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -129,7 +132,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time" />
 
@@ -137,7 +140,7 @@
             <TextView
                 android:layout_width="40dp"
                 android:layout_height="25dp"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/mon" />
 
@@ -145,7 +148,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/tue" />
 
@@ -153,7 +156,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/wen" />
 
@@ -161,7 +164,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/thu" />
 
@@ -169,7 +172,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/fri" />
 
@@ -181,7 +184,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time1" />
 
@@ -189,7 +192,7 @@
                 android:id="@+id/mon1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -197,7 +200,7 @@
                 android:id="@+id/tue1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -205,7 +208,7 @@
                 android:id="@+id/wen1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -213,7 +216,7 @@
                 android:id="@+id/thu1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -221,7 +224,7 @@
                 android:id="@+id/fri1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -232,7 +235,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time2" />
 
@@ -240,7 +243,7 @@
                 android:id="@+id/mon2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -248,7 +251,7 @@
                 android:id="@+id/tue2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -256,7 +259,7 @@
                 android:id="@+id/wen2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -264,7 +267,7 @@
                 android:id="@+id/thu2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -272,7 +275,7 @@
                 android:id="@+id/fri2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -283,7 +286,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time3" />
 
@@ -291,7 +294,7 @@
                 android:id="@+id/mon3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -299,7 +302,7 @@
                 android:id="@+id/tue3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -307,7 +310,7 @@
                 android:id="@+id/wen3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -315,7 +318,7 @@
                 android:id="@+id/thu3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -323,7 +326,7 @@
                 android:id="@+id/fri3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -334,7 +337,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time4" />
 
@@ -342,7 +345,7 @@
                 android:id="@+id/mon4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -350,7 +353,7 @@
                 android:id="@+id/tue4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -358,7 +361,7 @@
                 android:id="@+id/wen4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -366,7 +369,7 @@
                 android:id="@+id/thu4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -374,7 +377,7 @@
                 android:id="@+id/fri4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -385,7 +388,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time5" />
 
@@ -393,7 +396,7 @@
                 android:id="@+id/mon5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -401,7 +404,7 @@
                 android:id="@+id/tue5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -409,7 +412,7 @@
                 android:id="@+id/wen5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -417,7 +420,7 @@
                 android:id="@+id/thu5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -425,7 +428,7 @@
                 android:id="@+id/fri5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -436,7 +439,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time6" />
 
@@ -444,7 +447,7 @@
                 android:id="@+id/mon6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -452,7 +455,7 @@
                 android:id="@+id/tue6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -460,7 +463,7 @@
                 android:id="@+id/wen6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -468,7 +471,7 @@
                 android:id="@+id/thu6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -476,7 +479,7 @@
                 android:id="@+id/fri6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -487,7 +490,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time7" />
 
@@ -495,7 +498,7 @@
                 android:id="@+id/mon7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -503,7 +506,7 @@
                 android:id="@+id/tue7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -511,7 +514,7 @@
                 android:id="@+id/wen7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -519,7 +522,7 @@
                 android:id="@+id/thu7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -527,7 +530,7 @@
                 android:id="@+id/fri7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -538,7 +541,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time8" />
 
@@ -546,7 +549,7 @@
                 android:id="@+id/mon8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -554,7 +557,7 @@
                 android:id="@+id/tue8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -562,7 +565,7 @@
                 android:id="@+id/wen8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -570,7 +573,7 @@
                 android:id="@+id/thu8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -578,7 +581,7 @@
                 android:id="@+id/fri8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -589,7 +592,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time9" />
 
@@ -597,7 +600,7 @@
                 android:id="@+id/mon9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -605,7 +608,7 @@
                 android:id="@+id/tue9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -613,7 +616,7 @@
                 android:id="@+id/wen9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -621,7 +624,7 @@
                 android:id="@+id/thu9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -629,7 +632,7 @@
                 android:id="@+id/fri9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -640,7 +643,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time10" />
 
@@ -648,7 +651,7 @@
                 android:id="@+id/mon10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -656,7 +659,7 @@
                 android:id="@+id/tue10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -664,7 +667,7 @@
                 android:id="@+id/wen10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -672,7 +675,7 @@
                 android:id="@+id/thu10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -680,7 +683,7 @@
                 android:id="@+id/fri10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -691,7 +694,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time11" />
 
@@ -699,7 +702,7 @@
                 android:id="@+id/mon11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -707,7 +710,7 @@
                 android:id="@+id/tue11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -715,7 +718,7 @@
                 android:id="@+id/wen11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -723,7 +726,7 @@
                 android:id="@+id/thu11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -731,7 +734,7 @@
                 android:id="@+id/fri11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -742,7 +745,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time12" />
 
@@ -750,7 +753,7 @@
                 android:id="@+id/mon12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -758,7 +761,7 @@
                 android:id="@+id/tue12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -766,7 +769,7 @@
                 android:id="@+id/wen12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -774,7 +777,7 @@
                 android:id="@+id/thu12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -782,7 +785,7 @@
                 android:id="@+id/fri12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>

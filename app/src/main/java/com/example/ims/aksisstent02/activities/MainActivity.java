@@ -1,5 +1,6 @@
 package com.example.ims.aksisstent02.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -28,10 +29,7 @@ public class MainActivity extends AppCompatActivity {
         etName = (EditText) findViewById(R.id.editName);    //Defines EditTextes
         etClass = (EditText) findViewById(R.id.editKlasse);
 
-        System.out.println("\nFile Directory.... ");
-        String[] files = this.getFilesDir().list();
-        for (int i = 0; i < files.length; i++)
-            System.out.println("\nFile: " + files[i]);
+        Context context;
 
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -75,7 +75,6 @@ public class StuplaActivity extends AppCompatActivity {
     public void loadTt(String className) {
         Timetable timetable = new Timetable();
         TimetableDAO timeDao = new TimetableDAO();
-        //timeDao.downloadTtKlasse();
         timetable = timeDao.getTimetable("I3a", 1, this);
 
         List<Lessons> lessonMon = timetable.getLessonsMon();

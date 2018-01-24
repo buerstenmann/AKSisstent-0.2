@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time" />
 
@@ -49,7 +49,7 @@
             <TextView
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/mon" />
 
@@ -57,7 +57,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/tue" />
 
@@ -65,7 +65,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/wen" />
 
@@ -73,7 +73,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/thu" />
 
@@ -81,7 +81,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/fri" />
 
@@ -93,7 +93,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time1" />
 
@@ -101,7 +101,7 @@
                 android:id="@+id/mon1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -109,7 +109,7 @@
                 android:id="@+id/tue1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -117,7 +117,7 @@
                 android:id="@+id/wen1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -125,7 +125,7 @@
                 android:id="@+id/thu1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -133,7 +133,7 @@
                 android:id="@+id/fri1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -144,7 +144,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time2" />
 
@@ -152,7 +152,7 @@
                 android:id="@+id/mon2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -160,7 +160,7 @@
                 android:id="@+id/tue2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -168,7 +168,7 @@
                 android:id="@+id/wen2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -176,7 +176,7 @@
                 android:id="@+id/thu2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -184,7 +184,7 @@
                 android:id="@+id/fri2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -195,7 +195,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time3" />
 
@@ -203,7 +203,7 @@
                 android:id="@+id/mon3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -211,7 +211,7 @@
                 android:id="@+id/tue3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -219,7 +219,7 @@
                 android:id="@+id/wen3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -227,7 +227,7 @@
                 android:id="@+id/thu3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -235,7 +235,7 @@
                 android:id="@+id/fri3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -246,7 +246,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time4" />
 
@@ -254,7 +254,7 @@
                 android:id="@+id/mon4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -262,7 +262,7 @@
                 android:id="@+id/tue4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -270,7 +270,7 @@
                 android:id="@+id/wen4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -278,7 +278,7 @@
                 android:id="@+id/thu4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -286,7 +286,7 @@
                 android:id="@+id/fri4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -297,7 +297,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time5" />
 
@@ -305,7 +305,7 @@
                 android:id="@+id/mon5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -313,7 +313,7 @@
                 android:id="@+id/tue5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -321,7 +321,7 @@
                 android:id="@+id/wen5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -329,7 +329,7 @@
                 android:id="@+id/thu5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -337,7 +337,7 @@
                 android:id="@+id/fri5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -348,7 +348,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time6" />
 
@@ -356,7 +356,7 @@
                 android:id="@+id/mon6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -364,7 +364,7 @@
                 android:id="@+id/tue6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -372,7 +372,7 @@
                 android:id="@+id/wen6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -380,7 +380,7 @@
                 android:id="@+id/thu6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -388,7 +388,7 @@
                 android:id="@+id/fri6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -399,7 +399,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time7" />
 
@@ -407,7 +407,7 @@
                 android:id="@+id/mon7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -415,7 +415,7 @@
                 android:id="@+id/tue7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -423,7 +423,7 @@
                 android:id="@+id/wen7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -431,7 +431,7 @@
                 android:id="@+id/thu7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -439,7 +439,7 @@
                 android:id="@+id/fri7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -450,7 +450,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time8" />
 
@@ -458,7 +458,7 @@
                 android:id="@+id/mon8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -466,7 +466,7 @@
                 android:id="@+id/tue8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -474,7 +474,7 @@
                 android:id="@+id/wen8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -482,7 +482,7 @@
                 android:id="@+id/thu8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -490,7 +490,7 @@
                 android:id="@+id/fri8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -501,7 +501,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time9" />
 
@@ -509,7 +509,7 @@
                 android:id="@+id/mon9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -517,7 +517,7 @@
                 android:id="@+id/tue9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -525,7 +525,7 @@
                 android:id="@+id/wen9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -533,7 +533,7 @@
                 android:id="@+id/thu9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -541,7 +541,7 @@
                 android:id="@+id/fri9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -552,7 +552,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time10" />
 
@@ -560,7 +560,7 @@
                 android:id="@+id/mon10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -568,7 +568,7 @@
                 android:id="@+id/tue10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -576,7 +576,7 @@
                 android:id="@+id/wen10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -584,7 +584,7 @@
                 android:id="@+id/thu10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -592,7 +592,7 @@
                 android:id="@+id/fri10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -603,7 +603,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time11" />
 
@@ -611,7 +611,7 @@
                 android:id="@+id/mon11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -619,7 +619,7 @@
                 android:id="@+id/tue11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -627,7 +627,7 @@
                 android:id="@+id/wen11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -635,7 +635,7 @@
                 android:id="@+id/thu11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -643,7 +643,7 @@
                 android:id="@+id/fri11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -654,7 +654,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/time12" />
 
@@ -662,7 +662,7 @@
                 android:id="@+id/mon12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -670,7 +670,7 @@
                 android:id="@+id/tue12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -678,7 +678,7 @@
                 android:id="@+id/wen12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -686,7 +686,7 @@
                 android:id="@+id/thu12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -694,7 +694,7 @@
                 android:id="@+id/fri12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-                android:layout_column="1"
+
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>

@@ -18,13 +18,25 @@
         </activity>
         <activity android:name=".activities.MenuActivity" />
         <activity
-            android:name=".activities.DataActivity"
+            android:name=".activities.DataTeacherActivity"
             android:label="@string/title_activity_data"
+            android:parentActivityName=".activities.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.NotenActivity" />
-        <activity android:name=".activities.StuplaActivity" />
-        <activity android:name=".activities.PrufungActivity" />
-        <activity android:name=".activities.StuplaTagActivity"></activity>
+        <activity
+            android:name=".activities.NotenActivity"
+            android:parentActivityName=".activities.MenuActivity" />
+        <activity
+            android:name=".activities.StuplaActivity"
+            android:parentActivityName=".activities.MenuActivity" />
+        <activity
+            android:name=".activities.PrufungActivity"
+            android:parentActivityName=".activities.MenuActivity" />
+        <activity
+            android:name=".activities.StuplaTagActivity"
+            android:parentActivityName=".activities.MenuActivity" />
+        <activity
+            android:name=".activities.DataRoomActivity"
+            android:parentActivityName=".activities.MenuActivity" />
     </application>
 
 </manifest>

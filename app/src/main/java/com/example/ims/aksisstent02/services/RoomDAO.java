@@ -47,7 +47,7 @@ public class RoomDAO {
             System.out.println("\ngetElemetsByTagName");
             NodeList nList = doc.getElementsByTagName("ROOM");
 
-            //DataActivity Alpha = new DataActivity();
+            //DataTeacherActivity Alpha = new DataTeacherActivity();
             System.out.println("\n# of elements found :" + nList.getLength());
             for (int temp = 0; temp < nList.getLength(); temp++) {
 

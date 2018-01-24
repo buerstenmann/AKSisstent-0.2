@@ -59,14 +59,13 @@ public class TeachersDAO {
 
                     org.w3c.dom.Element eElement = (org.w3c.dom.Element) nNode;
 
-                    teacherLoop.setForename(eElement.getElementsByTagName("FORENAME").item(0).getTextContent());
-                    teacherLoop.setName(eElement.getElementsByTagName("NAME").item(0).getTextContent());
-                    teacherLoop.setEmail(eElement.getElementsByTagName("EMAIL").item(0).getTextContent());
-                    teacherLoop.setUrl(eElement.getElementsByTagName("URL").item(0).getTextContent());
-                    teacherLoop.setPathPicture(eElement.getElementsByTagName("PATH").item(0).getTextContent());
-                    System.out.println(teacherLoop.getName() + " " + teacherLoop.getForename() + " " + teacherLoop.getEmail() + " " + teacherLoop.getUrl());
+                    teacherLoop.setTeacherForename(eElement.getElementsByTagName("FORENAME").item(0).getTextContent());
+                    teacherLoop.setTeacherName(eElement.getElementsByTagName("NAME").item(0).getTextContent());
+                    teacherLoop.setTeacherEmail(eElement.getElementsByTagName("EMAIL").item(0).getTextContent());
+                    teacherLoop.setTeacherTtUrl(eElement.getElementsByTagName("URL").item(0).getTextContent());
+//                    teacherLoop.setTeacherPictureId(Integer.parseInt(eElement.getElementsByTagName("PATH").item(0).getTextContent()));
+//                    System.out.println(teacherLoop.getTeacherName() + " " + teacherLoop.getTeacherForename() + " " + teacherLoop.getTeacherEmail() + " " + teacherLoop.getTeacherTtUrl());
                     teacher.add(teacherLoop);
-                    System.out.println(teacherLoop);
                     teacherLoop = null;
                 }
             }

@@ -10,25 +10,25 @@ import lombok.Setter;
 public class Teacher {
     @Getter
     @Setter
-    String name;
+    String teacherName;
 
     @Getter
     @Setter
-    String forename;
+    String teacherForename;
 
     @Getter
     @Setter
-    String url;
+    String teacherTtUrl;
 
     @Setter
     @Getter
-    Timetable teacherTt;
+    Timetable teacherTimetable;
 
     @Getter
     @Setter
-    String email;
+    String teacherEmail;
 
     @Getter
     @Setter
-    String pathPicture;
+    int teacherPictureId;
 }

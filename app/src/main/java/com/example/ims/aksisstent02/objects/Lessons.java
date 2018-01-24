@@ -17,22 +17,20 @@ public class Lessons {
     @Setter
     @Getter
     private String teacher;
-    @Setter
-    @Getter
-    private String time;
 
-    Lessons() {
+
+    public Lessons() {
         subject = null;
         room = null;
         teacher = null;
-        time = null;
+
     }
 
-    public Lessons(String s_subject, String s_room, String s_teacher, String s_time) {
+    public Lessons(String s_subject, String s_room, String s_teacher) {
         subject = s_subject;
         room = s_room;
         teacher = s_teacher;
-        time = s_time;
+
     }
 }
 
