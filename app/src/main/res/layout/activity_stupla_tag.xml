@@ -556,7 +556,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="40dp"
         android:layout_marginTop="8dp"
-        android:text="Button"
+        android:text="Fr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -13,7 +13,7 @@ public class Lessons {
     private String subject;
     @Setter
     @Getter
-    private int room;
+    private String room;
     @Setter
     @Getter
     private String teacher;
@@ -23,12 +23,12 @@ public class Lessons {
 
     Lessons() {
         subject = null;
-        room = 0;
+        room = null;
         teacher = null;
         time = null;
     }
 
-    public Lessons(String s_subject, int s_room, String s_teacher, String s_time) {
+    public Lessons(String s_subject, String s_room, String s_teacher, String s_time) {
         subject = s_subject;
         room = s_room;
         teacher = s_teacher;

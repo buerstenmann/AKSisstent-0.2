@@ -59,7 +59,7 @@
         app:layout_constraintVertical_bias="0.507" />
 
     <TextView
-        android:id="@+id/viewStunde"
+        android:id="@+id/viewLektion"
         android:layout_width="70dp"
         android:layout_height="23dp"
         android:layout_marginBottom="404dp"
@@ -71,21 +71,21 @@
         app:layout_constraintStart_toEndOf="@+id/textView2" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/viewBild"
         android:layout_width="151dp"
         android:layout_height="146dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:contentDescription="@string/todo"
         app:layout_constraintBottom_toTopOf="@+id/tableLayout"
         app:layout_constraintEnd_toStartOf="@+id/E-Mail"
         app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/sym_def_app_icon"
-        android:contentDescription="@string/todo" />
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
 
     <TextView
         android:id="@+id/textView2"
@@ -105,7 +105,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/viewStunde"
+        app:layout_constraintBottom_toTopOf="@+id/viewLektion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toEndOf="@+id/E-Mail"

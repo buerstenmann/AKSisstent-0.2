@@ -3,6 +3,7 @@ package com.example.ims.aksisstent02.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -109,9 +110,9 @@ public class StuplaTagActivity extends AppCompatActivity {
             ttLessons = tt.getLessonsMon();
         } else if (currentDay == "Dienstag") {
             ttLessons = tt.getLessonsTue();
-        } else if (currentDay == "Mittwoch") {
+        } else if (currentDay == "Mitwoch") {
             ttLessons = tt.getLessonsWen();
-        } else if (currentDay == "Donnestag") {
+        } else if (currentDay == "Donnerstag") {
             ttLessons = tt.getLessonsThu();
         } else if (currentDay == "Freitag") {
             ttLessons = tt.getLessonsFri();
@@ -120,12 +121,21 @@ public class StuplaTagActivity extends AppCompatActivity {
         } else if (currentDay == "Sontag") {
             ttLessons = tt.getLessonsMon();
         } else {
-            //ToDo Noah Fehlerschutz
+            Lessons errorLesson = new Lessons();
+            errorLesson.setRoom("");
+            errorLesson.setSubject("Fehler, Tag nicht gefunden");
+            errorLesson.setTeacher("");
+            ttLessons.add(errorLesson);
+            Log.i("T", "Fehler, Tag nicht gefunden")
+
         }
+
 
         for (int i = 0; i < ttLessons.size(); i++) {
             viewSubject[i].setText(ttLessons.get(i).getSubject());
             viewTeacher[i].setText(ttLessons.get(i).getTeacher());
+            System.out.println(ttLessons.get(i).getRoom());
+            System.out.println(i);
             viewRoom[i].setText(ttLessons.get(i).getRoom());
         }
 
@@ -143,10 +153,6 @@ public class StuplaTagActivity extends AppCompatActivity {
 
         return daysArray[day];
 
-    }
-
-    public StuplaTagActivity(String tname) {
-        this.klassenName = tname;
     }
 
 

@@ -61,7 +61,13 @@ public class TeachersDAO {
 
                     teacherLoop.setForename(eElement.getElementsByTagName("FORENAME").item(0).getTextContent());
                     teacherLoop.setName(eElement.getElementsByTagName("NAME").item(0).getTextContent());
-                    teacher.set(temp, teacherLoop);
+                    teacherLoop.setEmail(eElement.getElementsByTagName("EMAIL").item(0).getTextContent());
+                    teacherLoop.setUrl(eElement.getElementsByTagName("URL").item(0).getTextContent());
+                    teacherLoop.setPathPicture(eElement.getElementsByTagName("PATH").item(0).getTextContent());
+                    System.out.println(teacherLoop.getName() + " " + teacherLoop.getForename() + " " + teacherLoop.getEmail() + " " + teacherLoop.getUrl());
+                    teacher.add(teacherLoop);
+                    System.out.println(teacherLoop);
+                    teacherLoop = null;
                 }
             }
 

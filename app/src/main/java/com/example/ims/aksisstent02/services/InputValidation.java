@@ -27,6 +27,7 @@ public class InputValidation {
             output = searchQuery;
         } else {
             if (searchQuery.contains(" ")) {
+                System.out.println(searchQuery.contains(" "));
                 String segments1[] = searchQuery.split(" ");
                 teacherQuery = segments1[1];
                 output = teacherQuery;

@@ -1,10 +1,12 @@
 package com.example.ims.aksisstent02.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +15,7 @@ import com.example.ims.aksisstent02.objects.Lessons;
 import com.example.ims.aksisstent02.objects.Teacher;
 import com.example.ims.aksisstent02.objects.Timetable;
 import com.example.ims.aksisstent02.services.TimetableDAO;
+import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -22,21 +25,44 @@ public class DataActivity extends AppCompatActivity {
     TimetableDAO timetableDAO;
     Button btnBack;
     TextView viewName;
-    TextView[] monTextView = new TextView[12];
-    TextView[] tueTextView = new TextView[12];
-    TextView[] wenTextView = new TextView[12];
-    TextView[] thuTextView = new TextView[12];
-    TextView[] friTextView = new TextView[12];
+    TextView viewMail;
+    TextView viewLektion;
+    ImageView viewBild;
+    TextView[] monTextView;
+    TextView[] tueTextView;
+    TextView[] wenTextView;
+    TextView[] thuTextView;
+    TextView[] friTextView;
+    Context menuContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data);
 
+        Gson gS = new Gson();
+        String target = getIntent().getStringExtra("resultTeacherAsString");
+        String target2 = getIntent().getStringExtra("menuActivityContext");
+        teacher = gS.fromJson(target, Teacher.class);
+        menuContext = gS.fromJson(target2, Context.class);
+
+        monTextView = new TextView[12];
+        tueTextView = new TextView[12];
+        wenTextView = new TextView[12];
+        thuTextView = new TextView[12];
+        friTextView = new TextView[12];
+
         timetableDAO = new TimetableDAO();
+        timetable = new Timetable();
         btnBack = (Button) findViewById(R.id.btnZuruck);
         viewName = (TextView) findViewById(R.id.viewName);
+        viewMail = (TextView) findViewById(R.id.viewMail);
+        viewLektion = (TextView) findViewById(R.id.viewLektion);
         viewName.setText(teacher.getForename() + " " + teacher.getName());
+        viewMail.setText(teacher.getEmail());
+        viewLektion.setText(getNextLesson());
+        viewBild = (ImageView) findViewById(R.id.viewBild);
+        viewBild.setImageResource(R.drawable.ic_action_name);
 
         int[] monId = {R.id.mon1, R.id.mon2, R.id.mon3, R.id.mon4, R.id.mon5, R.id.mon6, R.id.mon7, R.id.mon8, R.id.mon9, R.id.mon10, R.id.mon11, R.id.mon12};
         int[] tueId = {R.id.tue1, R.id.tue2, R.id.tue3, R.id.tue4, R.id.tue5, R.id.tue6, R.id.tue7, R.id.tue8, R.id.tue9, R.id.tue10, R.id.tue11, R.id.tue12};
@@ -51,6 +77,7 @@ public class DataActivity extends AppCompatActivity {
             thuTextView[i] = (TextView) findViewById(thuId[i]);
             friTextView[i] = (TextView) findViewById(friId[i]);
         }
+        loadTt(teacher, menuContext);
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,17 +93,23 @@ public class DataActivity extends AppCompatActivity {
     private String getSafeSubject(List<Lessons> lesson, int index) {
         if (lesson.size() > index) {
             if (lesson.get(index) != null) {
-                int i = lesson.get(index).getRoom();
-                return Integer.toString(i);
+                if (lesson.get(index).getRoom() != null) {
+                    return lesson.get(index).getRoom();
+                }
             }
         }
         return "";
     }
 
-    public DataActivity(Teacher teacher) {
+    public void loadTt(Teacher teacher, Context context) {
 
-        this.teacher = teacher;
-        timetable = timetableDAO.getTimetable(teacher.getName(), 2, this);
+        if (timetableDAO != null) {
+            System.out.println(teacher.getName() + "  teacher.getName");
+            timetable = timetableDAO.getTimetable(teacher.getName(), 2, context);
+        } else {
+            System.out.println("TimetableDAO ist null");
+        }
+
         System.out.println("setTeacher " + teacher + " ");
         List<Lessons> lessonMon = timetable.getLessonsMon();
         List<Lessons> lessonTue = timetable.getLessonsTue();
@@ -105,5 +138,11 @@ public class DataActivity extends AppCompatActivity {
             Toast toast = Toast.makeText(getApplicationContext(), "nope", Toast.LENGTH_SHORT);
             toast.show();
         }
+    }
+
+    public String getNextLesson() {
+        String returnString = "Fehler, String nicht definiert";
+        //TODO Noah nächste Lektion anzeigen. Date type untersuchen
+        return returnString;
     }
 }

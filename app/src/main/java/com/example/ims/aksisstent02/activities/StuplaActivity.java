@@ -23,9 +23,6 @@ public class StuplaActivity extends AppCompatActivity {
     TextView[] thuTextView = new TextView[12];
     TextView[] friTextView = new TextView[12];
 
-    public StuplaActivity(String className) {
-        this.className = className;
-    }
 
     public StuplaActivity() {
         System.out.println("guggibuu");
@@ -51,7 +48,8 @@ public class StuplaActivity extends AppCompatActivity {
             thuTextView[i] = (TextView) findViewById(thuId[i]);
             friTextView[i] = (TextView) findViewById(friId[i]);
         }
-
+        Intent intent = getIntent();
+        className = intent.getStringExtra(Intent.EXTRA_TEXT);
 
         loadTt(className);
 
@@ -77,7 +75,7 @@ public class StuplaActivity extends AppCompatActivity {
     public void loadTt(String className) {
         Timetable timetable = new Timetable();
         TimetableDAO timeDao = new TimetableDAO();
-        timeDao.downloadTT();
+        //timeDao.downloadTtKlasse();
         timetable = timeDao.getTimetable("I3a", 1, this);
 
         List<Lessons> lessonMon = timetable.getLessonsMon();

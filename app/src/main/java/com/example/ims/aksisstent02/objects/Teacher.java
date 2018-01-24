@@ -23,4 +23,12 @@ public class Teacher {
     @Setter
     @Getter
     Timetable teacherTt;
+
+    @Getter
+    @Setter
+    String email;
+
+    @Getter
+    @Setter
+    String pathPicture;
 }

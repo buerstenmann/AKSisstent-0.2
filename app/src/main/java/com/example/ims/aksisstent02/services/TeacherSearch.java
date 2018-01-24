@@ -14,16 +14,19 @@ public class TeacherSearch { //implements SearchInterface
     public Teacher doSearch(String searchQuery, List<Teacher> teacherList) {
         Teacher output = null;
         String comTemp;
+        if (!teacherList.isEmpty()) {
+            for (int i = 0; i < teacherList.size(); i++) {
 
-        for (int i = 0; i < teacherList.size(); i++) {
-            if (!teacherList.isEmpty()) {
                 comTemp = teacherList.get(i).getName().toLowerCase();
                 System.out.println("comTemp = " + comTemp + " ----- searchQuery = " + searchQuery);
 
                 if (searchQuery.equals(comTemp)) {
                     output = teacherList.get(i);
+                    System.out.println("output= " + output);
                 }
             }
+        } else {
+            System.out.println("Error, TeacherList is null");
         }
         return output;
     }

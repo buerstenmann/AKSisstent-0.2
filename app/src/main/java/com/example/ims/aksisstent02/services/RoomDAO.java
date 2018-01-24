@@ -3,7 +3,6 @@ package com.example.ims.aksisstent02.services;
 import android.content.Context;
 
 import com.example.ims.aksisstent02.R;
-import com.example.ims.aksisstent02.activities.DataActivity;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -48,7 +47,7 @@ public class RoomDAO {
             System.out.println("\ngetElemetsByTagName");
             NodeList nList = doc.getElementsByTagName("ROOM");
 
-            DataActivity Alpha = new DataActivity();
+            //DataActivity Alpha = new DataActivity();
             System.out.println("\n# of elements found :" + nList.getLength());
             for (int temp = 0; temp < nList.getLength(); temp++) {
 
