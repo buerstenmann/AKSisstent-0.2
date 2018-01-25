@@ -21,12 +21,13 @@ public class StuplaTagActivity extends AppCompatActivity {
     Timetable tt;
 
     TextView[] viewSubject;
-    int[] idSubject = {R.id.subject1, R.id.subject2, R.id.subject3, R.id.subject4, R.id.subject5, R.id.subject6, R.id.subject7, R.id.subject8, R.id.subject9, R.id.subject10, R.id.subject11, R.id.subject12};
     TextView[] viewTeacher;
-    int[] idTeacher = {R.id.teacher1, R.id.teacher2, R.id.teacher3, R.id.teacher4, R.id.teacher5, R.id.teacher6, R.id.teacher7, R.id.teacher8, R.id.teacher9, R.id.teacher10, R.id.teacher11, R.id.teacher12};
     TextView[] viewRoom;
+
+    int[] idSubject = {R.id.subject1, R.id.subject2, R.id.subject3, R.id.subject4, R.id.subject5, R.id.subject6, R.id.subject7, R.id.subject8, R.id.subject9, R.id.subject10, R.id.subject11, R.id.subject12};
+    int[] idTeacher = {R.id.teacher1, R.id.teacher2, R.id.teacher3, R.id.teacher4, R.id.teacher5, R.id.teacher6, R.id.teacher7, R.id.teacher8, R.id.teacher9, R.id.teacher10, R.id.teacher11, R.id.teacher12};
     int[] idRoom = {R.id.room1, R.id.room2, R.id.room3, R.id.room4, R.id.room5, R.id.room6, R.id.room7, R.id.room8, R.id.room9, R.id.room10, R.id.room11, R.id.room12};
-    String klassenName;
+
     Button btnWeek;
     Button btnMon;
     Button btnTue;
@@ -34,16 +35,18 @@ public class StuplaTagActivity extends AppCompatActivity {
     Button btnThu;
     Button btnFri;
 
+    String klassenName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stupla_tag);
-        TimetableDAO ttDao = new TimetableDAO();
-        tt = ttDao.getTimetable(klassenName, 1, this);
+
         viewSubject = new TextView[12];
         viewTeacher = new TextView[12];
         viewRoom = new TextView[12];
+
         btnWeek = (Button) findViewById(R.id.btnWeek);
         btnMon = (Button) findViewById(R.id.btnMon);
         btnTue = (Button) findViewById(R.id.btnTue);
@@ -51,18 +54,21 @@ public class StuplaTagActivity extends AppCompatActivity {
         btnThu = (Button) findViewById(R.id.btnThu);
         btnFri = (Button) findViewById(R.id.btnFri);
 
+
         for (int i = 0; i < 12; i++) {
             viewSubject[i] = (TextView) findViewById(idSubject[i]);
             viewTeacher[i] = (TextView) findViewById(idTeacher[i]);
             viewRoom[i] = (TextView) findViewById(idRoom[i]);
         }
+
+        TimetableDAO ttDao = new TimetableDAO();
+        tt = ttDao.getTimetable(klassenName, 1, this);
         loadDay(tt, getCurrentDay());
 
         btnWeek.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StuplaTagActivity.this, StuplaActivity.class)); //open Tagesansicht
-
             }
         });
 
@@ -127,7 +133,6 @@ public class StuplaTagActivity extends AppCompatActivity {
 
         }
 
-
         for (int i = 0; i < ttLessons.size(); i++) {
             viewSubject[i].setText(ttLessons.get(i).getSubject());
             viewTeacher[i].setText(ttLessons.get(i).getTeacher());
@@ -147,10 +152,9 @@ public class StuplaTagActivity extends AppCompatActivity {
         String daysArray[] = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sontag"};
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
+        System.out.println(day);
 
         return daysArray[day];
 
     }
-
-
 }

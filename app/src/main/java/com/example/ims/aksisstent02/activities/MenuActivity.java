@@ -31,16 +31,18 @@ public class MenuActivity extends AppCompatActivity {
     @Getter
     @Setter
     public Teacher searchResultTeacher;
+    @Getter
+    @Setter
     private Room searchResultRoom;
     private List<Teacher> teacherList;
     private List<String> roomList;
     static public Context menuContext;
-    EditText suche;
-    Button enter;
-    Button noten;
-    Button stupla;
-    Button prufung;
-    TextView begrussung;
+    EditText editSuche;
+    Button btnEnter;
+    Button btnNoten;
+    Button btnStupla;
+    Button btnPrufung;
+    TextView viewBegrussung;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +60,7 @@ public class MenuActivity extends AppCompatActivity {
         timetableDownloadTt.downloadTtKlasse(menuContext);
         timetableDownloadTt.downloadTt(teacherList, menuContext);
 
-        System.out.println("\nFile Directory.... ");            //Test der Abspeicherung von Stunenpläne
+        System.out.println("\nFile Directory.... MenuActivity");            //Test der Abspeicherung von Stunenpläne
         String[] files = menuContext.getFilesDir().list();
         if (files == null) {
             Log.e("Speicherfehler", "Stundenplan files nicht generiert");
@@ -69,23 +71,23 @@ public class MenuActivity extends AppCompatActivity {
 
 
         System.out.println("----------------------MenuActivity------------------------");
-        begrussung = (TextView) findViewById(R.id.viewBegrussung);
-        suche = (EditText) findViewById(R.id.editSuche);
-        enter = (Button) findViewById(R.id.btnEnter);
-        noten = (Button) findViewById(R.id.btnNoten);
-        stupla = (Button) findViewById(R.id.btnStupla);
-        prufung = (Button) findViewById(R.id.btnTests);
+        viewBegrussung = (TextView) findViewById(R.id.viewBegrussung);
+        editSuche = (EditText) findViewById(R.id.editSuche);
+        btnEnter = (Button) findViewById(R.id.btnEnter);
+        btnNoten = (Button) findViewById(R.id.btnNoten);
+        btnStupla = (Button) findViewById(R.id.btnStupla);
+        btnPrufung = (Button) findViewById(R.id.btnTests);
 
-        //TODO Noah Look up onKeyListener
+        //TODO Noah Look up onKeyListener Suchfeld
 
-        enter.setOnClickListener(new View.OnClickListener() {
+        btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 findTeacher();
             }
         });
 
-        noten.setOnClickListener(new View.OnClickListener() {
+        btnNoten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MenuActivity.this, NotenActivity.class));
@@ -93,7 +95,7 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-        stupla.setOnClickListener(new View.OnClickListener() {
+        btnStupla.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getBaseContext(), StuplaActivity.class);
@@ -101,7 +103,7 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        prufung.setOnClickListener(new View.OnClickListener() {
+        btnPrufung.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MenuActivity.this, PrufungActivity.class));
@@ -112,7 +114,7 @@ public class MenuActivity extends AppCompatActivity {
 
     public void findTeacher() {
         InputValidation alphaInputValidator = new InputValidation();
-        searchQuery = alphaInputValidator.validateText(suche.getText().toString());
+        searchQuery = alphaInputValidator.validateText(editSuche.getText().toString());
 
         // if (TextUtils.isDigitsOnly(searchQuery) == true) {
         //  RoomSearch Alpha = new RoomSearch();
@@ -125,20 +127,12 @@ public class MenuActivity extends AppCompatActivity {
         if (searchResultTeacher != null) {
             Intent intent = new Intent(getBaseContext(), DataTeacherActivity.class);
             DataHolder.getInstance().setTeacher(searchResultTeacher);
-//            XStream xstream = new XStream();
-//            String target = xstream.toXML(searchResultTeacher);
-//            String target2 = xstream.toXML(menuContext);
-//            intent.putExtra("resultTeacherAsString", target);
-//            intent.putExtra("menuActivityContext", target2);
             startActivity(intent);
         } else if (searchResultRoom != null) {
 //            Intent intent = new Intent(getBaseContext(), DataRoomActivity.class);
-//            XStream xstream = new XStream();
-//            String target = xstream.toXML(searchResultRoom);
-//            String target2 = xstream.toXML(menuContext);
-//            intent.putExtra("resultRoomAsString", target);
-//            intent.putExtra("menuActivityContext", target2);
-//            startActivity(intent);
+//             DataHolder.getInstance().setRoom(searchRoomTeacher);
+//
+// startActivity(intent);
         } else {
             Toast toast = Toast.makeText(getApplicationContext(), "Kein Suchresultat gefunden", Toast.LENGTH_SHORT);
             toast.show();

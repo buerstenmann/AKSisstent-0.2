@@ -22,8 +22,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 public class TeachersDAO {
     List<Teacher> teacher;
-
     private Context context;
+
     public TeachersDAO(Context current) {
         this.context = current;
     }
@@ -32,7 +32,6 @@ public class TeachersDAO {
         teacher = new ArrayList<>();
         try {
             // XmlResourceParser is = context.getXml(R.xml.teachers);
-
             InputStream fXmlFile = context.getResources().openRawResource(R.raw.teachers);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -64,12 +63,10 @@ public class TeachersDAO {
                     teacherLoop.setTeacherEmail(eElement.getElementsByTagName("EMAIL").item(0).getTextContent());
                     teacherLoop.setTeacherTtUrl(eElement.getElementsByTagName("URL").item(0).getTextContent());
 //                    teacherLoop.setTeacherPictureId(Integer.parseInt(eElement.getElementsByTagName("PATH").item(0).getTextContent()));
-//                    System.out.println(teacherLoop.getTeacherName() + " " + teacherLoop.getTeacherForename() + " " + teacherLoop.getTeacherEmail() + " " + teacherLoop.getTeacherTtUrl());
                     teacher.add(teacherLoop);
                     teacherLoop = null;
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }

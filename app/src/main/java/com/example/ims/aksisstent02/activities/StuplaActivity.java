@@ -33,7 +33,8 @@ public class StuplaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stupla);
 
-        Button btnDay = (Button) findViewById(R.id.btnDay);
+        Intent intent = getIntent();
+        className = intent.getStringExtra(Intent.EXTRA_TEXT);
 
         int[] monId = {R.id.mon1, R.id.mon2, R.id.mon3, R.id.mon4, R.id.mon5, R.id.mon6, R.id.mon7, R.id.mon8, R.id.mon9, R.id.mon10, R.id.mon11, R.id.mon12};
         int[] tueId = {R.id.tue1, R.id.tue2, R.id.tue3, R.id.tue4, R.id.tue5, R.id.tue6, R.id.tue7, R.id.tue8, R.id.tue9, R.id.tue10, R.id.tue11, R.id.tue12};
@@ -41,6 +42,9 @@ public class StuplaActivity extends AppCompatActivity {
         int[] thuId = {R.id.thu1, R.id.thu2, R.id.thu3, R.id.thu4, R.id.thu5, R.id.thu6, R.id.thu7, R.id.thu8, R.id.thu9, R.id.thu10, R.id.thu11, R.id.thu12};
         int[] friId = {R.id.fri1, R.id.fri2, R.id.fri3, R.id.fri4, R.id.fri5, R.id.fri6, R.id.fri7, R.id.fri8, R.id.fri9, R.id.fri10, R.id.fri11, R.id.fri12};
         System.out.println(monId);
+
+        Button btnDay = (Button) findViewById(R.id.btnDay);
+
         for (int i = 0; i < 12; i++) {
             monTextView[i] = (TextView) findViewById(monId[i]);
             tueTextView[i] = (TextView) findViewById(tueId[i]);
@@ -48,8 +52,6 @@ public class StuplaActivity extends AppCompatActivity {
             thuTextView[i] = (TextView) findViewById(thuId[i]);
             friTextView[i] = (TextView) findViewById(friId[i]);
         }
-        Intent intent = getIntent();
-        className = intent.getStringExtra(Intent.EXTRA_TEXT);
 
         loadTt(className);
 
@@ -61,15 +63,6 @@ public class StuplaActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    private String getSafeSubject(List<Lessons> lesson, int index) {
-        if (lesson.size() > index) {
-            if (lesson.get(index) != null) {
-                return lesson.get(index).getSubject();
-            }
-        }
-        return "";
     }
 
     public void loadTt(String className) {
@@ -91,5 +84,14 @@ public class StuplaActivity extends AppCompatActivity {
             friTextView[i].setText(getSafeSubject(lessonFri, i));
 
         }
+    }
+
+    private String getSafeSubject(List<Lessons> lesson, int index) {
+        if (lesson.size() > index) {
+            if (lesson.get(index) != null) {
+                return lesson.get(index).getSubject();
+            }
+        }
+        return "";
     }
 }

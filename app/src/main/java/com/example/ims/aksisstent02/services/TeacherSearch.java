@@ -16,10 +16,8 @@ public class TeacherSearch { //implements SearchInterface
         String comTemp;
         if (!teacherList.isEmpty()) {
             for (int i = 0; i < teacherList.size(); i++) {
-
                 comTemp = teacherList.get(i).getTeacherName().toLowerCase();
                 System.out.println("comTemp = " + comTemp + " ----- searchQuery = " + searchQuery);
-
                 if (searchQuery.equals(comTemp)) {
                     output = teacherList.get(i);
                     System.out.println("output= " + output);

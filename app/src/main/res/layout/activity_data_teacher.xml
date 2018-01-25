@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="70dp"
-        android:layout_height="0dp"
+        android:layout_width="72dp"
+        android:layout_height="21dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -17,10 +17,10 @@
         android:text="@string/namen"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toStartOf="@+id/viewName"
-        app:layout_constraintHorizontal_bias="0.909"
+        app:layout_constraintHorizontal_bias="0.987"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.581" />
 
 
     <TextView
@@ -33,45 +33,45 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/viewMail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.812" />
+        app:layout_constraintVertical_bias="0.905" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="70dp"
-        android:layout_height="37dp"
+        android:layout_width="72dp"
+        android:layout_height="21dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/e_mail"
         app:layout_constraintBottom_toTopOf="@+id/viewNextLektion"
         app:layout_constraintEnd_toStartOf="@+id/viewMail"
-        app:layout_constraintHorizontal_bias="0.904"
+        app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.777" />
 
     <TextView
         android:id="@+id/viewLektion"
-        android:layout_width="148dp"
-        android:layout_height="27dp"
+        android:layout_width="151dp"
+        android:layout_height="24dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.298" />
+        app:layout_constraintVertical_bias="0.208" />
 
     <TextView
         android:id="@+id/viewNextLektion"
-        android:layout_width="70dp"
-        android:layout_height="24dp"
+        android:layout_width="72dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="496dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -79,10 +79,10 @@
         android:text="@string/nxt_stunde"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/viewLektion"
-        app:layout_constraintHorizontal_bias="0.814"
+        app:layout_constraintHorizontal_bias="0.985"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.97" />
 
     <ImageView
         android:id="@+id/imgViewBild"
@@ -101,7 +101,7 @@
 
     <TextView
         android:id="@+id/viewMail"
-        android:layout_width="143dp"
+        android:layout_width="151dp"
         android:layout_height="24dp"
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="8dp"
@@ -109,10 +109,10 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/viewLektion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.883"
+        app:layout_constraintHorizontal_bias="0.967"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.849" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TableLayout
         android:id="@+id/tableLayout"

@@ -22,18 +22,15 @@ import java.util.List;
  */
 
 public class TimetableDAO {
-    private String[][] klasse = {{"I1a", "I2a", "I3a", "W1a", "W2a", "W3a"},
+    private String[][] klasse = {{"I1a", "I2a", "I3a", "W1a", "W2a", "W3a"},        //TODO Noah Klaseenliste in einem XML speichern
             {"I1aURL", "I2aURL", "I3aURL", "W1aURL", "W2aURL", "W3aURL"}};
-
     private int anzahlKlassen = klasse[1].length;
-    private String[] xmlStundenpläne = new String[anzahlKlassen];
 
     public void downloadTt(List<Teacher> teacherList, Context context) {
         System.out.println("Start TeacherTimetable Loop");
         for (int i = 0; i < teacherList.size(); i++) {
             try {
                 stringToDom(parseHTML(teacherList.get(i).getTeacherName()), teacherList.get(i).getTeacherName(), context);
-
             } catch (Exception E) {
             }
         }
@@ -45,7 +42,6 @@ public class TimetableDAO {
             // System.out.println("\nTimetable constructor loop 1:" + i + "\n");
             try {
                 stringToDom(parseHTML(klasse[0][i]), klasse[0][i], context);
-
             } catch (Exception E) {
             }
 
@@ -81,24 +77,14 @@ public class TimetableDAO {
     }
 
     public Timetable getTimetable(String name, int mode, Context context) {
-        /* String[][] arrayList={{},{}};
-        if (mode == 0) {
-            arrayList = klasse;
-        } else if (mode == 1) {
-            //arrayList = lehrer;
-        } else if (mode == 2) {
-            //arrayList = raum;
-        } else {
-        }*/
-
-
-        System.out.println("getTimetable " + name);
         int index = getIndex(name, klasse);
         Timetable returnTable;
         String xmlTt = getTimetableFromFile(context, "I3a");
-        System.out.println(xmlTt + " xml des Timetable");
-        if (index != 404) {
 
+        System.out.println("getTimetable " + name);
+        System.out.println(xmlTt + " xml des Timetable");
+
+        if (index != 404) {
             returnTable = fromXML(xmlTt);
         } else {
             returnTable = null;
@@ -109,6 +95,7 @@ public class TimetableDAO {
 
     public int getIndex(String klassenname, String[][] arrayList) {
         int index = 3;
+
         for (int i = 0; i > anzahlKlassen; i++) {
             if (klassenname == arrayList[0][i]) {
                 index = 3;
@@ -126,10 +113,9 @@ public class TimetableDAO {
         tt.setLessonsFri(null);
     }
 
-    public static void stringToDom(String xmlSource, String name, Context context)
-            throws IOException {
-
+    public static void stringToDom(String xmlSource, String name, Context context) throws IOException {
         FileOutputStream outputStream;
+
         try {
             outputStream = context.openFileOutput(name, Context.MODE_PRIVATE);
             outputStream.write(xmlSource.getBytes("UTF-8"));
@@ -141,37 +127,34 @@ public class TimetableDAO {
 
 
     public String getTimetableFromFile(Context context, String file) {
-
-
         String returnString = "";
+        String line;
+
         try {
-            System.out.println("\nFile Direct000000000ory.... ");
-            String[] files = context.getFilesDir().list();
-            for (int i = 0; i < files.length; i++)
-                System.out.println("\nFile: " + files[i]);
             System.out.println(file + " file");
+            System.out.println("\nFile Direct000000000ory.... ");
+
             FileInputStream fin = context.openFileInput(file);
+            StringBuilder sb = new StringBuilder();
+
             InputStreamReader inputStream = new InputStreamReader(fin);
             BufferedReader bufferedReader = new BufferedReader(inputStream);
-            StringBuilder sb = new StringBuilder();
-            String line;
+
             while ((line = bufferedReader.readLine()) != null) {
                 sb.append(line + "\n");
             }
+
             System.out.println("\nZurück Aus dem File:\n" + sb.toString());
             returnString = sb.toString();
 
         } catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString()
-            );
+            Log.e("login activity", "File not found: " + e.toString());
             System.out.println("file not found");
         } catch (IOException e) {
             Log.e("login activity", "Can not read file: " + e.toString());
         }
-
         return returnString;
     }
-
 
     String toXML(Timetable tt) {
         Object[] ttObjectList = new Object[6];
@@ -192,13 +175,13 @@ public class TimetableDAO {
 
     public Timetable fromXML(String xml) {
         Object[] tt;
-
+        Timetable fromXml = new Timetable();
         XStream xstream = new XStream();
+
         xstream.alias("Lessons", Lessons.class);
         //System.out.println("\nfromXML(xml):\n" + xml);
         System.out.println(xml);
         tt = (Object[]) xstream.fromXML(xml);
-        Timetable fromXml = new Timetable();
         fromXml.setLessonsMon((List<Lessons>) tt[0]);
         fromXml.setLessonsTue((List<Lessons>) tt[1]);
         fromXml.setLessonsWen((List<Lessons>) tt[2]);
@@ -207,5 +190,4 @@ public class TimetableDAO {
         fromXml.setKlassenname((String) tt[5]);
         return fromXml;
     }
-
 }
