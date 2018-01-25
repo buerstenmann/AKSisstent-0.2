@@ -3,7 +3,7 @@ package com.example.ims.aksisstent02.services;
 import android.content.Context;
 
 import com.example.ims.aksisstent02.R;
-import com.example.ims.aksisstent02.objects.Room;
+import com.example.ims.aksisstent02.objects.Klasse;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -17,23 +17,22 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 /**
- * Created by Noah on 13.12.2017.
+ * Created by Noah on 25.01.2018.
  */
 
-public class RoomDAO {
-    List<Room> roomList = new ArrayList<>();
+public class KlassenDAO {
+    List<Klasse> klasse;
     private Context context;
 
-    public RoomDAO(Context current) {
+    public KlassenDAO(Context current) {
         this.context = current;
     }
 
-    public List<Room> doXML() {
-
+    public List<Klasse> doXML() {
+        klasse = new ArrayList<>();
         try {
             // XmlResourceParser is = context.getXml(R.xml.teachers);
-
-            InputStream fXmlFile = context.getResources().openRawResource(R.raw.rooms);
+            InputStream fXmlFile = context.getResources().openRawResource(R.raw.teachers);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             System.out.println("\ndBuilder.parse");
@@ -46,28 +45,28 @@ public class RoomDAO {
             //   System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 
             System.out.println("\ngetElemetsByTagName");
-            NodeList nList = doc.getElementsByTagName("ROOM");
+            NodeList nList = doc.getElementsByTagName("klasse");
 
             System.out.println("\n# of elements found :" + nList.getLength());
             for (int temp = 0; temp < nList.getLength(); temp++) {
-
+                Klasse klasseLoop = new Klasse();
                 Node nNode = nList.item(temp);
 
                 System.out.println("\nCurrent Element :" + nNode.getNodeName());
 
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+
                     org.w3c.dom.Element eElement = (org.w3c.dom.Element) nNode;
 
-                    Room tempLoopRoom = new Room();
-                    tempLoopRoom.setRoomNumber(eElement.getElementsByTagName("NUMBER").item(0).getTextContent());
-                    tempLoopRoom.setRoomBuilding(eElement.getElementsByTagName("BUILDING").item(0).getTextContent());
-                    roomList.add(tempLoopRoom);
+                    klasseLoop.setKlasseName(eElement.getElementsByTagName("NAME").item(0).getTextContent());
+                    klasseLoop.setKlassenURL(eElement.getElementsByTagName("URL").item(0).getTextContent());
+                    klasse.add(klasseLoop);
+                    klasseLoop = null;
                 }
             }
-            System.out.println(roomList);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return roomList;
+        return klasse;
     }
 }

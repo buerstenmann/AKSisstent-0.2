@@ -14,7 +14,6 @@ import com.example.ims.aksisstent02.objects.Teacher;
 import com.example.ims.aksisstent02.objects.Timetable;
 import com.example.ims.aksisstent02.services.DataHolder;
 import com.example.ims.aksisstent02.services.TimetableDAO;
-import com.google.gson.Gson;
 
 import java.util.List;
 
@@ -42,13 +41,7 @@ public class DataTeacherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_teacher);
 
-        Gson gS = new Gson();
-        String target = getIntent().getStringExtra("resultTeacherAsString");
-        String target2 = getIntent().getStringExtra("menuActivityContext");
-        teacher = gS.fromJson(target, Teacher.class);
-
         menuContext = MenuActivity.menuContext;
-
         teacher = DataHolder.getInstance().getTeacher();
 
 
@@ -103,7 +96,7 @@ public class DataTeacherActivity extends AppCompatActivity {
 
         if (timetableDAO != null) {
             System.out.println(teacher.getTeacherName() + "  teacher.getTeacherName");
-            timetable = timetableDAO.getTimetable(teacher.getTeacherName(), 2, context);
+            timetable = timetableDAO.getTimetable(teacher.getTeacherName(), context);
         } else {
             System.out.println("TimetableDAO ist null");
         }

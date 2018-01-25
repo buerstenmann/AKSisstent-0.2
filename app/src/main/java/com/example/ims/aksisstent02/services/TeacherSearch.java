@@ -1,6 +1,7 @@
 package com.example.ims.aksisstent02.services;
 
 
+import com.example.ims.aksisstent02.objects.Room;
 import com.example.ims.aksisstent02.objects.Teacher;
 
 import java.util.List;
@@ -11,9 +12,10 @@ import java.util.List;
 
 public class TeacherSearch { //implements SearchInterface
 
-    public Teacher doSearch(String searchQuery, List<Teacher> teacherList) {
+    public Teacher findTeacher(String searchQuery, List<Teacher> teacherList) {
         Teacher output = null;
         String comTemp;
+
         if (!teacherList.isEmpty()) {
             for (int i = 0; i < teacherList.size(); i++) {
                 comTemp = teacherList.get(i).getTeacherName().toLowerCase();
@@ -29,4 +31,22 @@ public class TeacherSearch { //implements SearchInterface
         return output;
     }
 
+    public Room findRoom(String searchQuery, List<Room> roomList) {
+        Room output = null;
+        String comTemp;
+
+        if (!roomList.isEmpty()) {
+            for (int i = 0; i < roomList.size(); i++) {
+                comTemp = roomList.get(i).getRoomNumber().toLowerCase();
+                System.out.println("comTemp = " + comTemp + " ----- searchQuery = " + searchQuery);
+                if (searchQuery.equals(comTemp)) {
+                    output = roomList.get(i);
+                    System.out.println("output= " + output);
+                }
+            }
+        } else {
+            System.out.println("Error, RoomList is null");
+        }
+        return output;
+    }
 }

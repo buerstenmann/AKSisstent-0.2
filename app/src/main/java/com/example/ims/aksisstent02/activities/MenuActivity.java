@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,10 +14,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ims.aksisstent02.R;
+import com.example.ims.aksisstent02.objects.Klasse;
 import com.example.ims.aksisstent02.objects.Room;
 import com.example.ims.aksisstent02.objects.Teacher;
 import com.example.ims.aksisstent02.services.DataHolder;
 import com.example.ims.aksisstent02.services.InputValidation;
+import com.example.ims.aksisstent02.services.KlassenDAO;
+import com.example.ims.aksisstent02.services.RoomDAO;
 import com.example.ims.aksisstent02.services.TeacherSearch;
 import com.example.ims.aksisstent02.services.TeachersDAO;
 import com.example.ims.aksisstent02.services.TimetableDAO;
@@ -30,12 +34,13 @@ public class MenuActivity extends AppCompatActivity {
     public String searchQuery;
     @Getter
     @Setter
-    public Teacher searchResultTeacher;
+    private Teacher searchResultTeacher;
     @Getter
     @Setter
     private Room searchResultRoom;
     private List<Teacher> teacherList;
-    private List<String> roomList;
+    private List<Room> roomList;
+    private List<Klasse> klasseList;
     static public Context menuContext;
     EditText editSuche;
     Button btnEnter;
@@ -51,14 +56,18 @@ public class MenuActivity extends AppCompatActivity {
 
         menuContext = this;
         TeachersDAO alphaTeacherDAO = new TeachersDAO(menuContext);
-//        RoomDAO alphaRoomDAO = new RoomDAO(menuContext);
-        teacherList = alphaTeacherDAO.doXML();
-        System.out.println(teacherList);
-//        roomList = alphaRoomDAO.doXML();
-
+        RoomDAO alphaRoomDAO = new RoomDAO(menuContext);
+        KlassenDAO alphaKlassenDAO = new KlassenDAO(menuContext);
         TimetableDAO timetableDownloadTt = new TimetableDAO(); //Generierung der Stundenpläne TODO Noah HTML parser
-        timetableDownloadTt.downloadTtKlasse(menuContext);
-        timetableDownloadTt.downloadTt(teacherList, menuContext);
+
+        teacherList = alphaTeacherDAO.doXML();
+        roomList = alphaRoomDAO.doXML();
+        klasseList = alphaKlassenDAO.doXML();
+        System.out.println(teacherList);
+
+        timetableDownloadTt.downloadTtKlasse(klasseList, menuContext);
+        timetableDownloadTt.downloadTtTeacher(teacherList, menuContext);
+        timetableDownloadTt.downloadTtRoom(roomList, menuContext);
 
         System.out.println("\nFile Directory.... MenuActivity");            //Test der Abspeicherung von Stunenpläne
         String[] files = menuContext.getFilesDir().list();
@@ -114,25 +123,25 @@ public class MenuActivity extends AppCompatActivity {
 
     public void findTeacher() {
         InputValidation alphaInputValidator = new InputValidation();
+        TeacherSearch alphaTeacherSearch = new TeacherSearch();
         searchQuery = alphaInputValidator.validateText(editSuche.getText().toString());
 
-        // if (TextUtils.isDigitsOnly(searchQuery) == true) {
-        //  RoomSearch Alpha = new RoomSearch();
-        //searchResultRoom = Alpha.doSearch(searchQuery, roomList);
-        // } else {
-        TeacherSearch Alpha = new TeacherSearch();
-        searchResultTeacher = Alpha.doSearch(searchQuery, teacherList);
-        // }
+        if (TextUtils.isDigitsOnly(searchQuery) == true) {
+            searchResultRoom = alphaTeacherSearch.findRoom(searchQuery, roomList);
+        } else {
+            searchResultTeacher = alphaTeacherSearch.findTeacher(searchQuery, teacherList);
+        }
 
         if (searchResultTeacher != null) {
+            System.out.println("Lehrer gefunden");
             Intent intent = new Intent(getBaseContext(), DataTeacherActivity.class);
             DataHolder.getInstance().setTeacher(searchResultTeacher);
             startActivity(intent);
         } else if (searchResultRoom != null) {
-//            Intent intent = new Intent(getBaseContext(), DataRoomActivity.class);
-//             DataHolder.getInstance().setRoom(searchRoomTeacher);
-//
-// startActivity(intent);
+            System.out.println("Raum gefunden");
+            Intent intentRoom = new Intent(getBaseContext(), DataRoomActivity.class);
+            DataHolder.getInstance().setRoom(searchResultRoom);
+            startActivity(intentRoom);
         } else {
             Toast toast = Toast.makeText(getApplicationContext(), "Kein Suchresultat gefunden", Toast.LENGTH_SHORT);
             toast.show();

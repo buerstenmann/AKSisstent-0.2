@@ -3,7 +3,9 @@ package com.example.ims.aksisstent02.services;
 import android.content.Context;
 import android.util.Log;
 
+import com.example.ims.aksisstent02.objects.Klasse;
 import com.example.ims.aksisstent02.objects.Lessons;
+import com.example.ims.aksisstent02.objects.Room;
 import com.example.ims.aksisstent02.objects.Teacher;
 import com.example.ims.aksisstent02.objects.Timetable;
 import com.thoughtworks.xstream.XStream;
@@ -22,11 +24,17 @@ import java.util.List;
  */
 
 public class TimetableDAO {
-    private String[][] klasse = {{"I1a", "I2a", "I3a", "W1a", "W2a", "W3a"},        //TODO Noah Klaseenliste in einem XML speichern
-            {"I1aURL", "I2aURL", "I3aURL", "W1aURL", "W2aURL", "W3aURL"}};
-    private int anzahlKlassen = klasse[1].length;
+    public void downloadTtRoom(List<Room> roomList, Context context) {
+        System.out.println("Start TeacherTimetable Loop");
+        for (int i = 0; i < roomList.size(); i++) {
+            try {
+                stringToDom(parseHTML(roomList.get(i).getRoomNumber()), roomList.get(i).getRoomNumber(), context);
+            } catch (Exception E) {
+            }
+        }
+    }
 
-    public void downloadTt(List<Teacher> teacherList, Context context) {
+    public void downloadTtTeacher(List<Teacher> teacherList, Context context) {
         System.out.println("Start TeacherTimetable Loop");
         for (int i = 0; i < teacherList.size(); i++) {
             try {
@@ -36,12 +44,11 @@ public class TimetableDAO {
         }
     }
 
-    public void downloadTtKlasse(Context context) {
+    public void downloadTtKlasse(List<Klasse> klassenList, Context context) {
         System.out.println("Start timetable loop");
-        for (int i = 0; i < anzahlKlassen; i++) {
-            // System.out.println("\nTimetable constructor loop 1:" + i + "\n");
+        for (int i = 0; i < klassenList.size(); i++) {
             try {
-                stringToDom(parseHTML(klasse[0][i]), klasse[0][i], context);
+                stringToDom(parseHTML(klassenList.get(i).getKlasseName()), klassenList.get(i).getKlasseName(), context);
             } catch (Exception E) {
             }
 
@@ -76,34 +83,10 @@ public class TimetableDAO {
         return returnXML;
     }
 
-    public Timetable getTimetable(String name, int mode, Context context) {
-        int index = getIndex(name, klasse);
-        Timetable returnTable;
-        String xmlTt = getTimetableFromFile(context, "I3a");
-
-        System.out.println("getTimetable " + name);
-        System.out.println(xmlTt + " xml des Timetable");
-
-        if (index != 404) {
-            returnTable = fromXML(xmlTt);
-        } else {
-            returnTable = null;
-            System.out.println("Warning Fehler Index wurde nicht definiert");
-        }
-        return returnTable;
+    public Timetable getTimetable(String name, Context context) {
+        String xmlTt = getTimetableFromFile(context, name);
+        return fromXML(xmlTt);
     }
-
-    public int getIndex(String klassenname, String[][] arrayList) {
-        int index = 3;
-
-        for (int i = 0; i > anzahlKlassen; i++) {
-            if (klassenname == arrayList[0][i]) {
-                index = 3;
-            }
-        }
-        return index;
-    }
-
 
     public void deleteTimetable(Timetable tt) {
         tt.setLessonsMon(null);
@@ -124,7 +107,6 @@ public class TimetableDAO {
             e.printStackTrace();
         }
     }
-
 
     public String getTimetableFromFile(Context context, String file) {
         String returnString = "";

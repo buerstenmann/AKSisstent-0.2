@@ -62,7 +62,7 @@ public class StuplaTagActivity extends AppCompatActivity {
         }
 
         TimetableDAO ttDao = new TimetableDAO();
-        tt = ttDao.getTimetable(klassenName, 1, this);
+        tt = ttDao.getTimetable(klassenName, this);
         loadDay(tt, getCurrentDay());
 
         btnWeek.setOnClickListener(new View.OnClickListener() {
@@ -149,10 +149,9 @@ public class StuplaTagActivity extends AppCompatActivity {
     }
 
     public String getCurrentDay() {
-        String daysArray[] = {"Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sontag"};
+        String daysArray[] = {"Samstag", "Sontag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"};
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
-        System.out.println(day);
 
         return daysArray[day];
 

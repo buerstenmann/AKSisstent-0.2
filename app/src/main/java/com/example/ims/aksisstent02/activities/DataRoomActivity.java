@@ -33,7 +33,7 @@ public class DataRoomActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_data_teacher);
+        setContentView(R.layout.activity_data_room);
 
         menuContext = MenuActivity.menuContext;
         room = DataHolder.getInstance().getRoom();
@@ -59,8 +59,8 @@ public class DataRoomActivity extends AppCompatActivity {
         System.out.println(room.getRoomNumber() + " get RoomNumber");
         System.out.println(room.getRoomBuilding() + " get RoomBuilding");
 
-        //viewNumber.setText(room.getRoomNumber());         TODO Noah nullpointerexception beheben
-        //    viewBuilding.setText(room.getRoomBuilding());
+        viewNumber.setText(room.getRoomNumber());
+        viewBuilding.setText(room.getRoomBuilding());
         // imgViewBild.setImageResource(R.drawable.ic_action_name);
 
         for (int i = 0; i < 12; i++) {
