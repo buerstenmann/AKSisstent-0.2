@@ -80,7 +80,6 @@ public class MenuActivity extends AppCompatActivity {
 
 
         System.out.println("----------------------MenuActivity------------------------");
-        viewBegrussung = (TextView) findViewById(R.id.viewBegrussung);
         editSuche = (EditText) findViewById(R.id.editSuche);
         btnEnter = (Button) findViewById(R.id.btnEnter);
         btnNoten = (Button) findViewById(R.id.btnNoten);

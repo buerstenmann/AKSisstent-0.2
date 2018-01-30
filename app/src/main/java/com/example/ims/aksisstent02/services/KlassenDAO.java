@@ -32,7 +32,7 @@ public class KlassenDAO {
         klasse = new ArrayList<>();
         try {
             // XmlResourceParser is = context.getXml(R.xml.teachers);
-            InputStream fXmlFile = context.getResources().openRawResource(R.raw.teachers);
+            InputStream fXmlFile = context.getResources().openRawResource(R.raw.klasse);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             System.out.println("\ndBuilder.parse");
@@ -61,6 +61,7 @@ public class KlassenDAO {
                     klasseLoop.setKlasseName(eElement.getElementsByTagName("NAME").item(0).getTextContent());
                     klasseLoop.setKlassenURL(eElement.getElementsByTagName("URL").item(0).getTextContent());
                     klasse.add(klasseLoop);
+                    System.out.println(klasseLoop.toString() + " -----------------------------------------------------klassenloop");
                     klasseLoop = null;
                 }
             }

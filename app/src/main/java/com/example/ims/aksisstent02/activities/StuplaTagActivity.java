@@ -62,7 +62,7 @@ public class StuplaTagActivity extends AppCompatActivity {
         }
 
         TimetableDAO ttDao = new TimetableDAO();
-        tt = ttDao.getTimetable(klassenName, this);
+        tt = ttDao.getTimetable("I3a", MenuActivity.menuContext);
         loadDay(tt, getCurrentDay());
 
         btnWeek.setOnClickListener(new View.OnClickListener() {

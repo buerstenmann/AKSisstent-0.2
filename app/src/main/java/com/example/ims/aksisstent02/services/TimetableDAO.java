@@ -57,28 +57,34 @@ public class TimetableDAO {
     }
 
     public String parseHTML(String tklasse) {
+        String returnXML;
         Timetable tt = new Timetable();
-        for (int j = 0; j < 5; j++) {                                                           //loop Tage
-            //System.out.println("\nTimetable constructor loop 2:" + j + "\n");
-            List<Lessons> lessons = new ArrayList<Lessons>();
-            for (int k = 0; k < 6; k++) {                                                  //loop Stunden pro tag
-                lessons.add(new Lessons(j + "Fach " + k, j + "2" + k, j + "teacher" + k));
-            }
+        if ("I3a" == "I3a") {
+            System.out.println("parse html generate i3att-----------------------------------------------------------");
+            tt = getI3aTt();
+        } else {
+            for (int j = 0; j < 5; j++) {                                                           //loop Tage
+                //System.out.println("\nTimetable constructor loop 2:" + j + "\n");
+                List<Lessons> lessons = new ArrayList<Lessons>();
+                for (int k = 0; k < 6; k++) {                                                  //loop Stunden pro tag
+                    lessons.add(new Lessons(j + "Fach " + k, j + "2" + k, j + "teacher" + k));
+                }
 
-            if (j == 0) {
-                tt.setLessonsMon(lessons);
-            } else if (j == 1) {
-                tt.setLessonsTue(lessons);
-            } else if (j == 2) {
-                tt.setLessonsWen(lessons);
-            } else if (j == 3) {
-                tt.setLessonsThu(lessons);
-            } else if (j == 4) {
-                tt.setLessonsFri(lessons);
+                if (j == 0) {
+                    tt.setLessonsMon(lessons);
+                } else if (j == 1) {
+                    tt.setLessonsTue(lessons);
+                } else if (j == 2) {
+                    tt.setLessonsWen(lessons);
+                } else if (j == 3) {
+                    tt.setLessonsThu(lessons);
+                } else if (j == 4) {
+                    tt.setLessonsFri(lessons);
+                }
             }
+            tt.setKlassenname("Example");
         }
-        tt.setKlassenname(tklasse);
-        String returnXML = toXML(tt);
+        returnXML = toXML(tt);
         deleteTimetable(tt);
         return returnXML;
     }
@@ -87,6 +93,7 @@ public class TimetableDAO {
         String xmlTt = getTimetableFromFile(context, name);
         return fromXML(xmlTt);
     }
+
 
     public void deleteTimetable(Timetable tt) {
         tt.setLessonsMon(null);
@@ -171,5 +178,69 @@ public class TimetableDAO {
         fromXml.setLessonsFri((List<Lessons>) tt[4]);
         fromXml.setKlassenname((String) tt[5]);
         return fromXml;
+    }
+
+    private Timetable getI3aTt() {
+        Timetable tt = new Timetable();
+
+        List<Lessons> lessonMon = new ArrayList<Lessons>();
+        List<Lessons> lessonTue = new ArrayList<Lessons>();
+        List<Lessons> lessonWen = new ArrayList<Lessons>();
+        List<Lessons> lessonThu = new ArrayList<Lessons>();
+        List<Lessons> lessonFri = new ArrayList<Lessons>();
+
+        lessonMon.add(new Lessons("Informatik", "BBB", "Flick"));
+        lessonMon.add(new Lessons("Informatik", "BBB", "Flick"));
+        lessonMon.add(new Lessons("Informatik", "BBB", "Flick"));
+        lessonMon.add(new Lessons("Informatik", "BBB", "Flick"));
+        lessonMon.add(new Lessons("Informatik", "BBB", "Flick"));
+        lessonMon.add(new Lessons("Mittag", "", ""));
+        lessonMon.add(new Lessons("Mittag", "", ""));
+        lessonMon.add(new Lessons("VBR", "17", "Schoohf"));
+        lessonMon.add(new Lessons("VBR", "17", "Schoohf"));
+        lessonMon.add(new Lessons("ABT", "17", "Schoohf"));
+
+        lessonTue.add(new Lessons("", "", ""));
+        lessonTue.add(new Lessons("FWR", "39", "Meier"));
+        lessonTue.add(new Lessons("FWR", "39", "Meier"));
+        lessonTue.add(new Lessons("Mathe", "214", "Sachs"));
+        lessonTue.add(new Lessons("Franz", "27", "Schlatter"));
+        lessonTue.add(new Lessons("Franz", "27", "Schlatter"));
+        lessonTue.add(new Lessons("", "", ""));
+        lessonTue.add(new Lessons("VBR", "26", "Schoohf"));
+        lessonTue.add(new Lessons("VBR", "26", "Schoohf"));
+
+        lessonWen.add(new Lessons("Informatik", "BBB", "Flick"));
+        lessonWen.add(new Lessons("Informatik", "BBB", "Flick"));
+        lessonWen.add(new Lessons("Informatik", "BBB", "Flick"));
+        lessonWen.add(new Lessons("Informatik", "BBB", "Flick"));
+        lessonWen.add(new Lessons("Informatik", "BBB", "Flick"));
+        lessonWen.add(new Lessons("", "", ""));
+        lessonWen.add(new Lessons("", "", ""));
+        lessonWen.add(new Lessons("Englisch", "33", "Grünwald"));
+        lessonWen.add(new Lessons("", "", ""));
+        lessonWen.add(new Lessons("Sport", "Turnhalle", "Gross"));
+        lessonWen.add(new Lessons("Sport", "Turnhalle", "Gross"));
+
+        lessonThu.add(new Lessons("", "", ""));
+        lessonThu.add(new Lessons("", "", ""));
+        lessonThu.add(new Lessons("", "", ""));
+        lessonThu.add(new Lessons("Englisch", "38", "Grünwald"));
+        lessonThu.add(new Lessons("Deutsch", "518", "Engel"));
+
+        lessonFri.add(new Lessons("Deutsch", "512", "Engel"));
+        lessonFri.add(new Lessons("Deutsch", "512", "Engel"));
+        lessonFri.add(new Lessons("Mathe", "214", "Sachs"));
+        lessonFri.add(new Lessons("FWR", "39", "Meier"));
+        lessonFri.add(new Lessons("VBR", "518", "Schoohf"));
+
+        tt.setKlassenname("I3a");
+        tt.setLessonsMon(lessonMon);
+        tt.setLessonsTue(lessonTue);
+        tt.setLessonsWen(lessonWen);
+        tt.setLessonsThu(lessonThu);
+        tt.setLessonsFri(lessonFri);
+        System.out.println(tt);
+        return tt;
     }
 }
