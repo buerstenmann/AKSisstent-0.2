@@ -48,7 +48,7 @@ public class TimetableDAO {
         System.out.println("Start timetable loop");
         for (int i = 0; i < klassenList.size(); i++) {
             try {
-                stringToDom(parseHTML(klassenList.get(i).getKlasseName()), klassenList.get(i).getKlasseName(), context);
+                stringToDom(parseHTML(klassenList.get(i).getKlassenURL()), klassenList.get(i).getKlasseName(), context);
             } catch (Exception E) {
             }
 
@@ -56,37 +56,40 @@ public class TimetableDAO {
 
     }
 
-    public String parseHTML(String tklasse) {
+    public String parseHTML(String url) {
         String returnXML;
         Timetable tt = new Timetable();
-        if ("I3a" == "I3a") {
-            System.out.println("parse html generate i3att-----------------------------------------------------------");
-            tt = getI3aTt();
-        } else {
-            for (int j = 0; j < 5; j++) {                                                           //loop Tage
-                //System.out.println("\nTimetable constructor loop 2:" + j + "\n");
-                List<Lessons> lessons = new ArrayList<Lessons>();
-                for (int k = 0; k < 6; k++) {                                                  //loop Stunden pro tag
-                    lessons.add(new Lessons(j + "Fach " + k, j + "2" + k, j + "teacher" + k));
-                }
+        TimetableParser timetableParser = new TimetableParser();
+        timetableParser.doInBackground(url);
 
-                if (j == 0) {
-                    tt.setLessonsMon(lessons);
-                } else if (j == 1) {
-                    tt.setLessonsTue(lessons);
-                } else if (j == 2) {
-                    tt.setLessonsWen(lessons);
-                } else if (j == 3) {
-                    tt.setLessonsThu(lessons);
-                } else if (j == 4) {
-                    tt.setLessonsFri(lessons);
-                }
-            }
-            tt.setKlassenname("Example");
-        }
-        returnXML = toXML(tt);
-        deleteTimetable(tt);
-        return returnXML;
+//        if ("I3a" == "I3a") {
+//            System.out.println("parse html generate i3att-----------------------------------------------------------");
+//            tt = getI3aTt();
+//        } else {
+//            for (int j = 0; j < 5; j++) {                                                           //loop Tage
+//                //System.out.println("\nTimetable constructor loop 2:" + j + "\n");
+//                List<Lessons> lessons = new ArrayList<Lessons>();
+//                for (int k = 0; k < 6; k++) {                                                  //loop Stunden pro tag
+//                    lessons.add(new Lessons(j + "Fach " + k, j + "2" + k, j + "teacher" + k));
+//                }
+//
+//                if (j == 0) {
+//                    tt.setLessonsMon(lessons);
+//                } else if (j == 1) {
+//                    tt.setLessonsTue(lessons);
+//                } else if (j == 2) {
+//                    tt.setLessonsWen(lessons);
+//                } else if (j == 3) {
+//                    tt.setLessonsThu(lessons);
+//                } else if (j == 4) {
+//                    tt.setLessonsFri(lessons);
+//                }
+//            }
+//            tt.setKlassenname("Example");
+//        }
+//        returnXML = ;
+//        deleteTimetable(tt);
+        return toXML(tt);
     }
 
     public Timetable getTimetable(String name, Context context) {

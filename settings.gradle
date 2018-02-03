@@ -1,1 +1,1 @@
-include ':app', ':xstream-1.4.10-java7'
+include ':app', ':xstream-1.4.10-java7', ':jsoup-1.11.2'

@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Aksisstent_02.iml" filepath="$PROJECT_DIR$/Aksisstent_02.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jsoup-1.11.2/jsoup-1.11.2.iml" filepath="$PROJECT_DIR$/jsoup-1.11.2/jsoup-1.11.2.iml" />
       <module fileurl="file://$PROJECT_DIR$/xstream-1.4.10-java7/xstream-1.4.10-java7.iml" filepath="$PROJECT_DIR$/xstream-1.4.10-java7/xstream-1.4.10-java7.iml" />
     </modules>
   </component>
