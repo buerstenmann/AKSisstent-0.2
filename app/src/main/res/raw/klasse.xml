@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <klasse>
+        <NAME>I1a</NAME>
+        <URL>I1aURL</URL>
+    </klasse>
+    <klasse>
+        <NAME>I2a</NAME>
+        <URL>I2aURL</URL>
+    </klasse>
+    <klasse>
+        <NAME>I3a</NAME>
+        <URL>I3aURL</URL>
+    </klasse>
+    <klasse>
+        <NAME>W1a</NAME>
+        <URL>W1aURL</URL>
+    </klasse>
+    <klasse>
+        <NAME>W2a</NAME>
+        <URL>W2aURL</URL>
+    </klasse>
+    <klasse>
+        <NAME>W3a</NAME>
+        <URL>W3aURL</URL>
+    </klasse>
+</root>

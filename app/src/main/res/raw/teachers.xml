@@ -10,7 +10,7 @@
 
     <teacher id="grünwald">
         <NAME>Grünwald</NAME>
-        <FORENAME>n/a</FORENAME>
+        <FORENAME>Karin</FORENAME>
         <EMAIL>example@altekanti.ch</EMAIL>
         <URL>teacherURL</URL>
         <PATH>examplePath</PATH>
@@ -61,7 +61,7 @@
     <teacher>
         <NAME>Salm</NAME>
         <FORENAME>Ulrich</FORENAME>
-        <EMAIL>example@altekanti.ch</EMAIL>
+        <EMAIL>examplealtekanti.ch</EMAIL>
         <URL>teacherURL</URL>
         <PATH>examplePath</PATH>
 

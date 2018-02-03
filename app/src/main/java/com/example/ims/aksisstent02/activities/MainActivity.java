@@ -1,5 +1,6 @@
-package com.example.ims.aksisstent02;
+package com.example.ims.aksisstent02.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.ims.aksisstent02.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         btnEnter = (Button) findViewById(R.id.btnLogin);     //Defines Button
         etName = (EditText) findViewById(R.id.editName);    //Defines EditTextes
         etClass = (EditText) findViewById(R.id.editKlasse);
+
+        Context context;
 
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override

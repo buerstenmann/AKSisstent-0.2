@@ -1,6 +1,9 @@
-package com.example.ims.aksisstent02;
+package com.example.ims.aksisstent02.services;
 
 import android.content.Context;
+
+import com.example.ims.aksisstent02.R;
+import com.example.ims.aksisstent02.objects.Klasse;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -14,24 +17,22 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 /**
- * Created by Noah on 29.11.2017.
+ * Created by Noah on 25.01.2018.
  */
 
-public class TeachersDAO {
-    String Output1;
-    List<String> Output2 = new ArrayList<String>();
+public class KlassenDAO {
+    List<Klasse> klasse;
     private Context context;
 
-    public TeachersDAO(Context current) {
+    public KlassenDAO(Context current) {
         this.context = current;
     }
 
-    public List<String> doXML() {
-
+    public List<Klasse> doXML() {
+        klasse = new ArrayList<>();
         try {
             // XmlResourceParser is = context.getXml(R.xml.teachers);
-
-            InputStream fXmlFile = context.getResources().openRawResource(R.raw.teachers);
+            InputStream fXmlFile = context.getResources().openRawResource(R.raw.klasse);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             System.out.println("\ndBuilder.parse");
@@ -44,12 +45,11 @@ public class TeachersDAO {
             //   System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 
             System.out.println("\ngetElemetsByTagName");
-            NodeList nList = doc.getElementsByTagName("teacher");
+            NodeList nList = doc.getElementsByTagName("klasse");
 
-            DataActivity Alpha = new DataActivity();
             System.out.println("\n# of elements found :" + nList.getLength());
             for (int temp = 0; temp < nList.getLength(); temp++) {
-
+                Klasse klasseLoop = new Klasse();
                 Node nNode = nList.item(temp);
 
                 System.out.println("\nCurrent Element :" + nNode.getNodeName());
@@ -58,18 +58,16 @@ public class TeachersDAO {
 
                     org.w3c.dom.Element eElement = (org.w3c.dom.Element) nNode;
 
-                    //Output1= "First Name : " + eElement.getElementsByTagName("forename").item(0).getTextContent();
-
-                    System.out.println("\nCurrent NAME     :" + eElement.getElementsByTagName("NAME").item(0).getTextContent());
-                    System.out.println("\nCurrent FORENAME :" + eElement.getElementsByTagName("FORENAME").item(0).getTextContent());
-                    Output2.add(temp, eElement.getElementsByTagName("NAME").item(0).getTextContent());
-
+                    klasseLoop.setKlasseName(eElement.getElementsByTagName("NAME").item(0).getTextContent());
+                    klasseLoop.setKlassenURL(eElement.getElementsByTagName("URL").item(0).getTextContent());
+                    klasse.add(klasseLoop);
+                    System.out.println(klasseLoop.toString() + " -----------------------------------------------------klassenloop");
+                    klasseLoop = null;
                 }
             }
-            System.out.println(Output2);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Output2;
+        return klasse;
     }
 }

@@ -1,6 +1,9 @@
-package com.example.ims.aksisstent02;
+package com.example.ims.aksisstent02.services;
 
 import android.content.Context;
+
+import com.example.ims.aksisstent02.R;
+import com.example.ims.aksisstent02.objects.Room;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -18,14 +21,14 @@ import javax.xml.parsers.DocumentBuilderFactory;
  */
 
 public class RoomDAO {
-    List<String> Output2 = new ArrayList<String>();
+    List<Room> roomList = new ArrayList<>();
     private Context context;
 
     public RoomDAO(Context current) {
         this.context = current;
     }
 
-    public List<String> doXML() {
+    public List<Room> doXML() {
 
         try {
             // XmlResourceParser is = context.getXml(R.xml.teachers);
@@ -45,7 +48,6 @@ public class RoomDAO {
             System.out.println("\ngetElemetsByTagName");
             NodeList nList = doc.getElementsByTagName("ROOM");
 
-            DataActivity Alpha = new DataActivity();
             System.out.println("\n# of elements found :" + nList.getLength());
             for (int temp = 0; temp < nList.getLength(); temp++) {
 
@@ -54,21 +56,18 @@ public class RoomDAO {
                 System.out.println("\nCurrent Element :" + nNode.getNodeName());
 
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-
                     org.w3c.dom.Element eElement = (org.w3c.dom.Element) nNode;
 
-                    //Output1= "First Name : " + eElement.getElementsByTagName("forename").item(0).getTextContent();
-
-                    System.out.println("\nCurrent NUMBER     :" + eElement.getElementsByTagName("NUMBER").item(0).getTextContent());
-                    System.out.println("\nCurrent FORENAME :" + eElement.getElementsByTagName("BUILDING").item(0).getTextContent());
-                    Output2.add(temp, eElement.getElementsByTagName("NUMBER").item(0).getTextContent());
-
+                    Room tempLoopRoom = new Room();
+                    tempLoopRoom.setRoomNumber(eElement.getElementsByTagName("NUMBER").item(0).getTextContent());
+                    tempLoopRoom.setRoomBuilding(eElement.getElementsByTagName("BUILDING").item(0).getTextContent());
+                    roomList.add(tempLoopRoom);
                 }
             }
-            System.out.println(Output2);
+            System.out.println(roomList);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return Output2;
+        return roomList;
     }
 }

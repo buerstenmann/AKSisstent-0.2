@@ -9,21 +9,34 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuActivity" />
+        <activity android:name=".activities.MenuActivity" />
         <activity
-            android:name=".DataActivity"
+            android:name=".activities.DataTeacherActivity"
             android:label="@string/title_activity_data"
+            android:parentActivityName=".activities.MenuActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".NotenActivity" />
-        <activity android:name=".StuplaActivity" />
-        <activity android:name=".PrufungActivity"></activity>
+        <activity
+            android:name=".activities.NotenActivity"
+            android:parentActivityName=".activities.MenuActivity" />
+        <activity
+            android:name=".activities.StuplaActivity"
+            android:parentActivityName=".activities.MenuActivity" />
+        <activity
+            android:name=".activities.PrufungActivity"
+            android:parentActivityName=".activities.MenuActivity" />
+        <activity
+            android:name=".activities.StuplaTagActivity"
+            android:parentActivityName=".activities.MenuActivity" />
+        <activity
+            android:name=".activities.DataRoomActivity"
+            android:parentActivityName=".activities.MenuActivity" />
     </application>
 
 </manifest>
