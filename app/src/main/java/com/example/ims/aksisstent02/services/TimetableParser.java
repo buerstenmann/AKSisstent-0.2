@@ -17,22 +17,18 @@ import java.util.List;
  * Created by Noah on 03.02.2018.
  */
 
-public class TimetableParser extends AsyncTask<String, Void, String> {
-    List<Lessons> lessonsMon = new ArrayList<>();
-    List<Lessons> lessonsTue = new ArrayList<>();
-    List<Lessons> lessonsWen = new ArrayList<>();
-    List<Lessons> lessonsThu = new ArrayList<>();
-    List<Lessons> lessonsFri = new ArrayList<>();
+public class TimetableParser extends AsyncTask<String, Void, Timetable> {
+
 
 
     private Exception exception;
 
-    protected String doInBackground(String[] timetable) {
+    protected Timetable doInBackground(String[] timetable) {
         Timetable tt = new Timetable();
         try {
-            String URL = "http://www.stundenplan.alte-kanti-aarau.ch/Stundenplan_Files/Abteilungen_I3A.htm";
+            String URL = timetable[0];
             System.out.println("URL = " + URL);
-            Document document = document = Jsoup.connect(URL).get(); //get the HTML page
+            Document document = Jsoup.connect(URL).get(); //get the HTML page
             System.out.println("got Document");
             Elements rows = document.select("table[border=\"3\"] > tbody > tr:has(td)"); //select all rows
             System.out.println("Got Rows: " + rows.size());
@@ -76,15 +72,33 @@ public class TimetableParser extends AsyncTask<String, Void, String> {
             System.out.println("DONE");
 
             for (int i = 0; i < 12; i++) {
-                Lessons tempLesson = new Lessons();
-                String[] lessonInfos = interpretInfo(stundenplan[1][i]);
                 System.out.printf("%-15s %-35s %-35s %-35s %-35s %-35s %n", stundenplan[i][0], stundenplan[i][1], stundenplan[i][2], stundenplan[i][3], stundenplan[i][4], stundenplan[i][5]);
 
+                for (int j = 0; i < 5; j++) {
+                    List<Lessons> tempLessonList = new ArrayList<>();
+                    Lessons tempLesson = new Lessons();
+                    String[] lessonInfos = interpretInfo(stundenplan[i][j]);
 
-                lessonsMon.add(tempLesson);
+
+                    tempLesson.setSubject(lessonInfos[0]);
+                    tempLesson.setTeacher(lessonInfos[1]);
+                    tempLesson.setRoom(lessonInfos[2]);
+                    tempLessonList.add(tempLesson);
+                    if (j == 0) {
+                        tt.setLessonsMon(tempLessonList);
+                    } else if (j == 1) {
+                        tt.setLessonsTue(tempLessonList);
+                    } else if (j == 2) {
+                        tt.setLessonsWen(tempLessonList);
+                    } else if (j == 3) {
+                        tt.setLessonsThu(tempLessonList);
+                    } else if (j == 4) {
+                        tt.setLessonsFri(tempLessonList);
+                    }
+
+                }
             }
-
-            return stundenplan;
+            return tt;
         } catch (Exception e) {
             this.exception = e;
             e.printStackTrace();
@@ -98,7 +112,7 @@ public class TimetableParser extends AsyncTask<String, Void, String> {
         String segments[] = input.split(" ");
 
 
-        return output;
+        return segments;
     }
 
     protected void onPostExecute(String feed) {

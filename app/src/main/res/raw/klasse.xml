@@ -2,26 +2,26 @@
 <root>
     <klasse>
         <NAME>I1a</NAME>
-        <URL>I1aURL</URL>
+        <URL>http://www.stundenplan.alte-kanti-aarau.ch/Stundenplan_Files/Abteilungen_I1A.htm</URL>
     </klasse>
     <klasse>
         <NAME>I2a</NAME>
-        <URL>I2aURL</URL>
+        <URL>http://www.stundenplan.alte-kanti-aarau.ch/Stundenplan_Files/Abteilungen_I2A.htm</URL>
     </klasse>
     <klasse>
         <NAME>I3a</NAME>
-        <URL>I3aURL</URL>
+        <URL>http://www.stundenplan.alte-kanti-aarau.ch/Stundenplan_Files/Abteilungen_I3A.htm</URL>
     </klasse>
     <klasse>
         <NAME>W1a</NAME>
-        <URL>W1aURL</URL>
+        <URL>http://www.stundenplan.alte-kanti-aarau.ch/Stundenplan_Files/Abteilungen_W1A.htm</URL>
     </klasse>
     <klasse>
         <NAME>W2a</NAME>
-        <URL>W2aURL</URL>
+        <URL>http://www.stundenplan.alte-kanti-aarau.ch/Stundenplan_Files/Abteilungen_W2A.htm</URL>
     </klasse>
     <klasse>
         <NAME>W3a</NAME>
-        <URL>W3aURL</URL>
+        <URL>http://www.stundenplan.alte-kanti-aarau.ch/Stundenplan_Files/Abteilungen_W3A.htm</URL>
     </klasse>
 </root>

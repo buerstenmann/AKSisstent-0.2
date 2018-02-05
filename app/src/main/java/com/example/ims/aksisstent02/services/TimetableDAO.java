@@ -58,9 +58,9 @@ public class TimetableDAO {
 
     public String parseHTML(String url) {
         String returnXML;
-        Timetable tt = new Timetable();
+        String[] input = {url};
         TimetableParser timetableParser = new TimetableParser();
-        timetableParser.doInBackground(url);
+
 
 //        if ("I3a" == "I3a") {
 //            System.out.println("parse html generate i3att-----------------------------------------------------------");
@@ -89,7 +89,7 @@ public class TimetableDAO {
 //        }
 //        returnXML = ;
 //        deleteTimetable(tt);
-        return toXML(tt);
+        return toXML(timetableParser.doInBackground(input));
     }
 
     public Timetable getTimetable(String name, Context context) {
