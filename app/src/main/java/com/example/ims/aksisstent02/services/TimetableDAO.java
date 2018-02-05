@@ -24,7 +24,7 @@ public class TimetableDAO {
         System.out.println("Start TeacherTimetable Loop");
         for (int i = 0; i < roomList.size(); i++) {
             try {
-                fileMaker.stringToDom(parseHTML(roomList.get(i).getRoomNumber()), roomList.get(i).getRoomNumber(), context);
+                fileMaker.stringToDom(parseHTML(roomList.get(i).getRoomUrl()), roomList.get(i).getRoomNumber(), context);
             } catch (Exception E) {
             }
         }
@@ -34,7 +34,7 @@ public class TimetableDAO {
         System.out.println("Start TeacherTimetable Loop");
         for (int i = 0; i < teacherList.size(); i++) {
             try {
-                fileMaker.stringToDom(parseHTML(teacherList.get(i).getTeacherName()), teacherList.get(i).getTeacherName(), context);
+                fileMaker.stringToDom(parseHTML(teacherList.get(i).getTeacherUrl()), teacherList.get(i).getTeacherName(), context);
             } catch (Exception E) {
             }
         }
@@ -42,6 +42,8 @@ public class TimetableDAO {
 
     public void downloadTtKlasse(List<Klasse> klassenList, Context context) {
         System.out.println("Start timetable loop");
+        fileMaker = new FileMaker();
+        streamer = new XStreamer();
         for (int i = 0; i < klassenList.size(); i++) {
             try {
                 fileMaker.stringToDom(parseHTML(klassenList.get(i).getKlassenURL()), klassenList.get(i).getKlasseName(), context);
@@ -57,6 +59,7 @@ public class TimetableDAO {
         String[] input = {url, "", ""};
         TimetableParser timetableParser = new TimetableParser();
 
+        fileMaker = new FileMaker();
         streamer = new XStreamer();
 
 //        if ("I3a" == "I3a") {
@@ -95,6 +98,8 @@ public class TimetableDAO {
     }
 
     public Timetable getTimetable(String name, Context context) {
+        fileMaker = new FileMaker();
+        streamer = new XStreamer();
         String xmlTt = fileMaker.getTimetableFromFile(context, name);
         return streamer.fromXmlTt(xmlTt);
     }

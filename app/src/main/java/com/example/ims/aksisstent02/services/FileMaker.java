@@ -47,6 +47,7 @@ public class FileMaker {
 
             System.out.println("\nZurück Aus dem File:\n" + sb.toString());
             returnString = sb.toString();
+            System.out.println("returntstring  " + returnString);
 
         } catch (FileNotFoundException e) {
             Log.e("login activity", "File not found: " + e.toString());

@@ -24,5 +24,8 @@ public class Room {
     @Getter
     Timetable roomTimeTable;
 
+    @Setter
+    @Getter
+    String roomUrl;
 
 }

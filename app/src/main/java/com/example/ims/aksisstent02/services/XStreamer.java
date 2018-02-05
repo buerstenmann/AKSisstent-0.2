@@ -44,7 +44,7 @@ public class XStreamer {
 
         xstream.alias("Lessons", Lessons.class);
         //System.out.println("\nfromXML(xml):\n" + xml);
-        System.out.println(xml);
+        System.out.println(xml + "---------------------------------------------------");
         tt = (Object[]) xstream.fromXML(xml);
         fromXml.setLessonsMon((List<Lessons>) tt[0]);
         fromXml.setLessonsTue((List<Lessons>) tt[1]);

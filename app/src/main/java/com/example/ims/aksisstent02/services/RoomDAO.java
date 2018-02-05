@@ -61,6 +61,7 @@ public class RoomDAO {
                     Room tempLoopRoom = new Room();
                     tempLoopRoom.setRoomNumber(eElement.getElementsByTagName("NUMBER").item(0).getTextContent());
                     tempLoopRoom.setRoomBuilding(eElement.getElementsByTagName("BUILDING").item(0).getTextContent());
+                    tempLoopRoom.setRoomUrl(eElement.getElementsByTagName("URL").item(0).getTextContent());
                     roomList.add(tempLoopRoom);
                 }
             }

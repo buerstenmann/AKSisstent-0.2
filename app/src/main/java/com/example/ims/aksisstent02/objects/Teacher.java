@@ -18,7 +18,7 @@ public class Teacher {
 
     @Getter
     @Setter
-    String teacherTtUrl;
+    String teacherUrl;
 
     @Setter
     @Getter

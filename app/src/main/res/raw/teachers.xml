@@ -4,7 +4,7 @@
         <NAME>Schoohf</NAME>
         <FORENAME>Oliver</FORENAME>
         <EMAIL>example@altekanti.ch</EMAIL>
-        <URL>teacherURL</URL>
+        <URL>http://www.stundenplan.alte-kanti-aarau.ch/Lehrer/Lehrer_SooOl.htm</URL>
         <PATH>examplePath</PATH>
     </teacher>
 
@@ -12,58 +12,17 @@
         <NAME>Grünwald</NAME>
         <FORENAME>Karin</FORENAME>
         <EMAIL>example@altekanti.ch</EMAIL>
-        <URL>teacherURL</URL>
+        <URL>http://www.stundenplan.alte-kanti-aarau.ch/Lehrer/Lehrer_GruKa.htm</URL>
         <PATH>examplePath</PATH>
     </teacher>
 
-    <teacher id="flick">
-        <NAME>Flick</NAME>
-        <FORENAME>Alexander</FORENAME>
-        <EMAIL>example@altekanti.ch</EMAIL>
-        <URL>teacherURL</URL>
-        <PATH>examplePath</PATH>
-    </teacher>
-
-    <teacher id="fiechter">
-        <NAME>Fiechter</NAME>
-        <FORENAME>Sascha</FORENAME>
-        <EMAIL>example@altekanti.ch</EMAIL>
-        <URL>teacherURL</URL>
-        <PATH>examplePath</PATH>
-    </teacher>
 
     <teacher id="engel">
         <NAME>Engel</NAME>
         <FORENAME>Jenifer</FORENAME>
         <EMAIL>example@altekanti.ch</EMAIL>
-        <URL>teacherURL</URL>
+        <URL>http://www.stundenplan.alte-kanti-aarau.ch/Lehrer/Lehrer_EngJe.htm</URL>
         <PATH>examplePath</PATH>
     </teacher>
 
-    <teacher>
-        <NAME>Jordi</NAME>
-        <FORENAME>Stefan</FORENAME>
-        <EMAIL>example@altekanti.ch</EMAIL>
-        <URL>teacherURL</URL>
-        <PATH>examplePath</PATH>
-
-    </teacher>
-
-    <teacher>
-        <NAME>Lustig</NAME>
-        <FORENAME>Peter</FORENAME>
-        <EMAIL>examplealtekantich</EMAIL>
-        <URL>teacherURL</URL>
-        <PATH>examplePath</PATH>
-
-    </teacher>
-
-    <teacher>
-        <NAME>Salm</NAME>
-        <FORENAME>Ulrich</FORENAME>
-        <EMAIL>examplealtekanti.ch</EMAIL>
-        <URL>teacherURL</URL>
-        <PATH>examplePath</PATH>
-
-    </teacher>
 </root>

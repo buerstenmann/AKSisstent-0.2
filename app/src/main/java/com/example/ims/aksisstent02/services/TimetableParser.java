@@ -20,7 +20,6 @@ import java.util.List;
 public class TimetableParser extends AsyncTask<String, Void, Timetable> {
 
 
-
     private Exception exception;
 
     protected Timetable doInBackground(String[] timetable) {
@@ -71,33 +70,44 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
             }
             System.out.println("DONE");
 
-            for (int i = 0; i < 13; i++) {
-                System.out.println("-----------------------------------------------------------------------------------------------------------------------");
+            List<Lessons> monLessonList = new ArrayList<>();
+            List<Lessons> tueLessonList = new ArrayList<>();
+            List<Lessons> wenLessonList = new ArrayList<>();
+            List<Lessons> thuLessonList = new ArrayList<>();
+            List<Lessons> friLessonList = new ArrayList<>();
+            for (int i = 1; i < 13; i++) {
+//                System.out.println("-----------------------------------------------------------------------------------------------------------------------");
                 System.out.printf("%-15s %-35s %-35s %-35s %-35s %-35s %n", stundenplan[i][0], stundenplan[i][1], stundenplan[i][2], stundenplan[i][3], stundenplan[i][4], stundenplan[i][5]);
-                System.out.println("--------------------------------------------------------------------------------------------------");
-                for (int j = 0; j < 13; j++) {
-                    List<Lessons> tempLessonList = new ArrayList<>();
+//                System.out.println("--------------------------------------------------------------------------------------------------");
+
+
+                for (int j = 1; j < 6; j++) {
+
                     Lessons tempLesson = new Lessons();
-//                    String[] lessonInfos = interpretInfo(stundenplan[i][j]);
 
-                    System.out.println(stundenplan[i][j]);
-                    tempLesson.setSubject(stundenplan[i][j]);
-//                    tempLesson.setTeacher(lessonInfos[1]);
-//                    tempLesson.setRoom(lessonInfos[2]);
-                    tempLessonList.add(tempLesson);
-                    if (i == 0) {
-                        tt.setLessonsMon(tempLessonList);
-                    } else if (i == 1) {
-                        tt.setLessonsTue(tempLessonList);
-                    } else if (i == 2) {
-                        tt.setLessonsWen(tempLessonList);
-                    } else if (i == 3) {
-                        tt.setLessonsThu(tempLessonList);
-                    } else if (i == 4) {
-                        tt.setLessonsFri(tempLessonList);
+                    String[] lessonInfos = interpretInfo(stundenplan[i][j]);
+
+                    tempLesson.setSubject(lessonInfos[0]);
+                    tempLesson.setTeacher(lessonInfos[1]);
+                    tempLesson.setRoom(lessonInfos[2]);
+
+                    if (j == 1) {
+                        monLessonList.add(tempLesson);
+                    } else if (j == 2) {
+                        tueLessonList.add(tempLesson);
+                    } else if (j == 3) {
+                        wenLessonList.add(tempLesson);
+                    } else if (j == 4) {
+                        thuLessonList.add(tempLesson);
+                    } else if (j == 5) {
+                        friLessonList.add(tempLesson);
                     }
-
                 }
+                tt.setLessonsMon(monLessonList);
+                tt.setLessonsTue(tueLessonList);
+                tt.setLessonsWen(wenLessonList);
+                tt.setLessonsThu(thuLessonList);
+                tt.setLessonsFri(friLessonList);
             }
             return tt;
         } catch (Exception e) {
@@ -108,12 +118,30 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
         }
     }
 
-//    private String[] interpretInfo(String input) {
-//        String[] output = new String[2];
-//        String segments[] = input.split(" ");
-//
-//
-//        return segments;
-//    }
+    private String[] interpretInfo(String input) {
+        System.out.println("interpretinfo input  " + input);
+        String[] output = new String[3];
+        String[] segments = input.split(" ");
+        System.out.println(segments.length + "         " + output.length);
+        if (input != "") {
+            if (segments.length < 3) {
+                output[0] = segments[0];
+                output[1] = "";
+                output[2] = "";
+            } else {
+                output[0] = segments[0];
+                output[1] = segments[1];
+                output[2] = segments[2];
+            }
+        }
+//        for (int i = 0; i > 2; i++) {
+//            if (segments[i] == null) {
+//                segments[i] = "";
+//                System.out.println(segments[i]);
+//            }
+//        }
+
+        return output;
+    }
 
 }
