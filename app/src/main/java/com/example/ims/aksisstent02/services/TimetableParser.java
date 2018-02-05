@@ -28,7 +28,7 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
         try {
             String URL = timetable[0];
             System.out.println("URL = " + URL);
-            Document document = Jsoup.connect(URL).get(); //get the HTML page
+            Document document = document = Jsoup.connect(URL).get(); //get the HTML page
             System.out.println("got Document");
             Elements rows = document.select("table[border=\"3\"] > tbody > tr:has(td)"); //select all rows
             System.out.println("Got Rows: " + rows.size());
@@ -71,28 +71,29 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
             }
             System.out.println("DONE");
 
-            for (int i = 0; i < 12; i++) {
+            for (int i = 0; i < 13; i++) {
+                System.out.println("-----------------------------------------------------------------------------------------------------------------------");
                 System.out.printf("%-15s %-35s %-35s %-35s %-35s %-35s %n", stundenplan[i][0], stundenplan[i][1], stundenplan[i][2], stundenplan[i][3], stundenplan[i][4], stundenplan[i][5]);
-
-                for (int j = 0; i < 5; j++) {
+                System.out.println("--------------------------------------------------------------------------------------------------");
+                for (int j = 0; j < 13; j++) {
                     List<Lessons> tempLessonList = new ArrayList<>();
                     Lessons tempLesson = new Lessons();
-                    String[] lessonInfos = interpretInfo(stundenplan[i][j]);
+//                    String[] lessonInfos = interpretInfo(stundenplan[i][j]);
 
-
-                    tempLesson.setSubject(lessonInfos[0]);
-                    tempLesson.setTeacher(lessonInfos[1]);
-                    tempLesson.setRoom(lessonInfos[2]);
+                    System.out.println(stundenplan[i][j]);
+                    tempLesson.setSubject(stundenplan[i][j]);
+//                    tempLesson.setTeacher(lessonInfos[1]);
+//                    tempLesson.setRoom(lessonInfos[2]);
                     tempLessonList.add(tempLesson);
-                    if (j == 0) {
+                    if (i == 0) {
                         tt.setLessonsMon(tempLessonList);
-                    } else if (j == 1) {
+                    } else if (i == 1) {
                         tt.setLessonsTue(tempLessonList);
-                    } else if (j == 2) {
+                    } else if (i == 2) {
                         tt.setLessonsWen(tempLessonList);
-                    } else if (j == 3) {
+                    } else if (i == 3) {
                         tt.setLessonsThu(tempLessonList);
-                    } else if (j == 4) {
+                    } else if (i == 4) {
                         tt.setLessonsFri(tempLessonList);
                     }
 
@@ -107,16 +108,12 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
         }
     }
 
-    private String[] interpretInfo(String input) {
-        String[] output = new String[2];
-        String segments[] = input.split(" ");
+//    private String[] interpretInfo(String input) {
+//        String[] output = new String[2];
+//        String segments[] = input.split(" ");
+//
+//
+//        return segments;
+//    }
 
-
-        return segments;
-    }
-
-    protected void onPostExecute(String feed) {
-        // TODO: check this.exception
-        // TODO: do something with the feed
-    }
 }

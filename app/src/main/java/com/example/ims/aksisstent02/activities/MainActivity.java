@@ -10,6 +10,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ims.aksisstent02.R;
+import com.example.ims.aksisstent02.objects.User;
+import com.example.ims.aksisstent02.services.FileMaker;
+import com.example.ims.aksisstent02.services.XStreamer;
+
+import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     Button btnEnter;
     EditText etClass;
 
+    User user;
+    XStreamer streamer;
+    FileMaker fileMaker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
         etName = (EditText) findViewById(R.id.editName);    //Defines EditTextes
         etClass = (EditText) findViewById(R.id.editKlasse);
 
-        Context context;
+        user = new User();
+        streamer = new XStreamer();
+        fileMaker = new FileMaker();
 
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,16 +48,27 @@ public class MainActivity extends AppCompatActivity {
 
                 entryName = etName.getText().toString();
                 entryClass = etClass.getText().toString();
+                user.setName(entryName);
+                user.setKlasse(entryClass);
 
 
                 if (entryName.trim().length() > 0 & entryClass.trim().length() > 0) {  //entryName != "Name" & entryClass !="Klasse"    muss später bei Veröfentlichung hinzugefügt werden. Auskommentiert um einfacher testen zu können
-                    startActivity(new Intent(MainActivity.this, MenuActivity.class)); //open Menu Acitvity
+                    try {
+                        startActivity(new Intent(MainActivity.this, MenuActivity.class)); //open Menu Acitvity
+                        userToDom(user, MenuActivity.menuContext);
+                    } catch (Exception e) {
+                    }
                 } else {
                     Toast toast = Toast.makeText(getApplicationContext(), "Bitte geben Sie etwas ein", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }
         });
+    }
+
+    public void userToDom(User userSource, Context context) throws IOException {
+        String userXml = streamer.toXmlUser(userSource);
+        fileMaker.stringToDom(userXml, "user", context);
     }
 }
 

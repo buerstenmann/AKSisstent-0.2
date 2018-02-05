@@ -1,21 +1,13 @@
 package com.example.ims.aksisstent02.services;
 
 import android.content.Context;
-import android.util.Log;
 
 import com.example.ims.aksisstent02.objects.Klasse;
 import com.example.ims.aksisstent02.objects.Lessons;
 import com.example.ims.aksisstent02.objects.Room;
 import com.example.ims.aksisstent02.objects.Teacher;
 import com.example.ims.aksisstent02.objects.Timetable;
-import com.thoughtworks.xstream.XStream;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,11 +16,15 @@ import java.util.List;
  */
 
 public class TimetableDAO {
+
+    XStreamer streamer;
+    FileMaker fileMaker;
+
     public void downloadTtRoom(List<Room> roomList, Context context) {
         System.out.println("Start TeacherTimetable Loop");
         for (int i = 0; i < roomList.size(); i++) {
             try {
-                stringToDom(parseHTML(roomList.get(i).getRoomNumber()), roomList.get(i).getRoomNumber(), context);
+                fileMaker.stringToDom(parseHTML(roomList.get(i).getRoomNumber()), roomList.get(i).getRoomNumber(), context);
             } catch (Exception E) {
             }
         }
@@ -38,7 +34,7 @@ public class TimetableDAO {
         System.out.println("Start TeacherTimetable Loop");
         for (int i = 0; i < teacherList.size(); i++) {
             try {
-                stringToDom(parseHTML(teacherList.get(i).getTeacherName()), teacherList.get(i).getTeacherName(), context);
+                fileMaker.stringToDom(parseHTML(teacherList.get(i).getTeacherName()), teacherList.get(i).getTeacherName(), context);
             } catch (Exception E) {
             }
         }
@@ -48,7 +44,7 @@ public class TimetableDAO {
         System.out.println("Start timetable loop");
         for (int i = 0; i < klassenList.size(); i++) {
             try {
-                stringToDom(parseHTML(klassenList.get(i).getKlassenURL()), klassenList.get(i).getKlasseName(), context);
+                fileMaker.stringToDom(parseHTML(klassenList.get(i).getKlassenURL()), klassenList.get(i).getKlasseName(), context);
             } catch (Exception E) {
             }
 
@@ -58,9 +54,10 @@ public class TimetableDAO {
 
     public String parseHTML(String url) {
         String returnXML;
-        String[] input = {url};
+        String[] input = {url, "", ""};
         TimetableParser timetableParser = new TimetableParser();
 
+        streamer = new XStreamer();
 
 //        if ("I3a" == "I3a") {
 //            System.out.println("parse html generate i3att-----------------------------------------------------------");
@@ -88,13 +85,18 @@ public class TimetableDAO {
 //            tt.setKlassenname("Example");
 //        }
 //        returnXML = ;
-//        deleteTimetable(tt);
-        return toXML(timetableParser.doInBackground(input));
+        String returnString;
+        try {
+            returnString = streamer.toXmlTt(timetableParser.execute(input).get());
+        } catch (Exception e) {
+            returnString = "";
+        }
+        return returnString;
     }
 
     public Timetable getTimetable(String name, Context context) {
-        String xmlTt = getTimetableFromFile(context, name);
-        return fromXML(xmlTt);
+        String xmlTt = fileMaker.getTimetableFromFile(context, name);
+        return streamer.fromXmlTt(xmlTt);
     }
 
 
@@ -106,82 +108,6 @@ public class TimetableDAO {
         tt.setLessonsFri(null);
     }
 
-    public static void stringToDom(String xmlSource, String name, Context context) throws IOException {
-        FileOutputStream outputStream;
-
-        try {
-            outputStream = context.openFileOutput(name, Context.MODE_PRIVATE);
-            outputStream.write(xmlSource.getBytes("UTF-8"));
-            outputStream.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String getTimetableFromFile(Context context, String file) {
-        String returnString = "";
-        String line;
-
-        try {
-            System.out.println(file + " file");
-            System.out.println("\nFile Direct000000000ory.... ");
-
-            FileInputStream fin = context.openFileInput(file);
-            StringBuilder sb = new StringBuilder();
-
-            InputStreamReader inputStream = new InputStreamReader(fin);
-            BufferedReader bufferedReader = new BufferedReader(inputStream);
-
-            while ((line = bufferedReader.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-
-            System.out.println("\nZurück Aus dem File:\n" + sb.toString());
-            returnString = sb.toString();
-
-        } catch (FileNotFoundException e) {
-            Log.e("login activity", "File not found: " + e.toString());
-            System.out.println("file not found");
-        } catch (IOException e) {
-            Log.e("login activity", "Can not read file: " + e.toString());
-        }
-        return returnString;
-    }
-
-    String toXML(Timetable tt) {
-        Object[] ttObjectList = new Object[6];
-
-        ttObjectList[0] = tt.getLessonsMon();
-        ttObjectList[1] = tt.getLessonsTue();
-        ttObjectList[2] = tt.getLessonsWen();
-        ttObjectList[3] = tt.getLessonsThu();
-        ttObjectList[4] = tt.getLessonsFri();
-        ttObjectList[5] = tt.getKlassenname();
-
-        XStream xstream = new XStream();
-        xstream.alias("Lessons", Lessons.class);
-        String xml = xstream.toXML(ttObjectList);
-        // System.out.println("\nXML:\n" + xml);
-        return xml;
-    }
-
-    public Timetable fromXML(String xml) {
-        Object[] tt;
-        Timetable fromXml = new Timetable();
-        XStream xstream = new XStream();
-
-        xstream.alias("Lessons", Lessons.class);
-        //System.out.println("\nfromXML(xml):\n" + xml);
-        System.out.println(xml);
-        tt = (Object[]) xstream.fromXML(xml);
-        fromXml.setLessonsMon((List<Lessons>) tt[0]);
-        fromXml.setLessonsTue((List<Lessons>) tt[1]);
-        fromXml.setLessonsWen((List<Lessons>) tt[2]);
-        fromXml.setLessonsThu((List<Lessons>) tt[3]);
-        fromXml.setLessonsFri((List<Lessons>) tt[4]);
-        fromXml.setKlassenname((String) tt[5]);
-        return fromXml;
-    }
 
     private Timetable getI3aTt() {
         Timetable tt = new Timetable();
