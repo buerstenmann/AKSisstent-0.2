@@ -11,7 +11,10 @@ import android.widget.TextView;
 import com.example.ims.aksisstent02.R;
 import com.example.ims.aksisstent02.objects.Lessons;
 import com.example.ims.aksisstent02.objects.Timetable;
+import com.example.ims.aksisstent02.objects.User;
+import com.example.ims.aksisstent02.services.FileMaker;
 import com.example.ims.aksisstent02.services.TimetableDAO;
+import com.example.ims.aksisstent02.services.XStreamer;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,6 +40,10 @@ public class StuplaTagActivity extends AppCompatActivity {
 
     String klassenName;
 
+    User user;
+    XStreamer streamer;
+    FileMaker fileMaker;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,15 +61,18 @@ public class StuplaTagActivity extends AppCompatActivity {
         btnThu = (Button) findViewById(R.id.btnThu);
         btnFri = (Button) findViewById(R.id.btnFri);
 
-
         for (int i = 0; i < 12; i++) {
             viewSubject[i] = (TextView) findViewById(idSubject[i]);
             viewTeacher[i] = (TextView) findViewById(idTeacher[i]);
             viewRoom[i] = (TextView) findViewById(idRoom[i]);
         }
 
+        fileMaker = new FileMaker();
+        streamer = new XStreamer();
+        user = streamer.fromXmlUser(fileMaker.getTimetableFromFile(MainActivity.mainContext, "user"));
+
         TimetableDAO ttDao = new TimetableDAO();
-        tt = ttDao.getTimetable("I3a", MenuActivity.menuContext);
+        tt = ttDao.getTimetable(user.getKlasse(), MenuActivity.menuContext);
         loadDay(tt, getCurrentDay());
 
         btnWeek.setOnClickListener(new View.OnClickListener() {

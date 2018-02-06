@@ -119,10 +119,10 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
     }
 
     private String[] interpretInfo(String input) {
-        System.out.println("interpretinfo input  " + input);
+//        System.out.println("interpretinfo input  " + input);
         String[] output = new String[3];
         String[] segments = input.split(" ");
-        System.out.println(segments.length + "         " + output.length);
+//        System.out.println(segments.length + "         " + output.length);
         if (input != "") {
             if (segments.length < 3) {
                 output[0] = segments[0];

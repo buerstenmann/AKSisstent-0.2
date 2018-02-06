@@ -35,7 +35,7 @@ public class TeachersDAO {
             InputStream fXmlFile = context.getResources().openRawResource(R.raw.teachers);
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            System.out.println("\ndBuilder.parse");
+//            System.out.println("\ndBuilder.parse");
             Document doc = dBuilder.parse(fXmlFile);
 
             //optional, but recommended
@@ -44,15 +44,15 @@ public class TeachersDAO {
 
             //   System.out.println("Root element :" + doc.getDocumentElement().getNodeName());
 
-            System.out.println("\ngetElemetsByTagName");
+//            System.out.println("\ngetElemetsByTagName");
             NodeList nList = doc.getElementsByTagName("teacher");
 
-            System.out.println("\n# of elements found :" + nList.getLength());
+//            System.out.println("\n# of elements found :" + nList.getLength());
             for (int temp = 0; temp < nList.getLength(); temp++) {
                 Teacher teacherLoop = new Teacher();
                 Node nNode = nList.item(temp);
 
-                System.out.println("\nCurrent Element :" + nNode.getNodeName());
+//                System.out.println("\nCurrent Element :" + nNode.getNodeName());
 
                 if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 
@@ -62,6 +62,7 @@ public class TeachersDAO {
                     teacherLoop.setTeacherName(eElement.getElementsByTagName("NAME").item(0).getTextContent());
                     teacherLoop.setTeacherEmail(eElement.getElementsByTagName("EMAIL").item(0).getTextContent());
                     teacherLoop.setTeacherUrl(eElement.getElementsByTagName("URL").item(0).getTextContent());
+                    teacherLoop.setTeacherAbk(eElement.getElementsByTagName("ABK").item(0).getTextContent());
 //                    teacherLoop.setTeacherPictureId(Integer.parseInt(eElement.getElementsByTagName("PATH").item(0).getTextContent()));
                     teacher.add(teacherLoop);
                     teacherLoop = null;

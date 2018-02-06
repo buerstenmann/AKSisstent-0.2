@@ -22,6 +22,7 @@
         app:layout_constraintVertical_bias="0.982" />
 
     <TableLayout
+        android:id="@+id/tableLayout3"
         android:layout_width="360dp"
         android:layout_height="443dp"
         android:layout_marginBottom="8dp"
@@ -101,7 +102,7 @@
                 android:id="@+id/mon1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -109,7 +110,7 @@
                 android:id="@+id/tue1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -117,7 +118,7 @@
                 android:id="@+id/wen1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -125,7 +126,7 @@
                 android:id="@+id/thu1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -133,7 +134,7 @@
                 android:id="@+id/fri1"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -144,7 +145,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/time2" />
 
@@ -152,7 +153,7 @@
                 android:id="@+id/mon2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -160,7 +161,7 @@
                 android:id="@+id/tue2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -168,7 +169,7 @@
                 android:id="@+id/wen2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -176,7 +177,7 @@
                 android:id="@+id/thu2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -184,7 +185,7 @@
                 android:id="@+id/fri2"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -203,7 +204,7 @@
                 android:id="@+id/mon3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -211,7 +212,7 @@
                 android:id="@+id/tue3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -219,7 +220,7 @@
                 android:id="@+id/wen3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -227,7 +228,7 @@
                 android:id="@+id/thu3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -235,7 +236,7 @@
                 android:id="@+id/fri3"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -254,7 +255,7 @@
                 android:id="@+id/mon4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -262,7 +263,7 @@
                 android:id="@+id/tue4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -270,7 +271,7 @@
                 android:id="@+id/wen4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -278,7 +279,7 @@
                 android:id="@+id/thu4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -286,7 +287,7 @@
                 android:id="@+id/fri4"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -305,7 +306,7 @@
                 android:id="@+id/mon5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -313,7 +314,7 @@
                 android:id="@+id/tue5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -321,7 +322,7 @@
                 android:id="@+id/wen5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -329,7 +330,7 @@
                 android:id="@+id/thu5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -337,7 +338,7 @@
                 android:id="@+id/fri5"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -356,7 +357,7 @@
                 android:id="@+id/mon6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -364,7 +365,7 @@
                 android:id="@+id/tue6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -372,7 +373,7 @@
                 android:id="@+id/wen6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -380,7 +381,7 @@
                 android:id="@+id/thu6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -388,7 +389,7 @@
                 android:id="@+id/fri6"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -399,7 +400,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/time7" />
 
@@ -407,7 +408,7 @@
                 android:id="@+id/mon7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -415,7 +416,7 @@
                 android:id="@+id/tue7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -423,7 +424,7 @@
                 android:id="@+id/wen7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -431,7 +432,7 @@
                 android:id="@+id/thu7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -439,7 +440,7 @@
                 android:id="@+id/fri7"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -458,7 +459,7 @@
                 android:id="@+id/mon8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -466,7 +467,7 @@
                 android:id="@+id/tue8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -474,7 +475,7 @@
                 android:id="@+id/wen8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -482,7 +483,7 @@
                 android:id="@+id/thu8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -490,7 +491,7 @@
                 android:id="@+id/fri8"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -501,7 +502,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/time9" />
 
@@ -509,7 +510,7 @@
                 android:id="@+id/mon9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -517,7 +518,7 @@
                 android:id="@+id/tue9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -525,7 +526,7 @@
                 android:id="@+id/wen9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -533,7 +534,7 @@
                 android:id="@+id/thu9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -541,7 +542,7 @@
                 android:id="@+id/fri9"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -560,7 +561,7 @@
                 android:id="@+id/mon10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -568,7 +569,7 @@
                 android:id="@+id/tue10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -576,7 +577,7 @@
                 android:id="@+id/wen10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -584,7 +585,7 @@
                 android:id="@+id/thu10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -592,7 +593,7 @@
                 android:id="@+id/fri10"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -611,7 +612,7 @@
                 android:id="@+id/mon11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -619,7 +620,7 @@
                 android:id="@+id/tue11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -627,7 +628,7 @@
                 android:id="@+id/wen11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -635,7 +636,7 @@
                 android:id="@+id/thu11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -643,7 +644,7 @@
                 android:id="@+id/fri11"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
@@ -662,7 +663,7 @@
                 android:id="@+id/mon12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -670,7 +671,7 @@
                 android:id="@+id/tue12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -678,7 +679,7 @@
                 android:id="@+id/wen12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -686,7 +687,7 @@
                 android:id="@+id/thu12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
 
@@ -694,10 +695,57 @@
                 android:id="@+id/fri12"
                 android:layout_width="60dp"
                 android:layout_height="match_parent"
-
+                android:clickable="true"
                 android:padding="3dip"
                 android:text="@string/emptyView" />
         </TableRow>
 
     </TableLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="276dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="52dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/viewLessonSubject"
+            android:layout_width="113dp"
+            android:layout_height="22dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.121" />
+
+        <TextView
+            android:id="@+id/viewLessonTeacher"
+            android:layout_width="116dp"
+            android:layout_height="25dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewLessonSubject"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/viewLessonRoom"
+            android:layout_width="126dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="72dp"
+            android:layout_marginTop="76dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

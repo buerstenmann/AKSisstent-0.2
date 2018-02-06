@@ -31,4 +31,8 @@ public class Teacher {
     @Getter
     @Setter
     int teacherPictureId;
+
+    @Getter
+    @Setter
+    String teacherAbk;
 }

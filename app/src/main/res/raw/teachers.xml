@@ -6,6 +6,7 @@
         <EMAIL>example@altekanti.ch</EMAIL>
         <URL>http://www.stundenplan.alte-kanti-aarau.ch/Lehrer/Lehrer_SooOl.htm</URL>
         <PATH>examplePath</PATH>
+        <ABK>SooOl</ABK>
     </teacher>
 
     <teacher id="grünwald">
@@ -14,6 +15,7 @@
         <EMAIL>example@altekanti.ch</EMAIL>
         <URL>http://www.stundenplan.alte-kanti-aarau.ch/Lehrer/Lehrer_GruKa.htm</URL>
         <PATH>examplePath</PATH>
+        <ABK>GruKa</ABK>
     </teacher>
 
 
@@ -23,6 +25,7 @@
         <EMAIL>example@altekanti.ch</EMAIL>
         <URL>http://www.stundenplan.alte-kanti-aarau.ch/Lehrer/Lehrer_EngJe.htm</URL>
         <PATH>examplePath</PATH>
+        <ABK>EngJe</ABK>
     </teacher>
 
 </root>

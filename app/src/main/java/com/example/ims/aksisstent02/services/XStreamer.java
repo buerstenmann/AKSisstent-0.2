@@ -54,4 +54,11 @@ public class XStreamer {
         fromXml.setKlassenname((String) tt[5]);
         return fromXml;
     }
+
+    public User fromXmlUser(String xml) {
+        XStream xstream = new XStream();
+        xstream.alias("User", User.class);
+        return (User) xstream.fromXML(xml);
+
+    }
 }

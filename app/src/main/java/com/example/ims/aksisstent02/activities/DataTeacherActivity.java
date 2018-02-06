@@ -77,6 +77,7 @@ public class DataTeacherActivity extends AppCompatActivity {
             friTextView[i] = (TextView) findViewById(friId[i]);
         }
 
+
         loadTt(teacher, menuContext);
     }
 

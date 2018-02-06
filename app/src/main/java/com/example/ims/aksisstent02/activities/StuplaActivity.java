@@ -23,6 +23,12 @@ public class StuplaActivity extends AppCompatActivity {
     TextView[] thuTextView = new TextView[12];
     TextView[] friTextView = new TextView[12];
 
+    Button btnDay;
+    TextView viewDetailsSubject;
+    TextView viewDetailsTeacher;
+    TextView viewDetailsRoom;
+
+    Timetable tt;
 
     public StuplaActivity() {
         System.out.println("guggibuu");
@@ -43,7 +49,10 @@ public class StuplaActivity extends AppCompatActivity {
         int[] friId = {R.id.fri1, R.id.fri2, R.id.fri3, R.id.fri4, R.id.fri5, R.id.fri6, R.id.fri7, R.id.fri8, R.id.fri9, R.id.fri10, R.id.fri11, R.id.fri12};
         System.out.println(monId);
 
-        Button btnDay = (Button) findViewById(R.id.btnDay);
+        btnDay = (Button) findViewById(R.id.btnDay);
+        viewDetailsSubject = (TextView) findViewById(R.id.viewLessonSubject);
+        viewDetailsTeacher = (TextView) findViewById(R.id.viewLessonTeacher);
+        viewDetailsRoom = (TextView) findViewById(R.id.viewLessonRoom);
 
         for (int i = 0; i < 12; i++) {
             monTextView[i] = (TextView) findViewById(monId[i]);
@@ -53,7 +62,7 @@ public class StuplaActivity extends AppCompatActivity {
             friTextView[i] = (TextView) findViewById(friId[i]);
         }
 
-        loadTt(className);
+        tt = loadTt(className);
 
 
         btnDay.setOnClickListener(new View.OnClickListener() {
@@ -63,12 +72,89 @@ public class StuplaActivity extends AppCompatActivity {
 
             }
         });
+        for (int i = 0; i < 12; i++) {
+            if (monTextView[i].getText().toString() != "") {
+                final int j = i;
+                monTextView[i].setOnClickListener(new View.OnClickListener() {
+
+                                                      @Override
+                                                      public void onClick(View v) {
+//                                                          viewDetails.getBackground().setAlpha(255);
+                                                          viewDetailsSubject.setText(tt.getLessonsMon().get(j).getSubject());
+                                                          viewDetailsTeacher.setText(tt.getLessonsMon().get(j).getTeacher());
+                                                          viewDetailsRoom.setText(tt.getLessonsMon().get(j).getRoom());
+                                                      }
+                                                  }
+                );
+            }
+
+            if (tueTextView[i].getText().toString() != "") {
+                final int j = i;
+                tueTextView[i].setOnClickListener(new View.OnClickListener() {
+
+                                                      @Override
+                                                      public void onClick(View v) {
+//                                                          viewDetails.getBackground().setAlpha(255);
+                                                          viewDetailsSubject.setText(tt.getLessonsTue().get(j).getSubject());
+                                                          viewDetailsTeacher.setText(tt.getLessonsTue().get(j).getTeacher());
+                                                          viewDetailsRoom.setText(tt.getLessonsTue().get(j).getRoom());
+                                                      }
+                                                  }
+                );
+            }
+
+            if (wenTextView[i].getText().toString() != "") {
+                final int j = i;
+                wenTextView[i].setOnClickListener(new View.OnClickListener() {
+
+                                                      @Override
+                                                      public void onClick(View v) {
+//                                                          viewDetails.getBackground().setAlpha(255);
+                                                          viewDetailsSubject.setText(tt.getLessonsWen().get(j).getSubject());
+                                                          viewDetailsTeacher.setText(tt.getLessonsWen().get(j).getTeacher());
+                                                          viewDetailsRoom.setText(tt.getLessonsWen().get(j).getRoom());
+                                                      }
+                                                  }
+                );
+            }
+
+            if (thuTextView[i].getText().toString() != "") {
+                final int j = i;
+                thuTextView[i].setOnClickListener(new View.OnClickListener() {
+
+                                                      @Override
+                                                      public void onClick(View v) {
+//                                                          viewDetails.getBackground().setAlpha(255);
+                                                          viewDetailsSubject.setText(tt.getLessonsThu().get(j).getSubject());
+                                                          viewDetailsTeacher.setText(tt.getLessonsThu().get(j).getTeacher());
+                                                          viewDetailsRoom.setText(tt.getLessonsThu().get(j).getRoom());
+                                                      }
+                                                  }
+                );
+            }
+
+            if (friTextView[i].getText().toString() != "") {
+                final int j = i;
+                friTextView[i].setOnClickListener(new View.OnClickListener() {
+
+                                                      @Override
+                                                      public void onClick(View v) {
+//                                                          viewDetails.getBackground().setAlpha(255);
+                                                          viewDetailsSubject.setText(tt.getLessonsFri().get(j).getSubject());
+                                                          viewDetailsTeacher.setText(tt.getLessonsFri().get(j).getTeacher());
+                                                          viewDetailsRoom.setText(tt.getLessonsFri().get(j).getRoom());
+                                                      }
+                                                  }
+                );
+            }
+        }
     }
 
-    public void loadTt(String className) {
-        Timetable timetable = new Timetable();
+
+    public Timetable loadTt(String className) {
+        Timetable timetable;
         TimetableDAO timeDao = new TimetableDAO();
-        timetable = timeDao.getTimetable("I3a", MenuActivity.menuContext);
+        timetable = timeDao.getTimetable(className, MenuActivity.menuContext);
 
         List<Lessons> lessonMon = timetable.getLessonsMon();
         List<Lessons> lessonTue = timetable.getLessonsTue();
@@ -84,6 +170,7 @@ public class StuplaActivity extends AppCompatActivity {
             friTextView[i].setText(getSafeSubject(lessonFri, i));
 
         }
+        return timetable;
     }
 
     private String getSafeSubject(List<Lessons> lesson, int index) {
