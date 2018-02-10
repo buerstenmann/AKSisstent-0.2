@@ -39,4 +39,5 @@
     <string name="time10">15:50</string>
     <string name="time11">16:45</string>
     <string name="time12">17:35</string>
+    <string name="cab_delete">Einträge löschen</string>
 </resources>
