@@ -10,7 +10,9 @@ import android.widget.TextView;
 import com.example.ims.aksisstent02.R;
 import com.example.ims.aksisstent02.objects.Lessons;
 import com.example.ims.aksisstent02.objects.Timetable;
+import com.example.ims.aksisstent02.services.FileMaker;
 import com.example.ims.aksisstent02.services.TimetableDAO;
+import com.example.ims.aksisstent02.services.XStreamer;
 
 import java.util.List;
 
@@ -29,6 +31,8 @@ public class StuplaActivity extends AppCompatActivity {
     TextView viewDetailsRoom;
 
     Timetable tt;
+    XStreamer streamer;
+    FileMaker fileMaker;
 
     public StuplaActivity() {
         System.out.println("guggibuu");
@@ -39,8 +43,10 @@ public class StuplaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stupla);
 
-        Intent intent = getIntent();
-        className = intent.getStringExtra(Intent.EXTRA_TEXT);
+        streamer = new XStreamer();
+        fileMaker = new FileMaker();
+
+        className = streamer.fromXmlUser(fileMaker.getTimetableFromFile(MainActivity.mainContext, "user")).getKlasse();
 
         int[] monId = {R.id.mon1, R.id.mon2, R.id.mon3, R.id.mon4, R.id.mon5, R.id.mon6, R.id.mon7, R.id.mon8, R.id.mon9, R.id.mon10, R.id.mon11, R.id.mon12};
         int[] tueId = {R.id.tue1, R.id.tue2, R.id.tue3, R.id.tue4, R.id.tue5, R.id.tue6, R.id.tue7, R.id.tue8, R.id.tue9, R.id.tue10, R.id.tue11, R.id.tue12};

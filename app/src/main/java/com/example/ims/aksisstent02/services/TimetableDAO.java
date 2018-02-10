@@ -53,15 +53,13 @@ public class TimetableDAO {
     }
 
     public String parseHTML(String url) {
-        String returnXML;
+        String returnString;
         String[] input = {url, "", ""};
         TimetableParser timetableParser = new TimetableParser();
 
         fileMaker = new FileMaker();
         streamer = new XStreamer();
 
-
-        String returnString;
         try {
             returnString = streamer.toXmlTt(timetableParser.execute(input).get());
         } catch (Exception e) {

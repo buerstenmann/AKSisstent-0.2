@@ -32,7 +32,7 @@
             android:name=".activities.StuplaActivity"
             android:parentActivityName=".activities.MenuActivity" />
         <activity
-            android:name=".activities.PrufungActivity"
+            android:name=".activities.SettingsActivity"
             android:parentActivityName=".activities.MenuActivity" />
         <activity
             android:name=".activities.StuplaTagActivity"

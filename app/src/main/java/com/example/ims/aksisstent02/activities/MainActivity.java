@@ -4,32 +4,35 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.ims.aksisstent02.R;
+import com.example.ims.aksisstent02.objects.Klasse;
 import com.example.ims.aksisstent02.objects.User;
 import com.example.ims.aksisstent02.services.FileMaker;
+import com.example.ims.aksisstent02.services.KlassenDAO;
 import com.example.ims.aksisstent02.services.XStreamer;
 
-import java.io.File;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    static public Context mainContext;
+    static public Context mainContext;      //mainContext wird benötigt um auf das file für den User zuzugreifen
 
-    private String entryName;
-    private String entryClass;
+    private String inputName;
+    private String inputClass;
 
     private String outputName = "Name";
     private String outputClass = "Klasse";
 
-    EditText etName;
+    EditText editName;
+    EditText editClass;
     Button btnEnter;
-    EditText etClass;
 
     User user;
     XStreamer streamer;
@@ -42,63 +45,106 @@ public class MainActivity extends AppCompatActivity {
 
         mainContext = this;
 
-        btnEnter = (Button) findViewById(R.id.btnLogin);     //Defines Button
-        etName = (EditText) findViewById(R.id.editName);    //Defines EditTextes
-        etClass = (EditText) findViewById(R.id.editKlasse);
-
         user = new User();
         streamer = new XStreamer();
         fileMaker = new FileMaker();
 
+        btnEnter = (Button) findViewById(R.id.btnLogin);     //Defines Button
+        editName = (EditText) findViewById(R.id.editName);    //Defines EditTextes
+        editClass = (EditText) findViewById(R.id.editKlasse);
+
         user.setName("");
         user.setKlasse("");
+
         try {
-            User usert = streamer.fromXmlUser(fileMaker.getTimetableFromFile(mainContext, "user"));
-            user.setKlasse(usert.getKlasse());
-            user.setName(usert.getName());
+            user = streamer.fromXmlUser(fileMaker.getTimetableFromFile(mainContext, "user"));
         } catch (Exception e) {
 
         }
+
         if (user.getName().trim().length() > 0 & user.getKlasse().trim().length() > 0) {
             outputName = user.getName();
             outputClass = user.getKlasse();
         }
-        etName.setText(outputName);
-        etClass.setText(outputClass);
+        editName.setText(outputName);
+        editClass.setText(outputClass);
+
+
+        editClass.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    editClass.requestFocus();
+                    return true;
+                } else
+                    return false;
+            }
+        });
+
+        editClass.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if ((keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    doLogin();
+                    return true;
+                } else
+                    return false;
+            }
+        });
 
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                entryName = etName.getText().toString();
-                entryClass = etClass.getText().toString();
-                user.setName(entryName);
-                user.setKlasse(entryClass);
-
-                if (entryName.trim().length() > 0 & entryClass.trim().length() > 0) {  //entryName != "Name" & entryClass !="Klasse"    muss später bei Veröfentlichung hinzugefügt werden. Auskommentiert um einfacher testen zu können
-                    try {
-                        startActivity(new Intent(MainActivity.this, MenuActivity.class)); //open Menu Acitvity
-                        File file = new File("user");
-                        if (file.exists()) {
-                            System.out.println("File exists");
-                        } else {
-                            System.out.println("File doesn't existz");
-                            fileMaker.stringToDom(streamer.toXmlUser(user), "user", mainContext);
-                        }
-
-
-                    } catch (Exception e) {
-                    }
-                } else {
-                    Toast toast = Toast.makeText(getApplicationContext(), "Bitte geben Sie etwas ein", Toast.LENGTH_SHORT);
-                    toast.show();
-                }
+                doLogin();
             }
         });
+
+
     }
 
+    public void doLogin() {
+        inputName = editName.getText().toString();
+        inputClass = editClass.getText().toString();
 
+        if (inputName.trim().length() > 0 & inputClass.trim().length() > 0) {
+            if (inputName != "Name" & testClass(inputClass)) {
+                user.setName(inputName);
+                user.setKlasse(inputClass);
+                try {
+                    startActivity(new Intent(MainActivity.this, MenuActivity.class)); //open Menu Acitvity
+                    fileMaker.stringToDom(streamer.toXmlUser(user), "user", mainContext);
+                } catch (Exception e) {
+                }
+            } else {
+                postToast("Bitte geben Sie eine gültige Klasse ein");
+            }
+        } else {
+            postToast("Bitte geben Sie etwas ein");
+        }
+    }
+
+    public boolean testClass(String entryClass) {
+        KlassenDAO klassenDAO = new KlassenDAO(mainContext);
+        List<Klasse> klassenList = klassenDAO.doXML();
+        boolean returnBool = false;
+
+        for (int i = 0; i < klassenList.size(); i++) {
+            if (entryClass.toLowerCase().equals(klassenList.get(i).getKlasseName().toLowerCase())) {
+                System.out.println(entryClass + "----------" + klassenList.get(i).getKlasseName().toLowerCase() + "----" + i);
+                returnBool = true;
+            } else {
+                System.out.println("nyet " + klassenList.get(i).getKlasseName().toLowerCase());
+            }
+        }
+        return returnBool;
+    }
+
+    public void postToast(String outputToast) {
+        Toast toast = Toast.makeText(getApplicationContext(), outputToast, Toast.LENGTH_SHORT);
+        toast.show();
+    }
 }
+
 
 
 

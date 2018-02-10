@@ -3,7 +3,6 @@ package com.example.ims.aksisstent02.activities;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +23,6 @@ public class DataTeacherActivity extends AppCompatActivity {
     Teacher teacher;
     Timetable timetable;
     TimetableDAO timetableDAO;
-    Button btnWeek;
     TextView viewName;
     TextView viewMail;
     TextView viewLektion;
@@ -77,15 +75,15 @@ public class DataTeacherActivity extends AppCompatActivity {
             friTextView[i] = (TextView) findViewById(friId[i]);
         }
 
-
         loadTt(teacher, menuContext);
+
+        //TODO Noah Detailansicht
     }
 
     private String getSafeSubject(List<Lessons> lesson, int index) {
         if (lesson.size() > index) {
             if (lesson.get(index) != null) {
                 if (lesson.get(index).getRoom() != null) {
-                    System.out.println("return safesubject");
                     return lesson.get(index).getRoom();
                 }
             }
@@ -94,21 +92,17 @@ public class DataTeacherActivity extends AppCompatActivity {
     }
 
     public void loadTt(Teacher teacher, Context context) {
-
         if (timetableDAO != null) {
             System.out.println(teacher.getTeacherName() + "  teacher.getTeacherName");
             timetable = timetableDAO.getTimetable(teacher.getTeacherName(), context);
         } else {
-            System.out.println("TimetableDAO ist null");
         }
 
-        System.out.println("setTeacher " + teacher + " ");
         List<Lessons> lessonMon = timetable.getLessonsMon();
         List<Lessons> lessonTue = timetable.getLessonsTue();
         List<Lessons> lessonWen = timetable.getLessonsWen();
         List<Lessons> lessonThu = timetable.getLessonsThu();
         List<Lessons> lessonFri = timetable.getLessonsFri();
-        System.out.println("nach timetable.getlessons");
 
         for (int i = 0; i < 12; i++) {
             monTextView[i].setText(getSafeSubject(lessonMon, i));
@@ -116,20 +110,6 @@ public class DataTeacherActivity extends AppCompatActivity {
             wenTextView[i].setText(getSafeSubject(lessonWen, i));
             thuTextView[i].setText(getSafeSubject(lessonThu, i));
             friTextView[i].setText(getSafeSubject(lessonFri, i));
-
-        }
-    }
-
-    public void toast(String output) {
-        //  for (int i = 1; i < 9; i++) {
-        if (output != null) {
-
-            Toast toast = Toast.makeText(this, output, Toast.LENGTH_SHORT);
-            toast.show();
-            //}
-        } else {
-            Toast toast = Toast.makeText(getApplicationContext(), "nope", Toast.LENGTH_SHORT);
-            toast.show();
         }
     }
 
@@ -137,5 +117,10 @@ public class DataTeacherActivity extends AppCompatActivity {
         String returnString = "Fehler, String nicht definiert";
         //TODO Noah nächste Lektion anzeigen. Date type untersuchen
         return returnString;
+    }
+
+    public void toast(String output) {
+        Toast toast = Toast.makeText(this, output, Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

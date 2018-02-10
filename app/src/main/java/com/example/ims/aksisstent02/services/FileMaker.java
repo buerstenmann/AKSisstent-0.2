@@ -39,30 +39,21 @@ public class FileMaker {
         String line;
 
         try {
-            System.out.println(file + " file");
-            System.out.println("\nFile Direct000000000ory.... ");
-
             FileInputStream fin = context.openFileInput(file.toLowerCase());
             StringBuilder sb = new StringBuilder();
-
             InputStreamReader inputStream = new InputStreamReader(fin);
             BufferedReader bufferedReader = new BufferedReader(inputStream);
 
             while ((line = bufferedReader.readLine()) != null) {
                 sb.append(line + "\n");
             }
-
-            System.out.println("\nZurück Aus dem File:\n" + sb.toString());
             returnString = sb.toString();
-            System.out.println("returntstring  " + returnString);
 
         } catch (FileNotFoundException e) {
             Log.e("login activity", "File not found: " + e.toString());
-            System.out.println("file not found");
         } catch (IOException e) {
             Log.e("login activity", "Can not read file: " + e.toString());
         }
         return returnString;
     }
 }
-

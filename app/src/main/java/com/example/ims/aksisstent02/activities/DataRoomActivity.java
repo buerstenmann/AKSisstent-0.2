@@ -70,8 +70,8 @@ public class DataRoomActivity extends AppCompatActivity {
             thuTextView[i] = (TextView) findViewById(thuId[i]);
             friTextView[i] = (TextView) findViewById(friId[i]);
         }
-
         loadTt(room, menuContext);
+        //TODO Noah Detailansicht
     }
 
     private String getSafeSubject(List<Lessons> lesson, int index) {
@@ -88,13 +88,10 @@ public class DataRoomActivity extends AppCompatActivity {
     public void loadTt(Room room, Context context) {
 
         if (timetableDAO != null) {
-            System.out.println(room.getRoomNumber() + "  teacher.getRoomNumber");
             timetable = timetableDAO.getTimetable(room.getRoomNumber(), context);
         } else {
-            System.out.println("TimetableDAO ist null");
         }
 
-        System.out.println("setRoom " + room + " ");
         List<Lessons> lessonMon = timetable.getLessonsMon();
         List<Lessons> lessonTue = timetable.getLessonsTue();
         List<Lessons> lessonWen = timetable.getLessonsWen();
@@ -111,22 +108,15 @@ public class DataRoomActivity extends AppCompatActivity {
         }
     }
 
-    public void toast(String output) {
-        //  for (int i = 1; i < 9; i++) {
-        if (output != null) {
-
-            Toast toast = Toast.makeText(this, output, Toast.LENGTH_SHORT);
-            toast.show();
-            //}
-        } else {
-            Toast toast = Toast.makeText(getApplicationContext(), "nope", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-    }
 
     public String getNextLesson() {
         String returnString = "Fehler, String nicht definiert";
         //TODO Noah nächste Lektion anzeigen. Date type untersuchen
         return returnString;
+    }
+
+    public void toast(String output) {
+        Toast toast = Toast.makeText(this, output, Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

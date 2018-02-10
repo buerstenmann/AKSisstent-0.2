@@ -7,9 +7,9 @@
     </ROOM>
 
     <ROOM id="232">
-        <NUMBER>202</NUMBER>
+        <NUMBER>233</NUMBER>
         <BUILDING>Aquarium</BUILDING>
-        <URL>http://www.stundenplan.alte-kanti-aarau.ch/Stundenplan_Files/Zimmer_232.htm</URL>
+        <URL>http://www.stundenplan.alte-kanti-aarau.ch/Stundenplan_Files/Zimmer_233.htm</URL>
     </ROOM>
 
     <ROOM id="262">
@@ -24,14 +24,14 @@
         <URL>http://www.stundenplan.alte-kanti-aarau.ch/Stundenplan_Files/Zimmer_511.htm</URL>
     </ROOM>
 
-    <ROOM id="015">
-        <NUMBER>015</NUMBER>
+    <ROOM id="15">
+        <NUMBER>15</NUMBER>
         <BUILDING>Einstein</BUILDING>
         <URL>http://www.stundenplan.alte-kanti-aarau.ch/Stundenplan_Files/Zimmer_15.htm</URL>
     </ROOM>
 
-    <ROOM id="029">
-        <NUMBER>029</NUMBER>
+    <ROOM id="29">
+        <NUMBER>29</NUMBER>
         <BUILDING>Einstein</BUILDING>
         <URL>http://www.stundenplan.alte-kanti-aarau.ch/Stundenplan_Files/Zimmer_29.htm</URL>
     </ROOM>

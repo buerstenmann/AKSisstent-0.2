@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Aksisstent 0.2</string>
+    <string name="app_name">Aksisstent 0.8</string>
     <string name="name">Name</string>
     <string name="auforderung1">Bitte geben Sie ihren Namen und Klasse einen</string>
     <string name="klasse">Klasse</string>

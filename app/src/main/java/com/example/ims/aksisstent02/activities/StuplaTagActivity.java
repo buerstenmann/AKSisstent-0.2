@@ -159,11 +159,11 @@ public class StuplaTagActivity extends AppCompatActivity {
     }
 
     public String getCurrentDay() {
-        String daysArray[] = {"Samstag", "Sontag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"};
+        String daysArray[] = {"Sontag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"};
         Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DAY_OF_WEEK);
-
-        return daysArray[day];
+        System.out.println(day);
+        return daysArray[day - 1];
 
     }
 }

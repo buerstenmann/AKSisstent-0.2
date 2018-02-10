@@ -16,4 +16,7 @@ public class User {
     @Setter
     private String klasse;
 
+    @Getter
+    @Setter
+    private long lastUpdate;
 }
