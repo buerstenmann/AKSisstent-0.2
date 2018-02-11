@@ -1,5 +1,7 @@
 package com.example.ims.aksisstent02.objects;
 
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,5 +20,5 @@ public class User {
 
     @Getter
     @Setter
-    private long lastUpdate;
+    private Date lastUpdate;
 }

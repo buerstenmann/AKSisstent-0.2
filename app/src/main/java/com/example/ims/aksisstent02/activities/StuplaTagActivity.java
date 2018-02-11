@@ -72,7 +72,7 @@ public class StuplaTagActivity extends AppCompatActivity {
         user = streamer.fromXmlUser(fileMaker.getTimetableFromFile(MainActivity.mainContext, "user"));
 
         TimetableDAO ttDao = new TimetableDAO();
-        tt = ttDao.getTimetable(user.getKlasse(), MenuActivity.menuContext);
+        tt = ttDao.getTimetable(user.getKlasse(), MainActivity.mainContext);
         loadDay(tt, getCurrentDay());
 
         btnWeek.setOnClickListener(new View.OnClickListener() {

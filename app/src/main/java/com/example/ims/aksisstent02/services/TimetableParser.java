@@ -45,9 +45,9 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
             ttArray.add(friLessonList);
 
 
-            for (int i = 0; i < rows.get(0).children().size(); i++) //unless colspans are used, this should return the number of columns
+            for (int i = 1; i < rows.get(0).children().size(); i++) //unless colspans are used, this should return the number of columns
             {
-                for (int j = 0; j < 13 /*rows.size() */; j++)  // loops through the rows of each column
+                for (int j = 1; j < 13 /*rows.size() */; j++)  // loops through the rows of each column
                 {
                     if (rows.get(j).children().size() > 0) {
                         Element cell = rows.get(j).child(i + offsets[j]); //get an individual cell
@@ -59,7 +59,7 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
                         tempLesson.setTeacher(lessonInfos[1]);
                         tempLesson.setRoom(lessonInfos[2]);
 
-                        ttArray.get(i).add(tempLesson);
+                        ttArray.get(i - 1).add(tempLesson);
 
 
                         if (cell.hasAttr("rowspan")) //if that cell has a rowspan
@@ -76,7 +76,7 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
                                 temp2Lesson.setTeacher(lesson2Infos[1]);
                                 temp2Lesson.setRoom(lesson2Infos[2]);
 
-                                ttArray.get(i).add(temp2Lesson);
+                                ttArray.get(i - 1).add(temp2Lesson);
 
                             }
                             j += rowspan - 1; //add rowspan to index, to skip the "missing" cells
@@ -110,7 +110,7 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
                 output[0] = segments[0];
                 output[1] = "";
                 output[2] = "";
-            } else if (segments.length == 5) {
+            } else if (segments.length == 6) {
                 output[0] = segments[0] + " / " + segments[3];
                 output[1] = segments[1] + " / " + segments[4];
                 output[2] = segments[5] + " / " + segments[6];

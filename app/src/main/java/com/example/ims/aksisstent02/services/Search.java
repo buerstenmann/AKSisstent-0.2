@@ -6,7 +6,7 @@ import com.example.ims.aksisstent02.objects.Teacher;
 
 import java.util.List;
 
-import static com.example.ims.aksisstent02.activities.MenuActivity.menuContext;
+import static com.example.ims.aksisstent02.activities.MainActivity.mainContext;
 
 /**
  * Created by Noah on 23.11.2017.
@@ -17,7 +17,7 @@ public class Search {
         Teacher outputTeacher = null;
         String teacherToCompare;
 
-        TeachersDAO alphaTeacherDAO = new TeachersDAO(menuContext);
+        TeachersDAO alphaTeacherDAO = new TeachersDAO(mainContext);
         List<Teacher> teacherList = alphaTeacherDAO.doXML();
 
         if (!teacherList.isEmpty()) {
@@ -37,7 +37,7 @@ public class Search {
         Room output = null;
         String roomToCompare;
 
-        RoomDAO alphaRoomDAO = new RoomDAO(menuContext);
+        RoomDAO alphaRoomDAO = new RoomDAO(mainContext);
         List<Room> roomList = alphaRoomDAO.doXML();
 
         if (!roomList.isEmpty()) {

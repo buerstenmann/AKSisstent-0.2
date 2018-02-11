@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     User user;
     XStreamer streamer;
     FileMaker fileMaker;
+    Class goToClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
         user.setName("");
         user.setKlasse("");
+        user.setLastUpdate(null);
+        goToClass = SettingsActivity.class;
 
         try {
             user = streamer.fromXmlUser(fileMaker.getTimetableFromFile(mainContext, "user"));
@@ -66,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
             outputName = user.getName();
             outputClass = user.getKlasse();
         }
+        if (user.getLastUpdate() != null) {
+            goToClass = MenuActivity.class;
+        }
+
         editName.setText(outputName);
         editClass.setText(outputClass);
 
@@ -85,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if ((keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    doLogin();
+                    doLogin(goToClass);
                     return true;
                 } else
                     return false;
@@ -95,14 +102,14 @@ public class MainActivity extends AppCompatActivity {
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doLogin();
+                doLogin(goToClass);
             }
         });
 
 
     }
 
-    public void doLogin() {
+    public void doLogin(Class goToClass) {
         inputName = editName.getText().toString();
         inputClass = editClass.getText().toString();
 
@@ -111,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 user.setName(inputName);
                 user.setKlasse(inputClass);
                 try {
-                    startActivity(new Intent(MainActivity.this, MenuActivity.class)); //open Menu Acitvity
+                    startActivity(new Intent(MainActivity.this, goToClass)); //open Menu Acitvity
                     fileMaker.stringToDom(streamer.toXmlUser(user), "user", mainContext);
                 } catch (Exception e) {
                 }

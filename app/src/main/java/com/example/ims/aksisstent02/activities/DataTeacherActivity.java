@@ -32,14 +32,14 @@ public class DataTeacherActivity extends AppCompatActivity {
     TextView[] wenTextView;
     TextView[] thuTextView;
     TextView[] friTextView;
-    Context menuContext;
+    Context mainContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_teacher);
 
-        menuContext = MenuActivity.menuContext;
+        mainContext = MainActivity.mainContext;
         teacher = DataHolder.getInstance().getTeacher();
 
 
@@ -75,7 +75,7 @@ public class DataTeacherActivity extends AppCompatActivity {
             friTextView[i] = (TextView) findViewById(friId[i]);
         }
 
-        loadTt(teacher, menuContext);
+        loadTt(teacher, mainContext);
 
         //TODO Noah Detailansicht
     }

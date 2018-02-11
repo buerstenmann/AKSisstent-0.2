@@ -16,6 +16,8 @@ import com.example.ims.aksisstent02.services.TimetableDAO;
 
 import java.util.List;
 
+import static com.example.ims.aksisstent02.activities.MainActivity.mainContext;
+
 public class DataRoomActivity extends AppCompatActivity {
     Room room;
     Timetable timetable;
@@ -28,14 +30,12 @@ public class DataRoomActivity extends AppCompatActivity {
     TextView[] wenTextView;
     TextView[] thuTextView;
     TextView[] friTextView;
-    Context menuContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_room);
 
-        menuContext = MenuActivity.menuContext;
         room = DataHolder.getInstance().getRoom();
 
         monTextView = new TextView[12];
@@ -70,7 +70,7 @@ public class DataRoomActivity extends AppCompatActivity {
             thuTextView[i] = (TextView) findViewById(thuId[i]);
             friTextView[i] = (TextView) findViewById(friId[i]);
         }
-        loadTt(room, menuContext);
+        loadTt(room, mainContext);
         //TODO Noah Detailansicht
     }
 

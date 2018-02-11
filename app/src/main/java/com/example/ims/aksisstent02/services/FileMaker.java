@@ -3,7 +3,7 @@ package com.example.ims.aksisstent02.services;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.ims.aksisstent02.activities.MenuActivity;
+import com.example.ims.aksisstent02.activities.MainActivity;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -23,7 +23,7 @@ public class FileMaker {
         System.out.println(name + "    -------------  ------------------------------------------------" + xmlSource);
         if (context == null) {
             System.out.println("Context ist leer");
-            context = MenuActivity.menuContext;
+            context = MainActivity.mainContext;
         }
         try {
             outputStream = context.openFileOutput(name.toLowerCase(), Context.MODE_PRIVATE);

@@ -19,10 +19,12 @@ import com.example.ims.aksisstent02.services.TeachersDAO;
 import com.example.ims.aksisstent02.services.TimetableDAO;
 import com.example.ims.aksisstent02.services.XStreamer;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
+import static com.example.ims.aksisstent02.activities.MainActivity.mainContext;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -46,9 +48,12 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        alphaTeacherDAO = new TeachersDAO(MenuActivity.menuContext);
-        alphaRoomDAO = new RoomDAO(MenuActivity.menuContext);
-        alphaKlassenDAO = new KlassenDAO(MenuActivity.menuContext);
+        final Date date = Calendar.getInstance().getTime();
+        final SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+
+        alphaTeacherDAO = new TeachersDAO(MainActivity.mainContext);
+        alphaRoomDAO = new RoomDAO(MainActivity.mainContext);
+        alphaKlassenDAO = new KlassenDAO(MainActivity.mainContext);
         timetableDownloadTt = new TimetableDAO();
         fileMaker = new FileMaker();
         streamer = new XStreamer();
@@ -57,38 +62,33 @@ public class SettingsActivity extends AppCompatActivity {
         viewUpdate = (TextView) findViewById(R.id.viewUpdate);
 
         user = streamer.fromXmlUser(fileMaker.getTimetableFromFile(MainActivity.mainContext, "user"));
-        viewUpdate.setText(user.getLastUpdate() + "kk");
+        viewUpdate.setText(sdf.format(date));
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
-                DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                Date date = new Date();
-                System.out.println(dateFormat.format(date)); //2016/11/16 12:08:43
-
+                String updateDate = sdf.format(date);
 
                 teacherList = alphaTeacherDAO.doXML();
                 roomList = alphaRoomDAO.doXML();
                 klasseList = alphaKlassenDAO.doXML();
 
-
                 System.out.println("\nFile Directory.... MenuActivity");            //Test der Abspeicherung von Stunenpläne
-                String[] files = MenuActivity.menuContext.getFilesDir().list();
+                String[] files = mainContext.getFilesDir().list();
                 if (files == null) {
                     Log.e("Speicherfehler", "Stundenplan files nicht generiert");
                 }
                 for (int i = 0; i < files.length; i++) {
                     System.out.println("\nFile: " + files[i]);
                 }
-                timetableDownloadTt.downloadTtKlasse(klasseList, MenuActivity.menuContext);
-                timetableDownloadTt.downloadTtTeacher(teacherList, MenuActivity.menuContext);
-                timetableDownloadTt.downloadTtRoom(roomList, MenuActivity.menuContext);
+                timetableDownloadTt.downloadTtKlasse(klasseList, mainContext);
+                timetableDownloadTt.downloadTtTeacher(teacherList, mainContext);
+                timetableDownloadTt.downloadTtRoom(roomList, mainContext);
 
 
-                user.setLastUpdate(System.currentTimeMillis());
-                viewUpdate.setText(System.currentTimeMillis() + " 2");
+                user.setLastUpdate(date);
+                viewUpdate.setText(updateDate);
                 try {
                     fileMaker.stringToDom(streamer.toXmlUser(user), "user", MainActivity.mainContext);
                 } catch (Exception e) {

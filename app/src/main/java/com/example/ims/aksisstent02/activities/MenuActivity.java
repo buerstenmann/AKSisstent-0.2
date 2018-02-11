@@ -1,7 +1,6 @@
 package com.example.ims.aksisstent02.activities;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,18 +19,12 @@ import com.example.ims.aksisstent02.services.DataHolder;
 import com.example.ims.aksisstent02.services.InputValidation;
 import com.example.ims.aksisstent02.services.Search;
 
-import java.util.List;
-
 public class MenuActivity extends AppCompatActivity {
-    static public Context menuContext;
 
-    public String searchQuery;
+    private String searchQuery;
 
     private Teacher searchResultTeacher;
     private Room searchResultRoom;
-
-    private List<Teacher> teacherList;
-    private List<Room> roomList;
 
     EditText editSuche;
     Button btnEnter;
@@ -44,8 +37,6 @@ public class MenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
-        menuContext = this;
 
         editSuche = (EditText) findViewById(R.id.editSuche);
         btnEnter = (Button) findViewById(R.id.btnEnter);
@@ -75,7 +66,7 @@ public class MenuActivity extends AppCompatActivity {
         btnNoten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuActivity.this, NotenActivity.class));
+//                startActivity(new Intent(MenuActivity.this, NotenActivity.class));
             }
         });
 

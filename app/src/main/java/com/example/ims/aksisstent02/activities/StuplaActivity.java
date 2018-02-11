@@ -160,7 +160,7 @@ public class StuplaActivity extends AppCompatActivity {
     public Timetable loadTt(String className) {
         Timetable timetable;
         TimetableDAO timeDao = new TimetableDAO();
-        timetable = timeDao.getTimetable(className, MenuActivity.menuContext);
+        timetable = timeDao.getTimetable(className, MainActivity.mainContext);
 
         List<Lessons> lessonMon = timetable.getLessonsMon();
         List<Lessons> lessonTue = timetable.getLessonsTue();
