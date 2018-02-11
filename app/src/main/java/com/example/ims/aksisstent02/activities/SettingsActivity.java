@@ -1,5 +1,6 @@
 package com.example.ims.aksisstent02.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -94,6 +95,7 @@ public class SettingsActivity extends AppCompatActivity {
                 } catch (Exception e) {
 
                 }
+                startActivity(new Intent(getApplicationContext(), MenuActivity.class));
             }
         });
 

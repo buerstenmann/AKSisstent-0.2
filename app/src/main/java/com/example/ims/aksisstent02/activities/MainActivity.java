@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         }
         if (user.getLastUpdate() != null) {
             goToClass = MenuActivity.class;
+            System.out.println("ToMenuactivity");
         }
 
         editName.setText(outputName);
