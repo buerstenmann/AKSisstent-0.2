@@ -113,7 +113,7 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
             } else if (segments.length == 6) {
                 output[0] = segments[0] + " / " + segments[3];
                 output[1] = segments[1] + " / " + segments[4];
-                output[2] = segments[5] + " / " + segments[6];
+                output[2] = segments[2] + " / " + segments[5];
             } else {
                 output[0] = segments[0];
                 output[1] = segments[1];
