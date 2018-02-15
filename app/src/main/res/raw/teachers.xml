@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <root>
+    <teacher>
+        <NAME>Test</NAME>
+        <FORENAME></FORENAME>
+        <EMAIL></EMAIL>
+        <URL>http://www.stundenplan.alte-kanti-aarau.ch/Lehrer/Lehrer_EngJe.htm</URL>
+        <PATH></PATH>
+        <ABK></ABK>
+    </teacher>
     <teacher id="schoohf">
         <NAME>Schoohf</NAME>
         <FORENAME>Oliver</FORENAME>

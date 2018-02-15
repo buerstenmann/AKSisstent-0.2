@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ims.aksisstent02.R;
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         editName = (EditText) findViewById(R.id.editName);    //Defines EditTextes
         editClass = (EditText) findViewById(R.id.editKlasse);
 
+        editName.setText("Name");
+        editClass.setText("Klasse");
         user.setName("");
         user.setKlasse("");
         user.setLastUpdate(null);
@@ -77,6 +80,25 @@ public class MainActivity extends AppCompatActivity {
         editName.setText(outputName);
         editClass.setText(outputClass);
 
+        editName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    if (editName.getText().toString().equals("Name")) {
+                        editName.setText("", TextView.BufferType.EDITABLE);
+                    }
+                }
+            }
+        });
+
+        editClass.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    if (editClass.getText().toString().equals("Klasse")) {
+                        editClass.setText("", TextView.BufferType.EDITABLE);
+                    }
+                }
+            }
+        });
 
         editClass.setOnKeyListener(new View.OnKeyListener() {
             @Override

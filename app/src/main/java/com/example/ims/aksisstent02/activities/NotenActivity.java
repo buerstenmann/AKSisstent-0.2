@@ -28,6 +28,11 @@
 //
 //    private MarkListDataSource dataSource;
 //
+//    Button buttonAddMark;
+//    EditText editTextSubject;
+//    EditText editTextMark;
+//    EditText editTextDesc;
+//
 //
 //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
@@ -73,12 +78,12 @@
 //    }
 //
 //    private void activateAddButton() {
-//        Button buttonAddMark = (Button) findViewById(R.id.button_add_mark);
-//        final EditText editTextSubject = (EditText) findViewById(R.id.editText_subject);
-//        final EditText editTextMark = (EditText) findViewById(R.id.editText_mark);
-//        final EditText editTextDesc = (EditText) findViewById(R.id.editText_desc);
+//        buttonAddMark = (Button) findViewById(R.id.btnAdd);
+//        editTextSubject = (EditText) findViewById(R.id.editSubject);
+//        editTextMark = (EditText) findViewById(R.id.editMark);
+//        editTextDesc = (EditText) findViewById(R.id.editDesc);
 //
-//        buttonAddProduct.setOnClickListener(new View.OnClickListener() {
+//        buttonAddMark.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
 //
@@ -86,18 +91,18 @@
 //                String subject = editTextSubject.getText().toString();
 //                String desc = editTextDesc.getText().toString();
 //
-//                if (TextUtils.isEmpty(subject)) {
-//                    editTextSubject.setError(getString(R.string.editText_errorMessage));
-//                    return;
-//                }
-//                if (TextUtils.isEmpty(mark)) {
-//                    editTextMark.setError(getString(R.string.editText_errorMessage));
-//                    return;
-//                }
-//                if (TextUtils.isEmpty(desc)) {
-//                    editTextDesc.setError(getString(R.string.editText_errorMessage));
-//                    return;
-//                }
+////                if (TextUtils.isEmpty(subject)) {
+////                    editTextSubject.setError(getString(R.string.editText_errorMessage));
+////                    return;
+////                }
+////                if (TextUtils.isEmpty(mark)) {
+////                    editTextMark.setError(getString(R.string.editText_errorMessage));
+////                    return;
+////                }
+////                if (TextUtils.isEmpty(desc)) {
+////                    editTextDesc.setError(getString(R.string.editText_errorMessage));
+////                    return;
+////                }
 //
 //
 //                editTextSubject.setText("");

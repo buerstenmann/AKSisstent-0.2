@@ -45,6 +45,15 @@ public class MenuActivity extends AppCompatActivity {
         btnSettings = (Button) findViewById(R.id.btnSettings);
         viewLektion = (TextView) findViewById(R.id.viewLektion);
 
+        editSuche.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (hasFocus) {
+                    editSuche.setText("", TextView.BufferType.EDITABLE);
+                }
+            }
+
+        });
         editSuche.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
