@@ -1,43 +1,23 @@
 <resources>
-    <string name="app_name">Aksisstent 0.2</string>
-    <string name="name">Name</string>
-    <string name="auforderung1">Bitte geben Sie ihren Namen und Klasse einen</string>
-    <string name="klasse">Klasse</string>
-    <string name="log_in">Log-In</string>
-    <string name="suche">Lehrperson oder Raum</string>
-    <string name="btnsuchen">Suchen</string>
-    <string name="noten">Noten</string>
-    <string name="stundenplan">Stundenplan</string>
-    <string name="prufungen">Prüfungen</string>
-    <string name="nxt_lektion">nächste Lektion</string>
-    <string name="nxt_test">nächste Prüfung</string>
-    <string name="notenschnitt">Notenschnitt</string>
-    <string name="app_label">Aksistent</string>
-    <string name="search_hint">test</string>
-    <string name="title_activity_data">DataActivity</string>
-    <string name="zuruck">Zurück</string>
-    <string name="namen">Namen:</string>
-    <string name="e_mail">E-Mail</string>
-    <string name="nxt_stunde">Nächste Stunde</string>
-    <string name="todo">TODO</string>
-    <string name="emptyView">none</string>
-    <string name="time">Time</string>
-    <string name="mon">Montag</string>
-    <string name="tue">Dienstag</string>
-    <string name="wen">Mittwoch</string>
-    <string name="thu">Donnerstag</string>
-    <string name="fri">Freitag</string>
-    <string name="time1">07:45</string>
-    <string name="time2">08:35</string>
-    <string name="time3">09:30</string>
-    <string name="time4">10:30</string>
-    <string name="time5">11:25</string>
-    <string name="time6">12:15</string>
-    <string name="time7">13:05</string>
-    <string name="time8">14:00</string>
-    <string name="time9">14:55</string>
-    <string name="time10">15:50</string>
-    <string name="time11">16:45</string>
-    <string name="time12">17:35</string>
+    <string name="app_name">Notenrechner_2</string>
+    <string name="action_settings">Settings</string>
     <string name="cab_delete">Einträge löschen</string>
+    <string name="cab_change">Eintrag ändern</string>
+    <string name="cab_checked_string">ausgewählt</string>
+
+    <string name="dialog_title">Listeneintrag ändern</string>
+    <string name="dialog_title_quantity">Anzahl:</string>
+    <string name="dialog_title_product">Produkt:</string>
+    <string name="dialog_button_positive">Ändern</string>
+    <string name="dialog_button_negative">Abbrechen</string>
+
+    <string name="txtMark">Note</string>
+    <string name="txtSubject">Fach</string>
+    <string name="txtDesc">Beschreibung</string>
+
+    <string name="editText_errorMessage">ERROR</string>
+
+    <string name="btnAdd">+</string>
+    <string name="btnCab">nnnnn</string>
+
 </resources>
