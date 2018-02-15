@@ -1,21 +1,16 @@
 package ch.rechner.aksistent.notenrechner_2;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
-import android.util.Log;
 
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.List;
 
-import android.view.inputmethod.InputMethodManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +19,13 @@ import android.widget.EditText;
 import android.util.SparseBooleanArray;
 import android.view.ActionMode;
 import android.widget.AbsListView;
+
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
+
+
+
 
 
 public class Notenrechner extends AppCompatActivity {
@@ -54,7 +56,7 @@ public class Notenrechner extends AppCompatActivity {
                 android.R.layout.simple_list_item_multiple_choice,
                 markListList);
 
-        ListView markListListView = (ListView) findViewById(R.id.listview_mark_lists);
+        ListView markListListView = (ListView) findViewById(R.id.listView);
         markListListView.setAdapter(markListArrayAdapter);
     }
 
@@ -78,12 +80,12 @@ public class Notenrechner extends AppCompatActivity {
     }
 
     private void activateAddButton() {
-        Button buttonAddMark = (Button) findViewById(R.id.button_add_mark);
-        final EditText editTextSubject = (EditText) findViewById(R.id.editText_subject);
-        final EditText editTextMark = (EditText) findViewById(R.id.editText_mark);
-        final EditText editTextDesc = (EditText) findViewById(R.id.editText_desc);
+        Button buttonAddMark = (Button) findViewById(R.id.btnAdd);
+        final EditText editTextSubject = (EditText) findViewById(R.id.txtSubject);
+        final EditText editTextMark = (EditText) findViewById(R.id.txtMark);
+        final EditText editTextDesc = (EditText) findViewById(R.id.txtDesc);
 
-        buttonAddProduct.setOnClickListener(new View.OnClickListener() {
+        buttonAddMark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -125,15 +127,25 @@ public class Notenrechner extends AppCompatActivity {
 
     private void initializeContextualActionBar() {
 
-        final ListView markListListView = (ListView) findViewById(R.id.listview_mark_lists);
+        final ListView markListListView = (ListView) findViewById(R.id.listView);
         markListListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
 
         markListListView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
 
+
+            int selCount = 0;
             @Override
             public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
-
+                if (checked) {
+                    selCount++;
+                } else {
+                    selCount--;
+                }
+                String cabTitle = selCount + " " + getString(R.string.cab_checked_string);
+                mode.setTitle(cabTitle);
+                mode.invalidate();
             }
+
 
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
@@ -141,20 +153,30 @@ public class Notenrechner extends AppCompatActivity {
                 return true;
             }
 
+
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                return false;
+                MenuItem item = menu.findItem(R.id.cab_change);
+                if (selCount == 1) {
+                    item.setVisible(true);
+                } else {
+                    item.setVisible(false);
+                }
+
+                return true;
             }
+
 
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                switch (item.getItemId()) {
+                boolean returnValue = true;
+                SparseBooleanArray touchedMarkListPositions = markListListView.getCheckedItemPositions();
 
+                switch (item.getItemId()) {
                     case R.id.cab_delete:
-                        SparseBooleanArray touchedMarkListPositions = markListListView.getCheckedItemPositions();
-                        for (int i=0; i < touchedMarkListPositions.size(); i++) {
+                        for (int i = 0; i < touchedMarkListPositions.size(); i++) {
                             boolean isChecked = touchedMarkListPositions.valueAt(i);
-                            if(isChecked) {
+                            if (isChecked) {
                                 int postitionInListView = touchedMarkListPositions.keyAt(i);
                                 MarkList markList = (MarkList) markListListView.getItemAtPosition(postitionInListView);
                                 Log.d(LOG_TAG, "Position im ListView: " + postitionInListView + " Inhalt: " + markList.toString());
@@ -163,19 +185,96 @@ public class Notenrechner extends AppCompatActivity {
                         }
                         showAllListEntries();
                         mode.finish();
-                        return true;
+                        break;
+
+                    case R.id.cab_change:
+                        Log.d(LOG_TAG, "Eintrag ändern");
+                        for (int i = 0; i < touchedMarkListPositions.size(); i++) {
+                            boolean isChecked = touchedMarkListPositions.valueAt(i);
+                            if (isChecked) {
+                                int postitionInListView = touchedMarkListPositions.keyAt(i);
+                                MarkList markList = (MarkList) markListListView.getItemAtPosition(postitionInListView);
+                                Log.d(LOG_TAG, "Position im ListView: " + postitionInListView + " Inhalt: " + markList.toString());
+
+
+                                // POSSIBLY WRONG ----> maybe (createEditMarkListDialog(markList)
+                                AlertDialog ediitMarkListDialog = createEditMarkList(markList);
+                                ediitMarkListDialog.show();
+
+                            }
+                        }
+
+                        mode.finish();
+                        break;
 
                     default:
-                        return false;
+                        returnValue = false;
+                        break;
                 }
+                return returnValue;
             }
+
 
             @Override
             public void onDestroyActionMode(ActionMode mode) {
-
+                selCount = 0;
             }
+
         });
     }
+
+
+    private AlertDialog createEditMarkList(final MarkList markList) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+
+        View dialogsView = inflater.inflate(R.layout.dialog_edit_mark_list, null);
+
+        final EditText editTextNewMark = (EditText) dialogsView.findViewById(R.id.txtMark);
+        editTextNewMark.setText(String.valueOf(markList.getMark()));
+
+        final EditText editTextNewSubject = (EditText) dialogsView.findViewById(R.id.txtSubject);
+        editTextNewSubject.setText(markList.getSubject());
+
+        final EditText editTextNewDesc = (EditText) dialogsView.findViewById(R.id.txtDesc);
+        editTextNewDesc.setText(markList.getDesc());
+
+        builder.setView(dialogsView)
+                .setTitle(R.string.dialog_title)
+                .setPositiveButton(R.string.dialog_button_positive, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        String mark = editTextNewMark.getText().toString();
+                        String subject = editTextNewSubject.getText().toString();
+                        String desc = editTextNewDesc.getText().toString();
+
+                        if ((TextUtils.isEmpty(mark)) || (TextUtils.isEmpty(desc)) || (TextUtils.isEmpty(subject))) {
+                            Log.d(LOG_TAG, "Ein Eintrag enthielt keinen Text. Daher Abbruch der Änderung.");
+                            return;
+                        }
+
+                        int quantity = Integer.parseInt(mark);
+
+                        // An dieser Stelle schreiben wir die geänderten Daten in die SQLite Datenbank
+                        MarkList updatedMarkList = dataSource.updateMarkList(markList.getId(), desc, subject, mark);
+
+                        Log.d(LOG_TAG, "Alter Eintrag - ID: " + markList.getId() + " Inhalt: " + markList.toString());
+                        Log.d(LOG_TAG, "Neuer Eintrag - ID: " + updatedMarkList.getId() + " Inhalt: " + updatedMarkList.toString());
+
+                        showAllListEntries();
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton(R.string.dialog_button_negative, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+
+        return builder.create();
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -198,4 +297,6 @@ public class Notenrechner extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
