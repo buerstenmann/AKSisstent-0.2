@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ims.aksisstent02.R;
-import com.example.ims.aksisstent02.objects.Lessons;
+import com.example.ims.aksisstent02.objects.Lesson;
 import com.example.ims.aksisstent02.objects.Timetable;
 import com.example.ims.aksisstent02.objects.User;
 import com.example.ims.aksisstent02.services.FileMaker;
@@ -120,24 +120,24 @@ public class StuplaTagActivity extends AppCompatActivity {
     }
 
     public void loadDay(Timetable tt, String currentDay) {
-        List<Lessons> ttLessons = new ArrayList<Lessons>();
+        List<Lesson> ttLessons = new ArrayList<Lesson>();
 
         if (currentDay == "Montag") {
-            ttLessons = tt.getLessonsMon();
+            ttLessons = tt.getLessonMon();
         } else if (currentDay == "Dienstag") {
-            ttLessons = tt.getLessonsTue();
+            ttLessons = tt.getLessonTue();
         } else if (currentDay == "Mitwoch") {
-            ttLessons = tt.getLessonsWen();
+            ttLessons = tt.getLessonWen();
         } else if (currentDay == "Donnerstag") {
-            ttLessons = tt.getLessonsThu();
+            ttLessons = tt.getLessonThu();
         } else if (currentDay == "Freitag") {
-            ttLessons = tt.getLessonsFri();
+            ttLessons = tt.getLessonFri();
         } else if (currentDay == "Samstag") {
-            ttLessons = tt.getLessonsMon();
+            ttLessons = tt.getLessonMon();
         } else if (currentDay == "Sontag") {
-            ttLessons = tt.getLessonsMon();
+            ttLessons = tt.getLessonMon();
         } else {
-            Lessons errorLesson = new Lessons("Fehler, Tag nicht gefunden", "", "");
+            Lesson errorLesson = new Lesson("Fehler, Tag nicht gefunden", "", "");
             ttLessons.add(errorLesson);
             Log.i("T", "Fehler, Tag nicht gefunden");
 

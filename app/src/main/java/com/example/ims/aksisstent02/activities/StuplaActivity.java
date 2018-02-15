@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.ims.aksisstent02.R;
-import com.example.ims.aksisstent02.objects.Lessons;
+import com.example.ims.aksisstent02.objects.Lesson;
 import com.example.ims.aksisstent02.objects.Timetable;
 import com.example.ims.aksisstent02.services.FileMaker;
 import com.example.ims.aksisstent02.services.TimetableDAO;
@@ -86,9 +86,9 @@ public class StuplaActivity extends AppCompatActivity {
                                                       @Override
                                                       public void onClick(View v) {
 //                                                          viewDetails.getBackground().setAlpha(255);
-                                                          viewDetailsSubject.setText(tt.getLessonsMon().get(j).getSubject());
-                                                          viewDetailsTeacher.setText(tt.getLessonsMon().get(j).getTeacher());
-                                                          viewDetailsRoom.setText(tt.getLessonsMon().get(j).getRoom());
+                                                          viewDetailsSubject.setText(tt.getLessonMon().get(j).getSubject());
+                                                          viewDetailsTeacher.setText(tt.getLessonMon().get(j).getTeacher());
+                                                          viewDetailsRoom.setText(tt.getLessonMon().get(j).getRoom());
                                                       }
                                                   }
                 );
@@ -101,9 +101,9 @@ public class StuplaActivity extends AppCompatActivity {
                                                       @Override
                                                       public void onClick(View v) {
 //                                                          viewDetails.getBackground().setAlpha(255);
-                                                          viewDetailsSubject.setText(tt.getLessonsTue().get(j).getSubject());
-                                                          viewDetailsTeacher.setText(tt.getLessonsTue().get(j).getTeacher());
-                                                          viewDetailsRoom.setText(tt.getLessonsTue().get(j).getRoom());
+                                                          viewDetailsSubject.setText(tt.getLessonTue().get(j).getSubject());
+                                                          viewDetailsTeacher.setText(tt.getLessonTue().get(j).getTeacher());
+                                                          viewDetailsRoom.setText(tt.getLessonTue().get(j).getRoom());
                                                       }
                                                   }
                 );
@@ -116,9 +116,9 @@ public class StuplaActivity extends AppCompatActivity {
                                                       @Override
                                                       public void onClick(View v) {
 //                                                          viewDetails.getBackground().setAlpha(255);
-                                                          viewDetailsSubject.setText(tt.getLessonsWen().get(j).getSubject());
-                                                          viewDetailsTeacher.setText(tt.getLessonsWen().get(j).getTeacher());
-                                                          viewDetailsRoom.setText(tt.getLessonsWen().get(j).getRoom());
+                                                          viewDetailsSubject.setText(tt.getLessonWen().get(j).getSubject());
+                                                          viewDetailsTeacher.setText(tt.getLessonWen().get(j).getTeacher());
+                                                          viewDetailsRoom.setText(tt.getLessonWen().get(j).getRoom());
                                                       }
                                                   }
                 );
@@ -131,9 +131,9 @@ public class StuplaActivity extends AppCompatActivity {
                                                       @Override
                                                       public void onClick(View v) {
 //                                                          viewDetails.getBackground().setAlpha(255);
-                                                          viewDetailsSubject.setText(tt.getLessonsThu().get(j).getSubject());
-                                                          viewDetailsTeacher.setText(tt.getLessonsThu().get(j).getTeacher());
-                                                          viewDetailsRoom.setText(tt.getLessonsThu().get(j).getRoom());
+                                                          viewDetailsSubject.setText(tt.getLessonThu().get(j).getSubject());
+                                                          viewDetailsTeacher.setText(tt.getLessonThu().get(j).getTeacher());
+                                                          viewDetailsRoom.setText(tt.getLessonThu().get(j).getRoom());
                                                       }
                                                   }
                 );
@@ -146,9 +146,9 @@ public class StuplaActivity extends AppCompatActivity {
                                                       @Override
                                                       public void onClick(View v) {
 //                                                          viewDetails.getBackground().setAlpha(255);
-                                                          viewDetailsSubject.setText(tt.getLessonsFri().get(j).getSubject());
-                                                          viewDetailsTeacher.setText(tt.getLessonsFri().get(j).getTeacher());
-                                                          viewDetailsRoom.setText(tt.getLessonsFri().get(j).getRoom());
+                                                          viewDetailsSubject.setText(tt.getLessonFri().get(j).getSubject());
+                                                          viewDetailsTeacher.setText(tt.getLessonFri().get(j).getTeacher());
+                                                          viewDetailsRoom.setText(tt.getLessonFri().get(j).getRoom());
                                                       }
                                                   }
                 );
@@ -162,11 +162,11 @@ public class StuplaActivity extends AppCompatActivity {
         TimetableDAO timeDao = new TimetableDAO();
         timetable = timeDao.getTimetable(className, MainActivity.mainContext);
 
-        List<Lessons> lessonMon = timetable.getLessonsMon();
-        List<Lessons> lessonTue = timetable.getLessonsTue();
-        List<Lessons> lessonWen = timetable.getLessonsWen();
-        List<Lessons> lessonThu = timetable.getLessonsThu();
-        List<Lessons> lessonFri = timetable.getLessonsFri();
+        List<Lesson> lessonMon = timetable.getLessonMon();
+        List<Lesson> lessonTue = timetable.getLessonTue();
+        List<Lesson> lessonWen = timetable.getLessonWen();
+        List<Lesson> lessonThu = timetable.getLessonThu();
+        List<Lesson> lessonFri = timetable.getLessonFri();
 
         for (int i = 0; i < 12; i++) {
             monTextView[i].setText(getSafeSubject(lessonMon, i));
@@ -179,7 +179,7 @@ public class StuplaActivity extends AppCompatActivity {
         return timetable;
     }
 
-    private String getSafeSubject(List<Lessons> lesson, int index) {
+    private String getSafeSubject(List<Lesson> lesson, int index) {
         if (lesson.size() > index) {
             if (lesson.get(index) != null) {
                 return lesson.get(index).getSubject();

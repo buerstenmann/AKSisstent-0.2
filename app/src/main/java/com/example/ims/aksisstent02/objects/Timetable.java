@@ -14,23 +14,23 @@ import lombok.Setter;
 public class Timetable {
     @Setter
     @Getter
-    private List<Lessons> lessonsMon = new ArrayList<Lessons>();
+    private List<Lesson> lessonMon = new ArrayList<Lesson>();
 
     @Setter
     @Getter
-    private List<Lessons> lessonsTue = new ArrayList<Lessons>();
+    private List<Lesson> lessonTue = new ArrayList<Lesson>();
 
     @Setter
     @Getter
-    private List<Lessons> lessonsWen = new ArrayList<Lessons>();
+    private List<Lesson> lessonWen = new ArrayList<Lesson>();
 
     @Setter
     @Getter
-    private List<Lessons> lessonsThu = new ArrayList<Lessons>();
+    private List<Lesson> lessonThu = new ArrayList<Lesson>();
 
     @Getter
     @Setter
-    private List<Lessons> lessonsFri = new ArrayList<Lessons>();
+    private List<Lesson> lessonFri = new ArrayList<Lesson>();
 
     @Setter
     @Getter
@@ -41,114 +41,114 @@ public class Timetable {
 
     private String xml = "<object-array>  " +
             "<list>" +      //mon
-            " <Lessons> " +
+            " <Lesson> " +
             " <room>2</room>" +
             "   <subject>Fach 0</subject>" +
-            "  </Lessons>" +
-            "        <Lessons>" +
+            "  </Lesson>" +
+            "        <Lesson>" +
             "         <room>3</room>" +
             "         <subject>Fach 1</subject>" +
-            "       </Lessons>" +
-            "       <Lessons>" +
+            "       </Lesson>" +
+            "       <Lesson>" +
             "          <room>4</room>" +
             "          <subject>Fach 2</subject>" +
-            "        </Lessons>" +
-            "        <Lessons>" +
+            "        </Lesson>" +
+            "        <Lesson>" +
             "          <room>5</room>" +
             "          <subject>Fach 3</subject>" +
-            "       </Lessons>" +
-            "       <Lessons>" +
+            "       </Lesson>" +
+            "       <Lesson>" +
             "          <room>6</room>" +
             "         <subject>Fach 4</subject>" +
-            "       </Lessons>" +
+            "       </Lesson>" +
             "      </list>" +
             " <list>" +         //tue
-            "   <Lessons>" +
+            "   <Lesson>" +
             "     <room>2</room>" +
             "      <subject>Fach 0</subject>" +
-            "    </Lessons>" +
-            "    <Lessons>" +
+            "    </Lesson>" +
+            "    <Lesson>" +
             "      <room>3</room>" +
             "      <subject>Fach 1</subject>" +
-            "      </Lessons>" +
-            "      <Lessons>" +
+            "      </Lesson>" +
+            "      <Lesson>" +
             "         <room>4</room>" +
             "        <subject>Fach 2</subject>" +
-            "      </Lessons>" +
-            "      <Lessons>" +
+            "      </Lesson>" +
+            "      <Lesson>" +
             "       <room>5</room>" +
             "        <subject>Fach 3</subject>" +
-            "      </Lessons>" +
-            "      <Lessons>" +
+            "      </Lesson>" +
+            "      <Lesson>" +
             "       <room>6</room>" +
             "        <subject>Fach 4</subject>" +
-            "      </Lessons>" +
+            "      </Lesson>" +
             "     </list>" +
             "    <list>" +      //wed
-            "     <Lessons>" +
+            "     <Lesson>" +
             "         <room>2</room>" +
             "         <subject>Fach 0</subject>" +
-            "       </Lessons>" +
-            "       <Lessons>" +
+            "       </Lesson>" +
+            "       <Lesson>" +
             "         <room>3</room>" +
             "         <subject>Fach 1</subject>" +
-            "       </Lessons>" +
-            "       <Lessons>" +
+            "       </Lesson>" +
+            "       <Lesson>" +
             "         <room>4</room>" +
             "        <subject>Fach 2</subject>" +
-            "      </Lessons>" +
-            "     <Lessons>" +
+            "      </Lesson>" +
+            "     <Lesson>" +
             "       <room>5</room>" +
             "        <subject>Fach 3</subject>" +
-            "     </Lessons>" +
-            "      <Lessons>" +
+            "     </Lesson>" +
+            "      <Lesson>" +
             "         <room>6</room>" +
             "         <subject>Fach 4</subject>" +
-            "      </Lessons>" +
+            "      </Lesson>" +
             "    </list>" +
             "     <list>" +     //thu
-            "      <Lessons>" +
+            "      <Lesson>" +
             "        <room>2</room>" +
             "        <subject>Fach 0</subject>" +
-            "      </Lessons>" +
-            "      <Lessons>" +
+            "      </Lesson>" +
+            "      <Lesson>" +
             "        <room>3</room>" +
             "       <subject>Fach 1</subject>" +
-            "      </Lessons>" +
-            "     <Lessons>" +
+            "      </Lesson>" +
+            "     <Lesson>" +
             "       <room>4</room>" +
             "       <subject>Fach 2</subject>" +
-            "     </Lessons>" +
-            "     <Lessons>" +
+            "     </Lesson>" +
+            "     <Lesson>" +
             "      <room>5</room>" +
             "       <subject>Fach 3</subject>" +
-            "    </Lessons>" +
-            "     <Lessons>" +
+            "    </Lesson>" +
+            "     <Lesson>" +
             "       <room>6</room>" +
             "       <subject>Fach 4</subject>" +
-            "     </Lessons>" +
+            "     </Lesson>" +
             "    </list>" +
             "<list>" +          //fri
-            " <Lessons>" +
+            " <Lesson>" +
             "        <room>2</room>" +
             "        <subject>Fach 0</subject>" +
-            "      </Lessons>" +
-            "      <Lessons>" +
+            "      </Lesson>" +
+            "      <Lesson>" +
             "        <room>3</room>" +
             "       <subject>Fach 1</subject>" +
-            "      </Lessons>" +
-            "     <Lessons>" +
+            "      </Lesson>" +
+            "     <Lesson>" +
             "       <room>4</room>" +
             "       <subject>Fach 2</subject>" +
-            "     </Lessons>" +
-            "     <Lessons>" +
+            "     </Lesson>" +
+            "     <Lesson>" +
             "      <room>5</room>" +
             "       <subject>Fach 3</subject>" +
-            "    </Lessons>" +
-            "     <Lessons>" +
+            "    </Lesson>" +
+            "     <Lesson>" +
             "       <room>6</room>" +
             "       <subject>Fach 4</subject>" +
-            "     </Lessons>" +
+            "     </Lesson>" +
             "    </list>" +
             "<string>I3a</string>" +
 

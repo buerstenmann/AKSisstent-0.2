@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import com.example.ims.aksisstent02.objects.MarkList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -62,7 +64,7 @@ public class MarkListDataSource {
         return markList;
     }
 
-    public void deleteShoppingMemo(MarkList markList) {
+    public void deleteMarkList(MarkList markList) {
         long id = markList.getId();
 
         database.delete(MarkListDbHelper.TABLE_MARK_LIST,
@@ -71,6 +73,29 @@ public class MarkListDataSource {
 
         Log.d(LOG_TAG, "Eintrag gelöscht! ID: " + id + " Inhalt: " + markList.toString());
     }
+
+    public MarkList updateMarkList(long id, String newDesc, String newSubject, String newMark) {
+        ContentValues values = new ContentValues();
+        values.put(MarkListDbHelper.COLUMN_DESC, newDesc);
+        values.put(MarkListDbHelper.COLUMN_SUBJECT, newSubject);
+        values.put(MarkListDbHelper.COLUMN_MARK, newMark);
+
+        database.update(MarkListDbHelper.TABLE_MARK_LIST,
+                values,
+                MarkListDbHelper.COLUMN_ID + "=" + id,
+                null);
+
+        Cursor cursor = database.query(MarkListDbHelper.TABLE_MARK_LIST,
+                columns, MarkListDbHelper.COLUMN_ID + "=" + id,
+                null, null, null, null);
+
+        cursor.moveToFirst();
+        MarkList markList = cursorToMarkList(cursor);
+        cursor.close();
+
+        return markList;
+    }
+
 
     private MarkList cursorToMarkList(Cursor cursor) {
         int idIndex = cursor.getColumnIndex(MarkListDbHelper.COLUMN_ID);
@@ -88,7 +113,7 @@ public class MarkListDataSource {
         return markList;
     }
 
-    public List<MarkList> getAllShoppingMemos() {
+    public List<MarkList> getAllMarkLists() {
         List<MarkList> markListList = new ArrayList<>();
 
         Cursor cursor = database.query(MarkListDbHelper.TABLE_MARK_LIST,

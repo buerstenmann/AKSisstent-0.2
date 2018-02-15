@@ -7,7 +7,7 @@ import lombok.Setter;
  * Created by Noah on 29.12.2017.
  */
 
-public class Lessons {
+public class Lesson {
     @Setter
     @Getter
     private String subject;
@@ -19,14 +19,14 @@ public class Lessons {
     private String teacher;
 
 
-    public Lessons() {
+    public Lesson() {
         subject = null;
         room = null;
         teacher = null;
 
     }
 
-    public Lessons(String s_subject, String s_room, String s_teacher) {
+    public Lesson(String s_subject, String s_room, String s_teacher) {
         subject = s_subject;
         room = s_room;
         teacher = s_teacher;

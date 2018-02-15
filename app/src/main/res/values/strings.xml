@@ -39,4 +39,24 @@
     <string name="time10">15:50</string>
     <string name="time11">16:45</string>
     <string name="time12">17:35</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="cab_delete">Einträge löschen</string>
+    <string name="cab_change">Eintrag ändern</string>
+    <string name="cab_checked_string">ausgewählt</string>
+
+    <string name="dialog_title">Listeneintrag ändern</string>
+    <string name="dialog_title_quantity">Anzahl:</string>
+    <string name="dialog_title_product">Produkt:</string>
+    <string name="dialog_button_positive">Ändern</string>
+    <string name="dialog_button_negative">Abbrechen</string>
+
+    <string name="txtMark">Note</string>
+    <string name="txtSubject">Fach</string>
+    <string name="txtDesc">Beschreibung</string>
+
+    <string name="editText_errorMessage">ERROR</string>
+
+    <string name="btnAdd">+</string>
+    <string name="btnCab">nnnnn</string>
 </resources>

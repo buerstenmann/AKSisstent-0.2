@@ -1,6 +1,6 @@
 package com.example.ims.aksisstent02.services;
 
-import com.example.ims.aksisstent02.objects.Lessons;
+import com.example.ims.aksisstent02.objects.Lesson;
 import com.example.ims.aksisstent02.objects.Timetable;
 import com.example.ims.aksisstent02.objects.User;
 import com.thoughtworks.xstream.XStream;
@@ -16,22 +16,22 @@ public class XStreamer {
     public String toXmlTt(Timetable tt) {
         Object[] ttObjectList = new Object[6];
 
-        ttObjectList[0] = tt.getLessonsMon();
-        ttObjectList[1] = tt.getLessonsTue();
-        ttObjectList[2] = tt.getLessonsWen();
-        ttObjectList[3] = tt.getLessonsThu();
-        ttObjectList[4] = tt.getLessonsFri();
+        ttObjectList[0] = tt.getLessonMon();
+        ttObjectList[1] = tt.getLessonTue();
+        ttObjectList[2] = tt.getLessonWen();
+        ttObjectList[3] = tt.getLessonThu();
+        ttObjectList[4] = tt.getLessonFri();
         ttObjectList[5] = tt.getKlassenname();
 
         XStream xstream = new XStream();
-        xstream.alias("Lessons", Lessons.class);
+        xstream.alias("Lesson", Lesson.class);
         String xml = xstream.toXML(ttObjectList);
         return xml;
     }
 
     public String toXmlUser(User user) {
         XStream xstream = new XStream();
-        xstream.alias("Lessons", Lessons.class);
+        xstream.alias("Lesson", Lesson.class);
         String xml = xstream.toXML(user);
         return xml;
     }
@@ -41,13 +41,13 @@ public class XStreamer {
         Timetable fromXml = new Timetable();
         XStream xstream = new XStream();
 
-        xstream.alias("Lessons", Lessons.class);
+        xstream.alias("Lesson", Lesson.class);
         tt = (Object[]) xstream.fromXML(xml);
-        fromXml.setLessonsMon((List<Lessons>) tt[0]);
-        fromXml.setLessonsTue((List<Lessons>) tt[1]);
-        fromXml.setLessonsWen((List<Lessons>) tt[2]);
-        fromXml.setLessonsThu((List<Lessons>) tt[3]);
-        fromXml.setLessonsFri((List<Lessons>) tt[4]);
+        fromXml.setLessonMon((List<Lesson>) tt[0]);
+        fromXml.setLessonTue((List<Lesson>) tt[1]);
+        fromXml.setLessonWen((List<Lesson>) tt[2]);
+        fromXml.setLessonThu((List<Lesson>) tt[3]);
+        fromXml.setLessonFri((List<Lesson>) tt[4]);
         fromXml.setKlassenname((String) tt[5]);
         return fromXml;
     }

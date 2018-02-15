@@ -31,6 +31,7 @@ public class MarkListDbHelper extends SQLiteOpenHelper {
                     COLUMN_MARK + " TEXT NOT NULL);";
 
 
+
     public MarkListDbHelper(Context context) {
         // super(context, "PLACEHOLDER", null, 1, null);
         super(context, DB_NAME, null, DB_VERSION);

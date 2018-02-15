@@ -46,14 +46,13 @@ public class MenuActivity extends AppCompatActivity {
         viewLektion = (TextView) findViewById(R.id.viewLektion);
 
         editSuche.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-
             public void onFocusChange(View v, boolean hasFocus) {
                 if (hasFocus) {
                     editSuche.setText("", TextView.BufferType.EDITABLE);
                 }
             }
-
         });
+
         editSuche.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -75,7 +74,7 @@ public class MenuActivity extends AppCompatActivity {
         btnNoten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(MenuActivity.this, NotenActivity.class));
+                startActivity(new Intent(MenuActivity.this, NotenActivity.class));
             }
         });
 

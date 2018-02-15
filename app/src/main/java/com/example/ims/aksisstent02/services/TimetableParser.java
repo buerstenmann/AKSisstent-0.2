@@ -2,7 +2,7 @@ package com.example.ims.aksisstent02.services;
 
 import android.os.AsyncTask;
 
-import com.example.ims.aksisstent02.objects.Lessons;
+import com.example.ims.aksisstent02.objects.Lesson;
 import com.example.ims.aksisstent02.objects.Timetable;
 
 import org.jsoup.Jsoup;
@@ -30,13 +30,13 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
             Elements rows = document.select("table[border=\"3\"] > tbody > tr:has(td)"); //select all rows
             int[] offsets = new int[rows.size()];
 
-            List<Lessons> monLessonList = new ArrayList<>();
-            List<Lessons> tueLessonList = new ArrayList<>();
-            List<Lessons> wenLessonList = new ArrayList<>();
-            List<Lessons> thuLessonList = new ArrayList<>();
-            List<Lessons> friLessonList = new ArrayList<>();
+            List<Lesson> monLessonList = new ArrayList<>();
+            List<Lesson> tueLessonList = new ArrayList<>();
+            List<Lesson> wenLessonList = new ArrayList<>();
+            List<Lesson> thuLessonList = new ArrayList<>();
+            List<Lesson> friLessonList = new ArrayList<>();
 
-            List<List<Lessons>> ttArray = new ArrayList<>();
+            List<List<Lesson>> ttArray = new ArrayList<>();
 
             ttArray.add(monLessonList);
             ttArray.add(tueLessonList);
@@ -53,7 +53,7 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
                         Element cell = rows.get(j).child(i + offsets[j]); //get an individual cell
 //                      Element cell = rows.get(j).child(i); //get an individual cell
 
-                        Lessons tempLesson = new Lessons();
+                        Lesson tempLesson = new Lesson();
                         String[] lessonInfos = interpretInfo(cell.text());
                         tempLesson.setSubject(lessonInfos[0]);
                         tempLesson.setTeacher(lessonInfos[1]);
@@ -70,7 +70,7 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
 
                             for (int k = 1; k < rowspan; k++) {
                                 offsets[j + k]--; //add offsets to rows that now have a cell "missing"
-                                Lessons temp2Lesson = new Lessons();
+                                Lesson temp2Lesson = new Lesson();
                                 String[] lesson2Infos = interpretInfo(cell.text());
                                 temp2Lesson.setSubject(lesson2Infos[0]);
                                 temp2Lesson.setTeacher(lesson2Infos[1]);
@@ -84,11 +84,11 @@ public class TimetableParser extends AsyncTask<String, Void, Timetable> {
                     }
                 }
             }
-            tt.setLessonsMon(monLessonList);
-            tt.setLessonsTue(tueLessonList);
-            tt.setLessonsWen(wenLessonList);
-            tt.setLessonsThu(thuLessonList);
-            tt.setLessonsFri(friLessonList);
+            tt.setLessonMon(monLessonList);
+            tt.setLessonTue(tueLessonList);
+            tt.setLessonWen(wenLessonList);
+            tt.setLessonThu(thuLessonList);
+            tt.setLessonFri(friLessonList);
             System.out.println("DONE");
 
             return tt;

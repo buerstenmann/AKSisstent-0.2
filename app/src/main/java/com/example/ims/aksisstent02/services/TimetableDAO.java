@@ -77,11 +77,11 @@ public class TimetableDAO {
 
 
     public void deleteTimetable(Timetable tt) {
-        tt.setLessonsMon(null);
-        tt.setLessonsTue(null);
-        tt.setLessonsWen(null);
-        tt.setLessonsThu(null);
-        tt.setLessonsFri(null);
+        tt.setLessonMon(null);
+        tt.setLessonTue(null);
+        tt.setLessonWen(null);
+        tt.setLessonThu(null);
+        tt.setLessonFri(null);
     }
 }
 

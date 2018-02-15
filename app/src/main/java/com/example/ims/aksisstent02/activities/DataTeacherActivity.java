@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ims.aksisstent02.R;
-import com.example.ims.aksisstent02.objects.Lessons;
+import com.example.ims.aksisstent02.objects.Lesson;
 import com.example.ims.aksisstent02.objects.Teacher;
 import com.example.ims.aksisstent02.objects.Timetable;
 import com.example.ims.aksisstent02.services.DataHolder;
@@ -80,7 +80,7 @@ public class DataTeacherActivity extends AppCompatActivity {
         //TODO Noah Detailansicht
     }
 
-    private String getSafeSubject(List<Lessons> lesson, int index) {
+    private String getSafeSubject(List<Lesson> lesson, int index) {
         if (lesson.size() > index) {
             if (lesson.get(index) != null) {
                 if (lesson.get(index).getRoom() != null) {
@@ -98,11 +98,11 @@ public class DataTeacherActivity extends AppCompatActivity {
         } else {
         }
 
-        List<Lessons> lessonMon = timetable.getLessonsMon();
-        List<Lessons> lessonTue = timetable.getLessonsTue();
-        List<Lessons> lessonWen = timetable.getLessonsWen();
-        List<Lessons> lessonThu = timetable.getLessonsThu();
-        List<Lessons> lessonFri = timetable.getLessonsFri();
+        List<Lesson> lessonMon = timetable.getLessonMon();
+        List<Lesson> lessonTue = timetable.getLessonTue();
+        List<Lesson> lessonWen = timetable.getLessonWen();
+        List<Lesson> lessonThu = timetable.getLessonThu();
+        List<Lesson> lessonFri = timetable.getLessonFri();
 
         for (int i = 0; i < 12; i++) {
             monTextView[i].setText(getSafeSubject(lessonMon, i));
