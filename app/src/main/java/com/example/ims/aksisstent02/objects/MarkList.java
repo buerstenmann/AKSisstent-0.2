@@ -32,7 +32,7 @@ public class MarkList extends ListActivity {
 
     @Override
     public String toString() {
-        String output = subject + desc + mark;
+        String output = mark + " " + desc + " " + subject;
 
         return output;
     }
