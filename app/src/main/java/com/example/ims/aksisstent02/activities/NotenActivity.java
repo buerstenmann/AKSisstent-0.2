@@ -1,94 +1,57 @@
-package com.example.ims.aksisstent02.activities;
+package ch.rechner.aksistent.notenrechner_2;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.util.Log;
-import android.util.SparseBooleanArray;
-import android.view.ActionMode;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AbsListView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-
-import com.example.ims.aksisstent02.R;
-import com.example.ims.aksisstent02.objects.MarkList;
-import com.example.ims.aksisstent02.services.MarkListDataSource;
-
 import java.util.List;
 
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
-public class NotenActivity extends AppCompatActivity {
+import android.util.SparseBooleanArray;
+import android.view.ActionMode;
+import android.widget.AbsListView;
 
-    public static final String LOG_TAG = NotenActivity.class.getSimpleName();
-    MarkListDataSource dataSource;
-    InputMethodManager inputMethodManager;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
+
+
+
+
+
+public class Notenrechner extends AppCompatActivity {
+
+    public static final String LOG_TAG = Notenrechner.class.getSimpleName();
+
+    private MarkListDataSource dataSource;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_noten);
+        setContentView(R.layout.activity_notenrechner);
 
         Log.d(LOG_TAG, "Das Datenquellen-Objekt wird angelegt.");
         dataSource = new MarkListDataSource(this);
 
-        Button buttonAddMark = (Button) findViewById(R.id.btnAdd);
-        final EditText editTextSubject = (EditText) findViewById(R.id.txtSubject);
-        final EditText editTextMark = (EditText) findViewById(R.id.txtMark);
-        final EditText editTextDesc = (EditText) findViewById(R.id.txtDesc);
-
-        buttonAddMark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String mark = editTextMark.getText().toString();
-                String subject = editTextSubject.getText().toString();
-                String desc = editTextDesc.getText().toString();
-
-                if (TextUtils.isEmpty(subject)) {
-                    editTextSubject.setError(getString(R.string.editText_errorMessage));
-                    return;
-                }
-                if (TextUtils.isEmpty(mark)) {
-                    editTextMark.setError(getString(R.string.editText_errorMessage));
-                    return;
-                }
-                if (TextUtils.isEmpty(desc)) {
-                    editTextDesc.setError(getString(R.string.editText_errorMessage));
-                    return;
-                }
-
-
-                editTextSubject.setText("");
-                editTextMark.setText("");
-                editTextDesc.setText("");
-
-                dataSource.createMarkList(mark, subject, desc);
-
-
-                inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                if (getCurrentFocus() != null) {
-                    inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-                }
-
-                showAllListEntries();
-            }
-        });
+        activateAddButton();
         initializeContextualActionBar();
     }
 
-    private void showAllListEntries() {
+    private void showAllListEntries () {
         List<MarkList> markListList = dataSource.getAllMarkLists();
 
-        ArrayAdapter<MarkList> markListArrayAdapter = new ArrayAdapter<>(
+        ArrayAdapter<MarkList> markListArrayAdapter = new ArrayAdapter<> (
                 this,
                 android.R.layout.simple_list_item_multiple_choice,
                 markListList);
@@ -117,7 +80,48 @@ public class NotenActivity extends AppCompatActivity {
     }
 
     private void activateAddButton() {
+        Button buttonAddMark = (Button) findViewById(R.id.btnAdd);
+        final EditText editTextSubject = (EditText) findViewById(R.id.txtSubject);
+        final EditText editTextMark = (EditText) findViewById(R.id.txtMark);
+        final EditText editTextDesc = (EditText) findViewById(R.id.txtDesc);
 
+        buttonAddMark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String mark = editTextMark.getText().toString();
+                String subject = editTextSubject.getText().toString();
+                String desc = editTextDesc.getText().toString();
+
+                if(TextUtils.isEmpty(subject)) {
+                    editTextSubject.setError(getString(R.string.editText_errorMessage));
+                    return;
+                }
+                if(TextUtils.isEmpty(mark)) {
+                    editTextMark.setError(getString(R.string.editText_errorMessage));
+                    return;
+                }
+                if(TextUtils.isEmpty(desc)) {
+                    editTextDesc.setError(getString(R.string.editText_errorMessage));
+                    return;
+                }
+
+
+                editTextSubject.setText("");
+                editTextMark.setText("");
+                editTextDesc.setText("");
+
+                dataSource.createMarkList(mark, subject, desc);
+
+                InputMethodManager inputMethodManager;
+                inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                if(getCurrentFocus() != null) {
+                    inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                }
+
+                showAllListEntries();
+            }
+        });
 
     }
 
@@ -130,7 +134,6 @@ public class NotenActivity extends AppCompatActivity {
 
 
             int selCount = 0;
-
             @Override
             public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
                 if (checked) {
@@ -162,6 +165,7 @@ public class NotenActivity extends AppCompatActivity {
 
                 return true;
             }
+
 
 
             @Override
@@ -217,8 +221,8 @@ public class NotenActivity extends AppCompatActivity {
                 selCount = 0;
             }
 
-        });
-    }
+    });
+}
 
 
     private AlertDialog createEditMarkList(final MarkList markList) {
